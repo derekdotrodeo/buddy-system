@@ -1,98 +1,64 @@
 ---
-// Single source of truth for top-level information architecture.
+// Shared site nav — dark "soldermask panel", real routes, restyled to the homepage design.
 const items = [
-  { href: '/', label: 'Home' },
-  { href: '/features/', label: 'Features' },
-  { href: '/docs/', label: 'Docs' },
-  { href: '/design/', label: 'Design' },
-  { href: '/blog/', label: 'Blog' },
+  { href: '/features/', label: 'CARDS' },
+  { href: '/docs/', label: 'DOCS' },
+  { href: '/design/', label: 'DESIGN' },
+  { href: '/blog/', label: 'BLOG' },
 ];
 const path = Astro.url.pathname;
-const isActive = (href: string) =>
-  href === '/' ? path === '/' : path === href || path.startsWith(href);
+const isActive = (href: string) => path === href || path.startsWith(href);
 ---
-<header class="nav">
-  <div class="nav__inner container">
-    <a href="/" class="brand">
-      <span class="brand__plate">BUDDY</span>
-      <span class="brand__plate brand__plate--alt">SYSTEM</span>
+<header class="nav" id="nav">
+  <div class="wrap nav-row">
+    <a href="/" class="plate brand" aria-label="Buddy System — home">
+      <span class="cell fill"><span>BUDDY</span></span><span class="cell">SYSTEM</span>
     </a>
-    <nav aria-label="Primary">
-      <ul class="nav__list">
-        {items.map((i) => (
-          <li>
-            <a href={i.href} aria-current={isActive(i.href) ? 'page' : undefined}>
-              {i.label}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </nav>
+    <div class="nav-links">
+      {items.map((i) => (
+        <a href={i.href} aria-current={isActive(i.href) ? 'page' : undefined}>{i.label}</a>
+      ))}
+    </div>
+    <a class="btn" href="/#waitlist">Join the waitlist</a>
   </div>
-  <div class="rails" aria-hidden="true"></div>
 </header>
 
 <style>
-  /* The nav is a black panel — the "soldermask" surface. */
   .nav {
-    background: var(--ink);
+    position: sticky; top: 0; z-index: 40;
+    border-bottom: 1px solid var(--ink-3);
+    background: color-mix(in oklab, var(--ink) 88%, transparent);
+    backdrop-filter: blur(8px);
     color: var(--silk);
-    position: sticky;
-    top: 0;
-    z-index: 10;
+    --plate-fill-text: var(--ink); /* nav is always dark: white-fill plate, ink text */
+    transition: border-color .3s ease, background .3s ease, box-shadow .3s ease;
   }
-  .nav__inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: calc(var(--p) * 2);
-    min-height: calc(var(--p) * 6);
-    padding-block: var(--p);
+  .nav.scrolled { border-bottom-color: var(--ink-2); box-shadow: 0 10px 30px rgba(0,0,0,.35); }
+  .nav-row { display: flex; align-items: center; gap: calc(var(--p) * 3); height: calc(var(--p) * 6.6); }
+  .brand { font-size: 13px; text-decoration: none; color: inherit; }
+  .nav-links { display: flex; gap: calc(var(--p) * 2.6); margin-left: auto; }
+  .nav-links a {
+    font-family: var(--font-mono); font-size: 12.5px; letter-spacing: 0.06em;
+    color: var(--silk-soft); text-decoration: none; position: relative; padding: 4px 0;
+    transition: color .16s ease;
   }
-  .brand {
-    display: inline-flex;
-    gap: 2px;
-    text-decoration: none;
-    font-family: var(--font-cond);
-    font-weight: 800;
+  .nav-links a::after {
+    content: ''; position: absolute; left: 0; right: 100%; bottom: -2px; height: 2px;
+    background: var(--accent); transition: right .22s ease;
   }
-  .brand__plate {
-    background: var(--silk);
-    color: var(--ink);
-    padding: 2px var(--p-half);
-    border-radius: var(--r-sm);
-    letter-spacing: 0.06em;
-  }
-  .brand__plate--alt {
-    background: transparent;
-    color: var(--silk);
-    border: var(--bw) solid var(--ink-3);
-  }
-  .nav__list {
-    display: flex;
-    align-items: center;
-    gap: calc(var(--p) * 2.5);
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  .nav__list a {
-    font-family: var(--font-cond);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    font-size: 0.85rem;
-    color: var(--silk-soft);
-    text-decoration: none;
-  }
-  .nav__list a:hover { color: var(--silk); }
-  /* active link gets a Sound-yellow underline — color as wiring */
-  .nav__list a[aria-current='page'] {
-    color: var(--silk);
-    box-shadow: inset 0 -3px 0 var(--fam-snd);
-  }
-  @media (max-width: 600px) {
-    .nav__inner { flex-direction: column; align-items: flex-start; gap: var(--p); }
-    .nav__list { gap: calc(var(--p) * 1.5); flex-wrap: wrap; }
-  }
+  .nav-links a:hover { color: var(--silk); }
+  .nav-links a:hover::after,
+  .nav-links a[aria-current='page']::after { right: 0; }
+  .nav-links a[aria-current='page'] { color: var(--silk); }
+  .nav .btn { padding: 8px 16px 7px; font-size: 13px; }
+  @media (max-width: 760px) { .nav-links { display: none; } }
 </style>
+
+<script>
+  const nav = document.getElementById('nav');
+  if (nav) {
+    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 8);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+</script>

@@ -1,48 +1,22 @@
 ---
 // The brand mark *is* a silkscreen label: a two-cell boxed plate, first cell filled.
-// "Labels are the logo" (P2). Used for the wordmark, section numbers, and step markers.
+// "Labels are the logo" (P2). Uses the global `.plate` component styles (tokens.css).
+// The filled cell's knockout text comes from --plate-fill-text, set by the surrounding
+// surface class (.on-ink / .on-paper) — or forced here via the `tone` prop.
 interface Props {
-  fill: string; // first cell (filled / knockout text)
-  rest: string; // second cell (outlined)
-  tone?: 'on-paper' | 'on-ink'; // which surface it sits on
+  fill: string;                 // first cell (filled / knockout text)
+  rest: string;                 // second cell (outlined)
+  tone?: 'on-paper' | 'on-ink'; // force the knockout text color
   size?: 'sm' | 'md' | 'lg';
 }
-const { fill, rest, tone = 'on-paper', size = 'md' } = Astro.props;
+const { fill, rest, tone, size = 'md' } = Astro.props;
+const fontSize = size === 'sm' ? '10px' : size === 'lg' ? 'clamp(18px, 2.5vw, 28px)' : '13px';
+const fillText = tone === 'on-ink' ? 'var(--ink)' : tone === 'on-paper' ? 'var(--paper)' : undefined;
+const style = [`font-size: ${fontSize}`, fillText && `--plate-fill-text: ${fillText}`]
+  .filter(Boolean)
+  .join('; ');
 ---
-<span class:list={['plate', `plate--${tone}`, `plate--${size}`]}>
-  <span class="plate__cell plate__cell--fill">{fill}</span>
-  <span class="plate__cell">{rest}</span>
+<span class="plate" style={style}>
+  <span class="cell fill"><span>{fill}</span></span>
+  <span class="cell">{rest}</span>
 </span>
-
-<style>
-  .plate {
-    --line: var(--ink);
-    --surface: var(--paper);
-    display: inline-flex;
-    font-family: var(--font-cond);
-    font-weight: 800;
-    letter-spacing: 0.04em;
-    line-height: 1;
-    border-radius: var(--r-sm);
-    overflow: hidden;
-    white-space: nowrap;
-  }
-  /* on dark surfaces the lines go white and the knockout shows the ink behind */
-  .plate--on-ink { --line: var(--silk); --surface: var(--ink); }
-
-  .plate__cell {
-    display: inline-flex;
-    align-items: center;
-    border: var(--bw) solid var(--line);
-    color: var(--line);
-  }
-  .plate__cell--fill {
-    background: var(--line);
-    color: var(--surface); /* knockout text */
-    border-right: 0;
-  }
-
-  .plate--sm .plate__cell { padding: 2px 6px; font-size: 0.7rem; }
-  .plate--md .plate__cell { padding: 3px 9px; font-size: 0.95rem; }
-  .plate--lg .plate__cell { padding: 6px 15px; font-size: clamp(1.2rem, 3vw, 1.8rem); }
-</style>
