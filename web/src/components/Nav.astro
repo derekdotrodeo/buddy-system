@@ -1,0 +1,98 @@
+---
+// Single source of truth for top-level information architecture.
+const items = [
+  { href: '/', label: 'Home' },
+  { href: '/features/', label: 'Features' },
+  { href: '/docs/', label: 'Docs' },
+  { href: '/design/', label: 'Design' },
+  { href: '/blog/', label: 'Blog' },
+];
+const path = Astro.url.pathname;
+const isActive = (href: string) =>
+  href === '/' ? path === '/' : path === href || path.startsWith(href);
+---
+<header class="nav">
+  <div class="nav__inner container">
+    <a href="/" class="brand">
+      <span class="brand__plate">BUDDY</span>
+      <span class="brand__plate brand__plate--alt">SYSTEM</span>
+    </a>
+    <nav aria-label="Primary">
+      <ul class="nav__list">
+        {items.map((i) => (
+          <li>
+            <a href={i.href} aria-current={isActive(i.href) ? 'page' : undefined}>
+              {i.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+  <div class="rails" aria-hidden="true"></div>
+</header>
+
+<style>
+  /* The nav is a black panel — the "soldermask" surface. */
+  .nav {
+    background: var(--ink);
+    color: var(--silk);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .nav__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: calc(var(--p) * 2);
+    min-height: calc(var(--p) * 6);
+    padding-block: var(--p);
+  }
+  .brand {
+    display: inline-flex;
+    gap: 2px;
+    text-decoration: none;
+    font-family: var(--font-cond);
+    font-weight: 800;
+  }
+  .brand__plate {
+    background: var(--silk);
+    color: var(--ink);
+    padding: 2px var(--p-half);
+    border-radius: var(--r-sm);
+    letter-spacing: 0.06em;
+  }
+  .brand__plate--alt {
+    background: transparent;
+    color: var(--silk);
+    border: var(--bw) solid var(--ink-3);
+  }
+  .nav__list {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--p) * 2.5);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .nav__list a {
+    font-family: var(--font-cond);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.85rem;
+    color: var(--silk-soft);
+    text-decoration: none;
+  }
+  .nav__list a:hover { color: var(--silk); }
+  /* active link gets a Sound-yellow underline — color as wiring */
+  .nav__list a[aria-current='page'] {
+    color: var(--silk);
+    box-shadow: inset 0 -3px 0 var(--fam-snd);
+  }
+  @media (max-width: 600px) {
+    .nav__inner { flex-direction: column; align-items: flex-start; gap: var(--p); }
+    .nav__list { gap: calc(var(--p) * 1.5); flex-wrap: wrap; }
+  }
+</style>

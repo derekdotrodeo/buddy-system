@@ -1,0 +1,32 @@
+---
+// Shared <head>: meta, canonical, fonts.
+interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description = 'A Eurorack-compatible prototyping platform — a Buddy Base and modular Buddy Cards.' } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="generator" content={Astro.generator} />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="canonical" href={canonical} />
+
+<title>{title}</title>
+<meta name="description" content={description} />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+
+<!-- Fonts: Barlow + Barlow Semi Condensed + IBM Plex Mono. display=swap avoids FOIT.
+     Follow-up hardening: self-host via @fontsource/* to drop third-party requests. -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;700;800&family=Barlow+Semi+Condensed:wght@700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+/>

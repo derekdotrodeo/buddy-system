@@ -1,0 +1,47 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  pubDate: Date;
+  updatedDate?: Date;
+  author?: string;
+  tags?: string[];
+}
+const { title, description, pubDate, updatedDate, author, tags = [] } = Astro.props;
+const fmt = (d: Date) =>
+  d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+<BaseLayout title={`${title} — Buddy System Blog`} description={description}>
+  <article class="post container section">
+    <header class="post__head stack">
+      <a href="/blog/" class="label muted">← Blog</a>
+      <h1>{title}</h1>
+      <p class="post__meta mono muted">
+        <time datetime={pubDate.toISOString()}>{fmt(pubDate)}</time>
+        {author && <> · {author}</>}
+        {updatedDate && <> · updated {fmt(updatedDate)}</>}
+      </p>
+      {tags.length > 0 && (
+        <ul class="post__tags">
+          {tags.map((t) => <li class="mono">#{t}</li>)}
+        </ul>
+      )}
+    </header>
+    <div class="rails" aria-hidden="true"></div>
+    <div class="post__body stack">
+      <slot />
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .post { max-width: calc(var(--p) * 78); }
+  .post__meta { font-size: 0.8rem; }
+  .post__tags { list-style: none; display: flex; gap: var(--p); padding: 0; margin: 0; }
+  .post__tags li { color: var(--copper); font-size: 0.8rem; }
+  .post__body { margin-top: calc(var(--p) * 3); }
+  .post__body :global(h2) { margin-top: calc(var(--p) * 3); }
+  .post__body :global(img) { border-radius: var(--r); margin-block: calc(var(--p) * 2); }
+</style>

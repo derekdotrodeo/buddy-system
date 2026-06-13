@@ -1,0 +1,62 @@
+---
+const year = 2026; // static build; bump as needed
+const items = [
+  { href: '/features/', label: 'Features' },
+  { href: '/docs/', label: 'Docs' },
+  { href: '/blog/', label: 'Blog' },
+];
+---
+<footer class="footer">
+  <div class="rails" aria-hidden="true"></div>
+  <div class="footer__inner container">
+    <div>
+      <span class="label">Buddy System</span>
+      <p class="muted footer__tag">Lab equipment that wants to be touched.</p>
+    </div>
+    <nav aria-label="Footer">
+      <ul class="footer__list">
+        {items.map((i) => (
+          <li><a href={i.href}>{i.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+  <div class="footer__legal container">
+    <span class="mono">© {year} Buddy System</span>
+    <span class="mono footer__copper">every module is somebody's buddy</span>
+  </div>
+</footer>
+
+<style>
+  .footer { background: var(--ink); color: var(--silk-soft); margin-top: calc(var(--p) * 8); }
+  .footer__inner {
+    display: flex;
+    justify-content: space-between;
+    gap: calc(var(--p) * 3);
+    flex-wrap: wrap;
+    padding-block: calc(var(--p) * 4) calc(var(--p) * 2);
+  }
+  .footer .label { color: var(--silk); }
+  .footer__tag { margin-top: var(--p-half); }
+  .footer__list { list-style: none; display: flex; gap: calc(var(--p) * 2); padding: 0; margin: 0; }
+  .footer__list a {
+    color: var(--silk-soft);
+    text-decoration: none;
+    font-family: var(--font-cond);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.8rem;
+  }
+  .footer__list a:hover { color: var(--silk); }
+  .footer__legal {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--p);
+    flex-wrap: wrap;
+    padding-block: calc(var(--p) * 2) calc(var(--p) * 3);
+    border-top: var(--bw) solid var(--ink-3);
+    font-size: 0.75rem;
+  }
+  .footer__copper { color: var(--copper); }
+</style>

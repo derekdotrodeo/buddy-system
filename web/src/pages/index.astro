@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Card from '../components/Card.astro';
+
+const cards = [
+  { title: 'Pots Buddy', refdes: 'BS-CTL-01', family: 'ctl', desc: 'Knobs and faders that snap to the pitch.' },
+  { title: 'Clock Buddy', refdes: 'BS-LGC-01', family: 'lgc', desc: 'A tempo source for the whole patch.' },
+  { title: 'Filter Buddy', refdes: 'BS-SND-02', family: 'snd', desc: 'Shape a voice without leaving the breadboard.' },
+  { title: 'MIDI Buddy', refdes: 'BS-DAT-01', family: 'dat', desc: 'Talk to the outside world.' },
+] as const;
+---
+<BaseLayout title="Buddy System — Lab equipment that wants to be touched">
+  <!-- Hero: a black panel, the way the system likes to introduce itself. -->
+  <section class="hero">
+    <div class="container hero__inner stack">
+      <span class="label hero__eyebrow">Eurorack-compatible · breadboard-native</span>
+      <h1 class="hero__title">Lab equipment<br />that wants to be touched.</h1>
+      <p class="hero__lede">
+        A central Buddy Base and a family of color-coded Buddy Cards that snap right onto
+        the 2.54mm pitch. Patch with jumpers. Nothing you do is permanent.
+      </p>
+      <div class="hero__cta">
+        <a href="/docs/getting-started/" class="btn btn--primary">Get started</a>
+        <a href="/features/" class="btn btn--ghost btn--ghost-dark">See the cards</a>
+      </div>
+    </div>
+    <div class="rails" aria-hidden="true"></div>
+  </section>
+
+  <!-- Card family preview -->
+  <section class="section container">
+    <span class="label muted">A card for every job</span>
+    <h2>Meet the Buddies</h2>
+    <div class="grid">
+      {cards.map((c) => (
+        <Card title={c.title} refdes={c.refdes} family={c.family} href="/features/">
+          {c.desc}
+        </Card>
+      ))}
+    </div>
+  </section>
+
+  <!-- Principle strip -->
+  <section class="section container">
+    <span class="label muted">Why it works</span>
+    <div class="principles grid">
+      <div class="principle stack">
+        <h3>Everything on the pitch</h3>
+        <p class="muted">The breadboard's hole spacing is the master unit. If it isn't on the pitch, it isn't Buddy System.</p>
+      </div>
+      <div class="principle stack">
+        <h3>Color is wiring</h3>
+        <p class="muted">Hue is never decorative. Red is +V, blue is GND, and each family gets its own working color.</p>
+      </div>
+      <div class="principle stack">
+        <h3>Friendly words, serious lines</h3>
+        <p class="muted">Guides talk like a patient friend at a workbench. The geometry stays precise.</p>
+      </div>
+    </div>
+    <p style="margin-top: calc(var(--p) * 2);">
+      <a href="/design/" class="btn btn--ghost">Read the design system</a>
+    </p>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero { background: var(--ink); color: var(--paper); }
+  .hero__inner { padding-block: calc(var(--p) * 10) calc(var(--p) * 8); }
+  .hero__eyebrow { color: var(--fam-snd); }
+  .hero__title { color: var(--silk); }
+  .hero__lede { font-size: 1.15rem; color: var(--silk-soft); max-width: 52ch; }
+  .hero__cta { display: flex; gap: var(--p); flex-wrap: wrap; margin-top: var(--p); }
+  /* ghost button needs a light border on the dark hero */
+  .btn--ghost-dark { color: var(--silk); border-color: var(--ink-3); }
+  .btn--ghost-dark:hover { border-color: var(--silk); }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: calc(var(--p) * 2);
+    margin-top: calc(var(--p) * 2);
+  }
+  .principle { padding: calc(var(--p) * 2); border-left: var(--bw) solid var(--paper-3); }
+</style>

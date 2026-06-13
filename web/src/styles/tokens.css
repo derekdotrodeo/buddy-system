@@ -1,0 +1,48 @@
+/* ============================================================
+   Buddy System — design tokens
+   Ported verbatim from docs/buddy-design-system.html (:root).
+   The design system is the source of truth — keep these in sync.
+   "If it isn't on the pitch, it isn't Buddy System."
+   ============================================================ */
+:root {
+  /* pitch / spacing — breadboard 2.54mm hole spacing; 1P = 10px on screen */
+  --p: 10px;
+  --p-half: 5px;
+
+  /* surfaces — matte black soldermask + warm breadboard white */
+  --ink: #17181b;     /* matte black soldermask (primary dark surface) */
+  --ink-2: #232527;   /* raised black (cards layered on ink) */
+  --ink-3: #313438;   /* hairlines/dividers on dark */
+  --paper: #f4f3ee;   /* breadboard ABS white (primary light surface) */
+  --paper-2: #eceae3; /* recessed paper */
+  --paper-3: #dcd9cf; /* hairlines/dividers on light */
+  --silk: #ffffff;    /* silkscreen white */
+  --ink-soft: #5b5e63;  /* secondary text on paper */
+  --silk-soft: #9a9da3; /* secondary text on ink */
+  --copper: #c29a4d;    /* exposed pad gold (reserved, used sparingly) */
+
+  /* power rails — reserved meanings, never decorative */
+  --rail-pos: oklch(0.62 0.18 28);   /* +V  (red)  */
+  --rail-neg: oklch(0.58 0.12 252);  /* GND (blue) */
+
+  /* six family hues — matched lightness/chroma in OKLCH */
+  --fam-ctl: oklch(0.70 0.17 50);    /* orange  — Control  (BS-CTL) */
+  --fam-snd: oklch(0.86 0.17 98);    /* yellow  — Sound    (BS-SND) */
+  --fam-dat: oklch(0.70 0.15 155);   /* green   — Data     (BS-DAT) */
+  --fam-lgc: oklch(0.67 0.13 240);   /* blue    — Logic    (BS-LGC) */
+  --fam-uty: oklch(0.67 0.13 305);   /* violet  — Utility  (BS-UTY) */
+  --fam-pwr: oklch(0.62 0.18 28);    /* red     — Power    (BS-PWR) */
+
+  /* shape & stroke */
+  --r: 6px;
+  --r-sm: 3px;
+  --bw: 2px;          /* silkscreen stroke weight */
+
+  /* type */
+  --font-sans: 'Barlow', system-ui, sans-serif;
+  --font-cond: 'Barlow Semi Condensed', 'Barlow', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  /* breadboard dot-grid (apply as a background-image on paper sections) */
+  --grid-dot: radial-gradient(circle at center, var(--paper-3) 1.6px, transparent 1.7px);
+}

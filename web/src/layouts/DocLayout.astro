@@ -1,0 +1,66 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  section?: string;
+}
+const { title, description, section } = Astro.props;
+
+// Build the sidebar from all docs, grouped by section and ordered.
+const docs = (await getCollection('docs')).sort(
+  (a, b) => (a.data.order ?? 0) - (b.data.order ?? 0),
+);
+const sections = [...new Set(docs.map((d) => d.data.section))];
+const path = Astro.url.pathname.replace(/\/$/, '');
+---
+<BaseLayout title={`${title} — Buddy System Docs`} description={description}>
+  <div class="doc container section">
+    <aside class="doc__sidebar">
+      <span class="label">Documentation</span>
+      {sections.map((sec) => (
+        <div class="doc__group">
+          <p class="doc__group-title mono">{sec}</p>
+          <ul>
+            {docs
+              .filter((d) => d.data.section === sec)
+              .map((d) => {
+                const href = `/docs/${d.id}`;
+                return (
+                  <li>
+                    <a href={href} aria-current={path === href ? 'page' : undefined}>
+                      {d.data.title}
+                    </a>
+                  </li>
+                );
+              })}
+          </ul>
+        </div>
+      ))}
+    </aside>
+    <article class="doc__body stack">
+      {section && <span class="label muted">{section}</span>}
+      <h1>{title}</h1>
+      <slot />
+    </article>
+  </div>
+</BaseLayout>
+
+<style>
+  .doc { display: grid; grid-template-columns: minmax(0, 14rem) minmax(0, 1fr); gap: calc(var(--p) * 4); }
+  .doc__sidebar { position: sticky; top: calc(var(--p) * 8); align-self: start; }
+  .doc__group { margin-top: calc(var(--p) * 2); }
+  .doc__group-title { font-size: 0.7rem; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.08em; }
+  .doc__sidebar ul { list-style: none; padding: 0; margin: var(--p-half) 0 0; }
+  .doc__sidebar li { margin-top: var(--p-half); }
+  .doc__sidebar a { text-decoration: none; color: var(--ink-soft); }
+  .doc__sidebar a:hover { color: var(--ink); }
+  .doc__sidebar a[aria-current='page'] { color: var(--ink); box-shadow: inset 3px 0 0 var(--fam-dat); padding-left: var(--p-half); }
+  .doc__body :global(h2) { margin-top: calc(var(--p) * 3); }
+  @media (max-width: 800px) {
+    .doc { grid-template-columns: 1fr; }
+    .doc__sidebar { position: static; }
+  }
+</style>

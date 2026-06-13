@@ -1,0 +1,472 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Plate from '../../components/Plate.astro';
+
+// 03 — Color system
+const surfaces = [
+  { var: '--ink', name: 'Soldermask', role: 'Primary dark surface — hardware, packaging, hero screens.', val: '--ink · #17181b', border: false },
+  { var: '--paper', name: 'Paper', role: 'Reading surface — docs, manuals, light UI. Warm like breadboard ABS.', val: '--paper · #f4f3ee', border: true },
+  { var: '--silk', name: 'Silkscreen', role: 'Linework and type on dark surfaces. Pure white, always opaque.', val: '--silk · #ffffff', border: true },
+  { var: '--copper', name: 'Copper', role: 'Reserved. Marks community / third-party cards and open-hardware callouts.', val: '--copper · #c29a4d', border: false },
+];
+const families = [
+  { var: '--fam-ctl', name: 'CTL · Control', role: 'Pots, switches, faders, sensors — things you touch.', val: 'oklch(0.70 0.17 50)' },
+  { var: '--fam-snd', name: 'SND · Sound', role: 'Oscillators, filters, amps, speakers — things you hear. Also the interaction color on screens: pressing things makes sound.', val: 'oklch(0.86 0.17 98)' },
+  { var: '--fam-dat', name: 'DAT · Data', role: 'MIDI, USB, CV, sync — things that talk.', val: 'oklch(0.70 0.15 155)' },
+  { var: '--fam-lgc', name: 'LGC · Logic', role: 'Clocks, sequencers, gates — things that decide.', val: 'oklch(0.67 0.13 240)' },
+  { var: '--fam-uty', name: 'UTY · Utility', role: 'Breadboards, blanks, adapters — things that help.', val: 'oklch(0.67 0.13 305)' },
+  { var: '--fam-pwr', name: 'PWR · Power', role: 'Supplies and rails. Shares the red rail hue — power is power everywhere.', val: 'oklch(0.62 0.18 28)' },
+];
+
+// 12 — Registry
+const registry = [
+  { id: 'BS-CTL-01', name: 'Pots Buddy', fam: 'ctl', label: 'CTL', status: 'SHIPPING' },
+  { id: 'BS-CTL-02', name: 'Switch Buddy', fam: 'ctl', label: 'CTL', status: 'SHIPPING' },
+  { id: 'BS-DAT-01', name: 'MIDI Buddy', fam: 'dat', label: 'DAT', status: 'SHIPPING' },
+  { id: 'BS-SND-01', name: 'Amp Buddy', fam: 'snd', label: 'SND', status: 'PROTOTYPE' },
+  { id: 'BS-SND-02', name: 'Filter Buddy', fam: 'snd', label: 'SND', status: 'PROTOTYPE' },
+  { id: 'BS-LGC-01', name: 'Clock Buddy', fam: 'lgc', label: 'LGC', status: 'PLANNED' },
+  { id: 'BS-UTY-04', name: 'Blank Buddy', fam: 'uty', label: 'UTY', status: 'SHIPPING' },
+];
+
+const sectionNav = [
+  ['principles', 'Principles'], ['color', 'Color'], ['type', 'Type'],
+  ['grid', 'Grid'], ['icons', 'Icons'], ['applied', 'Applied'], ['evolution', 'Evolution'],
+];
+---
+<BaseLayout
+  title="Design System — Buddy System"
+  description="A design language you can breadboard: a fixed pitch, two surfaces, labels that say what things do, and color that means something."
+>
+  <div class="ds">
+    <!-- in-page section nav -->
+    <div class="ds-subnav">
+      <div class="container ds-subnav__inner">
+        <span class="label">Design System v0.1</span>
+        <nav>
+          {sectionNav.map(([id, label]) => <a href={`#${id}`}>{label}</a>)}
+        </nav>
+      </div>
+    </div>
+
+    <!-- ========== COVER ========== -->
+    <header class="ds-cover">
+      <div class="container stack">
+        <Plate fill="BUDDY" rest="SYSTEM" tone="on-ink" size="lg" />
+        <h1>A design language you can breadboard</h1>
+        <p class="ds-deck">
+          Design system proposal v0.1 — a working document. Everything in here follows the
+          same logic as the hardware: a fixed pitch, two surfaces, labels that say what
+          things do, and color that means something.
+        </p>
+        <div class="ds-cover-meta mono">
+          <span>STATUS — <b>DRAFT FOR REVIEW</b></span>
+          <span>DATE — <b>JUN 2026</b></span>
+          <span>SCOPE — <b>HARDWARE · PRINT · SCREEN</b></span>
+        </div>
+      </div>
+      <div class="rails" aria-hidden="true"></div>
+    </header>
+
+    <!-- ========== 01 PRINCIPLES ========== -->
+    <section id="principles" class="ds-sec ds-sec--paper">
+      <div class="container">
+        <header class="ds-head">
+          <Plate fill="01" rest="PRINCIPLES" />
+          <span class="label muted">Five rules · everything else is derived</span>
+        </header>
+        <h2>Core principles</h2>
+        <p class="ds-intro">
+          Buddy System's identity isn't a style applied to the product — it's the product's
+          own logic, written down. Each principle below maps to a physical fact about the hardware.
+        </p>
+        <div class="princ-grid">
+          <div class="princ"><span class="princ__num mono">P1</span><h3>Everything on the pitch</h3><p>The breadboard's 2.54&nbsp;mm hole spacing is the master unit. On screen and in print, 1P&nbsp;=&nbsp;10&nbsp;px. All spacing, sizing, and alignment snaps to whole or half multiples of P. If it isn't on the pitch, it isn't Buddy System.</p></div>
+          <div class="princ"><span class="princ__num mono">P2</span><h3>Labels are the logo</h3><p>The brand mark is a silkscreen label: a two-cell boxed plate with the first cell filled. It costs nothing to print on a PCB, and it scales from a 6&nbsp;mm card label to a billboard. We don't have a logo and a labeling system — they're the same thing.</p></div>
+          <div class="princ"><span class="princ__num mono">P3</span><h3>Color is wiring</h3><p>Hue is never decoration. Six family colors identify what a card does; red and blue are reserved for power rails; black and white are surfaces. If a color appears, it's carrying information — like a jumper wire.</p></div>
+          <div class="princ"><span class="princ__num mono">P4</span><h3>Two surfaces only</h3><p>Soldermask black and breadboard white. Hardware, packaging, and hero screens live on black; documentation and reading surfaces live on warm white. Nothing lives on gradients, photos-as-backgrounds, or grays in between.</p></div>
+          <div class="princ princ--full"><div><span class="princ__num mono">P5</span><h3>Friendly words, serious lines</h3></div><p>Approachability comes from naming and voice — every module is somebody's Buddy, every guide talks like a patient friend at a workbench. The geometry stays precise and technical. We never soften the drawing to seem friendly; we soften the words. This is how the system reads as welcoming without ever reading as a toy.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 02 MOOD ========== -->
+    <section id="mood" class="ds-sec ds-sec--ink">
+      <div class="container">
+        <header class="ds-head">
+          <Plate fill="02" rest="MOOD" tone="on-ink" />
+          <span class="label ds-mcap-ink">Breadboard vernacular</span>
+        </header>
+        <h2>Visual themes</h2>
+        <p class="ds-intro">
+          The mood is the workbench at its best: a clean black panel, a fresh white
+          breadboard, a handful of colored jumpers, and the feeling that nothing you do is
+          permanent. Lab equipment that wants to be touched.
+        </p>
+        <div class="mood-words">
+          {[
+            ['Calibrated', 'not corporate'],
+            ['Hands-on', 'not hacker-movie'],
+            ['Labelled', 'not skeuomorphic'],
+            ['Reversible', 'not precious'],
+            ['Playful', 'not toy-like'],
+            ['Open', 'not unfinished'],
+          ].map(([yes, not]) => (
+            <div class="mood-pair"><span class="mood-yes">{yes}</span><span class="mood-not">{not}</span></div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 03 COLOR ========== -->
+    <section id="color" class="ds-sec ds-sec--paper">
+      <div class="container">
+        <header class="ds-head">
+          <Plate fill="03" rest="COLOR" />
+          <span class="label muted">Six hues · six jobs · nothing spare</span>
+        </header>
+        <h2>Color system</h2>
+        <p class="ds-intro">
+          Two surfaces, one metal, and six functional hues — one per card family, all matched
+          in weight so no family outranks another. Family color appears only in small,
+          meaningful doses: a keybar, a pin-1 mark, a chip, a tag.
+        </p>
+
+        <div class="swatches">
+          {[...surfaces, ...families].map((s) => (
+            <div class="swatch-row">
+              <span class="sw" style={`background: var(${s.var}); ${('border' in s && s.border) ? 'border:2px solid var(--paper-3);' : ''}`}></span>
+              <span class="sw-name">{s.name}</span>
+              <span class="sw-role muted">{s.role}</span>
+              <span class="sw-val mono">{s.val}</span>
+            </div>
+          ))}
+        </div>
+
+        <div class="rules">
+          <div class="rule"><h4>Small doses</h4><p>Family color never fills a layout. Keybars, chips, pin-1 marks, underlines — accents under 10% of any composition. The brand stays black &amp; white with colored wiring.</p></div>
+          <div class="rule"><h4>Rails are sacred</h4><p>Red + blue paired lines mean power rails and appear only as edge/footer motifs. In wiring diagrams, red is always +V and black is always ground. Never use rail red for errors or marketing.</p></div>
+          <div class="rule"><h4>One family per zone</h4><p>A card, a chapter, a product page belongs to one family and uses one hue. Multiple hues appear together only in system-level views — legends, the base unit, the family band.</p></div>
+          <div class="rule"><h4>Matched weight</h4><p>All six family hues sit at matched lightness and chroma in OKLCH. New hues (if ever) must join the same weight class. No neons, no pastels.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 04 TYPOGRAPHY ========== -->
+    <section id="type" class="ds-sec ds-sec--paper">
+      <div class="container">
+        <header class="ds-head">
+          <Plate fill="04" rest="TYPE" />
+          <span class="label muted">Barlow superfamily + IBM Plex Mono</span>
+        </header>
+        <h2>Typography</h2>
+        <p class="ds-intro">
+          The Barlow superfamily keeps a DIN flavor — low-contrast, slightly squared,
+          signage-bred — but it's open-licensed, so the same files ship in silkscreen art,
+          manuals, the website, and community remixes without seat licenses. IBM Plex Mono
+          handles everything that refers to the machine: pin names, designators, code, captions.
+        </p>
+
+        <div class="type-row"><div class="t-display">Patch. Play. Undo.</div><div class="t-spec mono">DISPLAY<br>Barlow Semi Cond 800<br>UPPERCASE · 0.95 LH<br>64–96PX / 0P TRACK</div></div>
+        <div class="type-row"><div class="t-h1">Build sound from scratch</div><div class="t-spec mono">HEADING<br>Barlow Semi Cond 700<br>UPPERCASE · 1.05 LH<br>24–52PX</div></div>
+        <div class="type-row"><div class="t-label">Cutoff / Resonance</div><div class="t-spec mono">LABEL<br>Barlow Semi Cond 700<br>UPPERCASE · +0.14EM TRACK<br>13–16PX · PANELS + UI</div></div>
+        <div class="type-row"><div class="t-body">Body text is Barlow at reading sizes — plain, roomy, and lowercase. It explains; it never shouts. Maximum measure is 64 characters, line height 1.6.</div><div class="t-spec mono">BODY<br>Barlow 400/500<br>SENTENCE CASE<br>14–17PX · 1.6 LH</div></div>
+        <div class="type-row"><div class="t-mono mono">ROW 12 · A–E&nbsp;&nbsp;&nbsp;BS-SND-02 · REV A&nbsp;&nbsp;&nbsp;FIG 3.2&nbsp;&nbsp;&nbsp;+5V GND</div><div class="t-spec mono">TECHNICAL<br>IBM Plex Mono 400–600<br>PINS · REFS · CAPTIONS · CODE<br>9–13PX · TRACKED</div></div>
+
+        <div class="rules rules--2">
+          <div class="rule"><h4>Case carries tone</h4><p>UPPERCASE condensed = the machine speaking (panels, headings, labels). Lowercase Barlow = a person speaking (guidance, marketing copy). Mono = the system's data. Three voices, instantly distinguishable.</p></div>
+          <div class="rule"><h4>Three voices</h4><p>The condensed display face, the roomy body face, and the technical mono never blur together. Each does one job, so a reader always knows whether the system, a person, or the data is talking.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 05 GRID ========== -->
+    <section id="grid" class="ds-sec ds-sec--paper">
+      <div class="container">
+        <span class="jumper" style="--fam: var(--fam-ctl);" aria-hidden="true"><i></i><i></i></span>
+        <header class="ds-head">
+          <Plate fill="05" rest="GRID" />
+          <span class="label muted">1P = 2.54 mm = 10 px</span>
+        </header>
+        <h2>The pitch grid</h2>
+        <p class="ds-intro">
+          One unit governs everything: P, the breadboard pitch. Hardware is literally built
+          on it; print and screen borrow it. Designers stop inventing spacing — they count holes.
+        </p>
+
+        <div class="pitch-demo">
+          <div class="pitch-card">
+            <h4>Spacing scale — whole pitches only</h4>
+            <div class="space-scale">
+              {[
+                ['0.5P · 5PX — hairline', 5],
+                ['1P · 10PX — element gap', 10],
+                ['2P · 20PX — group gap', 20],
+                ['4P · 40PX — block padding', 40],
+                ['8P · 80PX — section break', 80],
+              ].map(([t, w]) => (
+                <div class="space-item"><span class="mono">{t}</span><span class="space-bar" style={`width:${w}px;`}></span></div>
+              ))}
+            </div>
+          </div>
+          <div class="pitch-card">
+            <h4>The dot field</h4>
+            <div class="dotfield-demo"><span class="mono">1P PITCH · DOTS MARK THE HOLES</span></div>
+            <p class="mono ds-cap">Background texture for dark surfaces. Always at true 1P scale, always subtle — a surface you could plug into.</p>
+          </div>
+        </div>
+
+        <div class="rules rules--2">
+          <div class="rule"><h4>Page grids</h4><p>Web: 12 columns, 2P gutters, content max 108P (1080px). Print: 8-column on A5 manuals with a 4P margin ruler. Faceplates: controls center on whole-P positions, matching real drill coordinates.</p></div>
+          <div class="rule"><h4>The ruler motif</h4><p>Breadboard column numbers (1, 5, 10, 15…) appear as marginalia on documentation pages and long web pages — wayfinding borrowed straight from the board.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 06 ICONS ========== -->
+    <section id="icons" class="ds-sec ds-sec--ink">
+      <div class="container">
+        <header class="ds-head">
+          <Plate fill="06" rest="ICONS" tone="on-ink" />
+          <span class="label ds-mcap-ink">Filled · chunky · silkscreen-safe</span>
+        </header>
+        <h2>Iconography</h2>
+        <p class="ds-intro">
+          Icons are drawn like silkscreen: solid fills and fat 5px strokes on a 4P (40px)
+          grid, with knockouts instead of thin lines. Every icon must survive being printed
+          5&nbsp;mm wide in one color on a PCB — that constraint is the style.
+        </p>
+
+        <div class="icon-grid">
+          <div class="icon-cell"><svg width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="16" fill="currentColor"></circle><rect x="17.5" y="5" width="5" height="14" rx="2" fill="var(--ink-2)"></rect></svg><span class="mono">KNOB</span></div>
+          <div class="icon-cell"><svg width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="16" fill="currentColor"></circle><circle cx="20" cy="20" r="7" fill="var(--ink-2)"></circle></svg><span class="mono">JACK</span></div>
+          <div class="icon-cell"><svg width="40" height="40" viewBox="0 0 40 40"><path d="M4 30 V10 H20 V30 H36 V10" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="square"></path></svg><span class="mono">WAVE</span></div>
+          <div class="icon-cell"><svg width="40" height="40" viewBox="0 0 40 40"><rect x="9" y="12" width="22" height="16" rx="2" fill="currentColor"></rect><rect x="12" y="5" width="4" height="6" fill="currentColor"></rect><rect x="18" y="5" width="4" height="6" fill="currentColor"></rect><rect x="24" y="5" width="4" height="6" fill="currentColor"></rect><rect x="12" y="29" width="4" height="6" fill="currentColor"></rect><rect x="18" y="29" width="4" height="6" fill="currentColor"></rect><rect x="24" y="29" width="4" height="6" fill="currentColor"></rect></svg><span class="mono">CHIP</span></div>
+          <div class="icon-cell icon-cell--tint" style="color: var(--fam-dat);"><svg width="40" height="40" viewBox="0 0 40 40"><path d="M7 30 C7 8 33 8 33 30" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"></path><rect x="3" y="29" width="8" height="8" rx="2" fill="currentColor"></rect><rect x="29" y="29" width="8" height="8" rx="2" fill="currentColor"></rect></svg><span class="mono">JUMPER</span></div>
+          <div class="icon-cell"><svg width="40" height="40" viewBox="0 0 40 40"><rect x="6" y="13" width="24" height="14" rx="2" fill="currentColor"></rect><rect x="32" y="17" width="4" height="6" rx="1" fill="currentColor"></rect></svg><span class="mono">POWER</span></div>
+        </div>
+
+        <div class="rules rules--2">
+          <div class="rule"><h4>Construction rules</h4><p>40px grid, 5px strokes, square or round caps — never both in one icon. Interior detail is knocked out, not outlined. Minimum two, maximum five shapes per icon.</p></div>
+          <div class="rule"><h4>Color behavior</h4><p>Icons inherit currentColor: silk on dark, ink on paper, family hue only when the icon stands for that family (like the green jumper above).</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 07–10 APPLIED ========== -->
+    <section id="applied" class="ds-sec ds-sec--paper">
+      <div class="container">
+        <header class="ds-head">
+          <Plate fill="07" rest="APPLIED" />
+          <span class="label muted">From faceplate to website</span>
+        </header>
+        <h2>Applying the language</h2>
+        <p class="ds-intro">
+          The same grammar — plate, keybar, rails, dot field — carries from the PCB to the
+          page. Four surfaces, one vocabulary.
+        </p>
+
+        <div class="applied-grid">
+          <div class="applied"><h3>PCB silkscreen</h3><p>The faceplate is the brand's home turf. Every card shares one anatomy: a <b>[FUNCTION][BUDDY]</b> name plate top-center with the designator in mono below it (BS-SND-02 · REV A), a family-hue keybar at the top edge echoed on the pin-1 square, and related controls boxed into thin outlined zones with a mono label breaking the top border.</p></div>
+          <div class="applied"><h3>Documentation</h3><p>Docs are called <b>patches</b>, not lessons — each one ends with sound. Pages live on paper white with a column-number ruler up top and power rails at the foot. Numbered plates mark steps; every part is referenced in mono exactly as printed on the hardware. The voice is second person, present tense — "that buzz is yours."</p></div>
+          <div class="applied"><h3>Website</h3><p>The site is a faceplate that scrolls: a black hero on the dot field, the family legend as a permanent navigation band, then paper-white sections that read like the manual. Interactive elements light up in <b>SND yellow</b> — on this brand, pressing things makes sound.</p></div>
+          <div class="applied"><h3>Packaging</h3><p>The box is printed like the product: matte black board, one-color white silkscreen, family hue on the spine so a shelf of cards color-codes itself. The first patch is printed inside the lid — you can make a sound before you've thrown away the packaging. Honest materials: uncoated kraft, single ink, no lamination.</p></div>
+        </div>
+        <p class="mono ds-cap ds-cap--note">Interactive faceplate, manual-spread, and landing-page mockups live in the source design system; they are re-created natively across this site rather than embedded here.</p>
+      </div>
+    </section>
+
+    <!-- ========== 11 MOTIFS ========== -->
+    <section id="motifs" class="ds-sec ds-sec--ink">
+      <div class="container">
+        <header class="ds-head">
+          <Plate fill="11" rest="MOTIFS" tone="on-ink" />
+          <span class="label ds-mcap-ink">The recurring cast</span>
+        </header>
+        <h2>Recurring motifs</h2>
+        <p class="ds-intro">
+          Six elements repeat across every surface. If a layout contains two of these, it
+          reads as Buddy System — no logo required.
+        </p>
+
+        <div class="motif-grid">
+          <div class="motif"><div class="motif__demo"><Plate fill="ANY" rest="THING" tone="on-ink" size="sm" /></div><h4>The plate</h4><p>Two cells, first filled. Names products, numbers steps, marks sections. The wordmark is just the plate wearing its own name.</p></div>
+          <div class="motif"><div class="motif__demo"><span class="m-keybar"></span></div><h4>The keybar</h4><p>A family-hue bar on the top edge of any card, tile, box, or page header. Color as a key, not a wash.</p></div>
+          <div class="motif"><div class="motif__demo"><span class="rails m-rails" aria-hidden="true"></span></div><h4>The rails</h4><p>Paired red/blue lines marking edges and endings — footers, box bottoms, certificate borders. Power runs along the edge.</p></div>
+          <div class="motif"><div class="motif__demo"><span class="m-dots"></span></div><h4>The dot field</h4><p>The breadboard's hole pattern as texture on dark surfaces, always at true 1P pitch. A surface you could plug into.</p></div>
+          <div class="motif"><div class="motif__demo"><span class="jumper" style="--fam: var(--fam-ctl); width:100%;" aria-hidden="true"><i></i><i></i></span></div><h4>The jumper</h4><p>A colored wire arc connecting two points — section dividers, link underlines, "see also" pointers. Always lands on a square endpoint.</p></div>
+          <div class="motif"><div class="motif__demo"><span class="mono m-ruler">1&nbsp;&nbsp;&nbsp;5&nbsp;&nbsp;&nbsp;10&nbsp;&nbsp;&nbsp;15&nbsp;&nbsp;&nbsp;20&nbsp;&nbsp;&nbsp;25</span></div><h4>The ruler</h4><p>Breadboard column numbers as marginalia — page headers, progress indicators, timeline scales. Counting holes, everywhere.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 12 EVOLUTION ========== -->
+    <section id="evolution" class="ds-sec ds-sec--paper">
+      <div class="container">
+        <header class="ds-head">
+          <Plate fill="12" rest="EVOLUTION" />
+          <span class="label muted">How the system grows</span>
+        </header>
+        <h2>Growing the ecosystem</h2>
+        <p class="ds-intro">
+          Naming: keep the "___ Buddy" friendly layer, and back it with a systematic
+          designator — BS-FAMILY-NUMBER — that lives in mono on every card, doc, and URL.
+          The registry below is the single source of truth.
+        </p>
+
+        <table class="reg-table">
+          <thead><tr><th>Designator</th><th>Friendly name</th><th>Family</th><th>Status</th></tr></thead>
+          <tbody>
+            {registry.map((r) => (
+              <tr>
+                <td class="mono">{r.id}</td>
+                <td>{r.name}</td>
+                <td><span class="chip" style={`--fam: var(--fam-${r.fam});`}>{r.label}</span></td>
+                <td class="mono">{r.status}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+
+        <div class="rules">
+          <div class="rule"><h4>Hues are scarce</h4><p>Six families is the ceiling. A new card must join an existing family before anyone proposes a seventh hue — scarcity is what keeps the color code legible.</p></div>
+          <div class="rule"><h4>Copper for community</h4><p>Third-party and community cards use the copper keybar and a BS-X- designator. Adoption into an official family is an event — the card literally earns its color.</p></div>
+          <div class="rule"><h4>Tokens ship with hardware</h4><p>Design tokens are versioned with board revisions (REV A, B, C…). When the silkscreen changes, the website changes from the same commit. One registry, one truth.</p></div>
+          <div class="rule"><h4>New surfaces, old motifs</h4><p>Apps, videos, merch, trade-show booths: start with the plate, keybar, rails, and dot field before inventing anything new. If two motifs are present, it's already on-brand.</p></div>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  /* ----- shared section scaffolding ----- */
+  .ds-sec { padding-block: calc(var(--p) * 7); }
+  .ds-sec--paper { background: var(--paper); color: var(--ink); }
+  .ds-sec--ink { background: var(--ink); color: var(--paper); }
+  .ds-head { display: flex; align-items: center; gap: calc(var(--p) * 2); flex-wrap: wrap; margin-bottom: calc(var(--p) * 2); }
+  .ds-sec h2 { margin-bottom: var(--p); }
+  .ds-intro { font-size: 1.1rem; max-width: 68ch; }
+  .ds-sec--ink .ds-intro { color: var(--silk-soft); }
+  .ds-mcap-ink { color: var(--silk-soft); }
+  .ds-cap { color: var(--ink-soft); font-size: 0.72rem; letter-spacing: 0.04em; text-transform: uppercase; margin-top: var(--p); }
+  .ds-sec--ink .ds-cap { color: var(--silk-soft); }
+  .ds-cap--note { margin-top: calc(var(--p) * 3); max-width: 70ch; }
+
+  /* ----- subnav ----- */
+  .ds-subnav { background: var(--ink-2); border-bottom: var(--bw) solid var(--ink-3); }
+  .ds-subnav__inner { display: flex; align-items: center; justify-content: space-between; gap: var(--p); min-height: calc(var(--p) * 4.5); padding-block: var(--p-half); flex-wrap: wrap; }
+  .ds-subnav .label { color: var(--copper); }
+  .ds-subnav nav { display: flex; gap: calc(var(--p) * 2); flex-wrap: wrap; }
+  .ds-subnav a { color: var(--silk-soft); text-decoration: none; font-family: var(--font-cond); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.75rem; }
+  .ds-subnav a:hover { color: var(--fam-snd); }
+
+  /* ----- cover ----- */
+  .ds-cover { background: var(--ink); color: var(--paper); padding-block: calc(var(--p) * 9) 0; }
+  .ds-cover h1 { color: var(--silk); max-width: 18ch; }
+  .ds-deck { font-size: 1.2rem; color: var(--silk-soft); max-width: 60ch; }
+  .ds-cover-meta { display: flex; gap: calc(var(--p) * 3); flex-wrap: wrap; font-size: 0.72rem; letter-spacing: 0.06em; color: var(--silk-soft); padding-bottom: calc(var(--p) * 5); }
+  .ds-cover-meta b { color: var(--silk); }
+
+  /* ----- 01 principles ----- */
+  .princ-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: calc(var(--p) * 2); margin-top: calc(var(--p) * 3); }
+  .princ { padding: calc(var(--p) * 2); border: var(--bw) solid var(--paper-3); border-radius: var(--r); background: var(--paper); }
+  .princ--full { grid-column: 1 / -1; display: grid; grid-template-columns: 16rem 1fr; gap: calc(var(--p) * 2); align-items: start; }
+  .princ__num { display: inline-block; color: var(--copper); font-weight: 600; margin-bottom: var(--p-half); }
+  .princ h3 { font-size: 1.1rem; }
+  .princ p { margin-top: var(--p-half); color: var(--ink-soft); font-size: 0.95rem; }
+  @media (max-width: 720px) { .princ-grid { grid-template-columns: 1fr; } .princ--full { grid-template-columns: 1fr; } }
+
+  /* ----- 02 mood ----- */
+  .mood-words { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--p); margin-top: calc(var(--p) * 3); max-width: 52rem; }
+  .mood-pair { display: flex; align-items: baseline; gap: var(--p); padding-bottom: var(--p-half); border-bottom: var(--bw) solid var(--ink-3); }
+  .mood-yes { font-family: var(--font-cond); font-weight: 800; text-transform: uppercase; color: var(--silk); font-size: 1.1rem; }
+  .mood-not { color: var(--silk-soft); font-size: 0.9rem; }
+  @media (max-width: 600px) { .mood-words { grid-template-columns: 1fr; } }
+
+  /* ----- 03 color ----- */
+  .swatches { margin-top: calc(var(--p) * 3); border-top: var(--bw) solid var(--paper-3); }
+  .swatch-row { display: grid; grid-template-columns: calc(var(--p) * 4) 10rem 1fr auto; gap: calc(var(--p) * 2); align-items: center; padding-block: calc(var(--p) * 1.5); border-bottom: var(--bw) solid var(--paper-3); }
+  .sw { width: calc(var(--p) * 4); height: calc(var(--p) * 4); border-radius: var(--r-sm); }
+  .sw-name { font-family: var(--font-cond); font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
+  .sw-role { font-size: 0.88rem; }
+  .sw-val { font-size: 0.78rem; color: var(--ink-soft); white-space: nowrap; }
+  @media (max-width: 760px) {
+    .swatch-row { grid-template-columns: calc(var(--p) * 3) 1fr; grid-template-areas: 'sw name' 'sw val' 'role role'; row-gap: var(--p-half); }
+    .sw { grid-area: sw; } .sw-name { grid-area: name; } .sw-val { grid-area: val; } .sw-role { grid-area: role; }
+  }
+
+  /* ----- rules grids (shared) ----- */
+  .rules { display: grid; grid-template-columns: repeat(4, 1fr); gap: calc(var(--p) * 2); margin-top: calc(var(--p) * 4); }
+  .rules--2 { grid-template-columns: repeat(2, 1fr); max-width: 60rem; }
+  .rule h4 { font-family: var(--font-cond); font-weight: 800; text-transform: uppercase; font-size: 0.95rem; letter-spacing: 0.04em; }
+  .rule p { margin-top: var(--p-half); font-size: 0.9rem; opacity: 0.85; }
+  .ds-sec--ink .rule p { color: var(--silk-soft); opacity: 1; }
+  @media (max-width: 860px) { .rules, .rules--2 { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .rules, .rules--2 { grid-template-columns: 1fr; } }
+
+  /* ----- 04 typography ----- */
+  .type-row { display: grid; grid-template-columns: 1fr 14rem; gap: calc(var(--p) * 2); align-items: center; padding-block: calc(var(--p) * 2); border-top: var(--bw) solid var(--paper-3); }
+  .type-row:first-of-type { margin-top: calc(var(--p) * 3); }
+  .t-display { font-family: var(--font-cond); font-weight: 800; text-transform: uppercase; font-size: clamp(2.5rem, 7vw, 5rem); line-height: 0.95; }
+  .t-h1 { font-family: var(--font-cond); font-weight: 700; text-transform: uppercase; font-size: clamp(1.5rem, 4vw, 2.6rem); line-height: 1.05; }
+  .t-label { font-family: var(--font-cond); font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; font-size: 1rem; }
+  .t-body { font-family: var(--font-sans); font-weight: 400; max-width: 64ch; }
+  .t-mono { font-family: var(--font-mono); font-size: 0.9rem; color: var(--ink-soft); }
+  .t-spec { font-size: 0.66rem; line-height: 1.7; letter-spacing: 0.04em; color: var(--ink-soft); text-align: right; }
+  @media (max-width: 640px) { .type-row { grid-template-columns: 1fr; } .t-spec { text-align: left; } }
+
+  /* ----- 05 grid ----- */
+  .pitch-demo { display: grid; grid-template-columns: 1fr 1fr; gap: calc(var(--p) * 2); margin-top: calc(var(--p) * 3); }
+  .pitch-card { padding: calc(var(--p) * 2); border: var(--bw) solid var(--paper-3); border-radius: var(--r); }
+  .pitch-card h4 { font-family: var(--font-cond); text-transform: uppercase; font-size: 0.95rem; margin-bottom: var(--p); }
+  .space-scale { display: grid; gap: var(--p); }
+  .space-item { display: flex; align-items: center; gap: var(--p); }
+  .space-item .mono { font-size: 0.7rem; color: var(--ink-soft); width: 16rem; }
+  .space-bar { height: calc(var(--p) * 1.5); background: var(--ink); border-radius: 1px; }
+  .dotfield-demo { height: calc(var(--p) * 10); border-radius: var(--r-sm); background: var(--ink); background-image: radial-gradient(circle at center, var(--ink-3) 1.6px, transparent 1.7px); background-size: var(--p) var(--p); display: flex; align-items: flex-end; padding: var(--p); }
+  .dotfield-demo .mono { color: var(--silk-soft); font-size: 0.62rem; letter-spacing: 0.06em; }
+  @media (max-width: 720px) { .pitch-demo { grid-template-columns: 1fr; } .space-item .mono { width: auto; } }
+
+  /* ----- 06 icons ----- */
+  .icon-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--p); margin-top: calc(var(--p) * 3); color: var(--silk); }
+  .icon-cell { display: grid; place-items: center; gap: var(--p-half); padding: calc(var(--p) * 2) var(--p); border: var(--bw) solid var(--ink-3); border-radius: var(--r); }
+  .icon-cell .mono { font-size: 0.62rem; letter-spacing: 0.08em; color: var(--silk-soft); }
+  @media (max-width: 760px) { .icon-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 420px) { .icon-grid { grid-template-columns: repeat(2, 1fr); } }
+
+  /* ----- 07–10 applied ----- */
+  .applied-grid { display: grid; grid-template-columns: 1fr 1fr; gap: calc(var(--p) * 2); margin-top: calc(var(--p) * 3); }
+  .applied { padding: calc(var(--p) * 2); border-left: var(--bw) solid var(--paper-3); }
+  .applied h3 { font-size: 1.1rem; }
+  .applied p { margin-top: var(--p-half); color: var(--ink-soft); font-size: 0.95rem; }
+  @media (max-width: 720px) { .applied-grid { grid-template-columns: 1fr; } }
+
+  /* ----- 11 motifs ----- */
+  .motif-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: calc(var(--p) * 2); margin-top: calc(var(--p) * 3); }
+  .motif { padding: calc(var(--p) * 2); border: var(--bw) solid var(--ink-3); border-radius: var(--r); }
+  .motif__demo { height: calc(var(--p) * 6); display: flex; align-items: center; justify-content: center; margin-bottom: var(--p); }
+  .motif h4 { font-family: var(--font-cond); text-transform: uppercase; font-size: 1rem; color: var(--silk); }
+  .motif p { margin-top: var(--p-half); font-size: 0.88rem; color: var(--silk-soft); }
+  .m-keybar { width: 100%; height: 6px; background: var(--fam-snd); border-radius: 0 0 2px 2px; align-self: flex-start; }
+  .m-rails { width: 100%; }
+  .m-dots { width: 100%; height: calc(var(--p) * 5.6); border-radius: var(--r-sm); border: 1px solid var(--ink-3); background-image: radial-gradient(circle at center, var(--ink-3) 1.6px, transparent 1.7px); background-size: var(--p) var(--p); }
+  .m-ruler { color: var(--silk-soft); letter-spacing: 0.1em; }
+  @media (max-width: 760px) { .motif-grid { grid-template-columns: 1fr; } }
+
+  /* ----- jumper arc (motif + dividers) ----- */
+  .jumper { display: block; position: relative; height: calc(var(--p) * 2); margin-bottom: calc(var(--p) * 4); }
+  .jumper::before { content: ''; position: absolute; left: 6px; right: 6px; top: 50%; height: calc(var(--p) * 2); border: var(--bw) solid var(--fam); border-bottom: 0; border-radius: 100px 100px 0 0; transform: translateY(-50%); }
+  .jumper i { position: absolute; top: 50%; width: 8px; height: 8px; background: var(--fam); border-radius: 2px; transform: translateY(-50%); }
+  .jumper i:first-child { left: 0; }
+  .jumper i:last-child { right: 0; }
+
+  /* ----- chip (family tag) ----- */
+  .chip { display: inline-flex; align-items: center; font-family: var(--font-cond); font-weight: 800; font-size: 0.7rem; letter-spacing: 0.06em; padding: 2px 7px; border-radius: var(--r-sm); background: var(--fam); color: var(--ink); }
+
+  /* ----- 12 registry table ----- */
+  .reg-table { width: 100%; border-collapse: collapse; margin-top: calc(var(--p) * 3); font-size: 0.92rem; }
+  .reg-table th { text-align: left; font-family: var(--font-cond); text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.78rem; color: var(--ink-soft); padding: var(--p) calc(var(--p) * 1.5); border-bottom: var(--bw) solid var(--ink); }
+  .reg-table td { padding: var(--p) calc(var(--p) * 1.5); border-bottom: var(--bw) solid var(--paper-3); }
+  .reg-table .mono { font-size: 0.82rem; }
+</style>
