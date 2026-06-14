@@ -488,7 +488,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "template-card.kicad_pro",
+    "filename": "knob-buddy.kicad_pro",
     "version": 3
   },
   "net_settings": {
@@ -651,18 +651,27 @@
     "subpart_id_separator": 0,
     "top_level_sheets": [
       {
-        "filename": "template-card.kicad_sch",
+        "filename": "knob-buddy.kicad_sch",
         "name": "Root",
         "uuid": "45510523-38ae-4a43-b070-6227195f9104"
+      },
+      {
+        "filename": "knob_buddy.kicad_sch",
+        "name": "Knob Buddy",
+        "uuid": "e1ad98e2-4cf0-45a4-b53a-7821a241e84c"
       }
     ],
-    "used_designators": "D1-4,C4-5,R1-6,#PWR10-15,#PWR41-47,J3-4",
+    "used_designators": "J5-6",
     "variants": []
   },
   "sheets": [
     [
       "45510523-38ae-4a43-b070-6227195f9104",
       "Root"
+    ],
+    [
+      "e1ad98e2-4cf0-45a4-b53a-7821a241e84c",
+      "Knob Buddy"
     ]
   ],
   "text_variables": {},

@@ -2587,6 +2587,22 @@
 		(color 0 0 0 0)
 		(uuid "e8fca967-2021-449d-a576-1c7d03a585da")
 	)
+	(no_connect
+		(at 85.09 87.63)
+		(uuid "015d6b8a-46d9-4885-9949-4a3ef7653a80")
+	)
+	(no_connect
+		(at 74.93 82.55)
+		(uuid "9f5f404b-ea1b-45fa-a6b1-ea4948e5cabc")
+	)
+	(no_connect
+		(at 77.47 82.55)
+		(uuid "acbc430c-7f8f-42fd-b479-09e9439ff11b")
+	)
+	(no_connect
+		(at 80.01 82.55)
+		(uuid "f0050be5-3800-4fa5-8adb-1774921d169b")
+	)
 	(bus_entry
 		(at 19.05 -39.37)
 		(size 2.54 2.54)
@@ -2750,19 +2766,19 @@
 			)
 		)
 	)
-	(global_label "BUS B"
+	(global_label "POT_4"
 		(shape input)
-		(at 80.01 82.55 270)
+		(at 175.26 91.44 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right)
+			(justify left)
 		)
-		(uuid "119da87c-3566-49a7-a597-0ae3f060db08")
+		(uuid "133aa028-d10c-40dc-a5f2-39b70467d981")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 80.01 91.5828 90)
+			(at 183.9904 91.44 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2770,7 +2786,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 	)
@@ -3014,30 +3030,6 @@
 			)
 		)
 	)
-	(global_label "SLOT"
-		(shape input)
-		(at 74.93 82.55 270)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "60d372e9-e2c7-454c-bf88-d58857c3defc")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 74.93 90.0709 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-	)
 	(global_label "BUS_EN"
 		(shape input)
 		(at 199.39 99.06 180)
@@ -3086,6 +3078,54 @@
 			)
 		)
 	)
+	(global_label "POT_3"
+		(shape input)
+		(at 175.26 104.14 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "637b26c2-0c37-4dd0-8423-aca4ae1835cd")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 183.9904 104.14 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+	)
+	(global_label "POT_1"
+		(shape input)
+		(at 175.26 109.22 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "7dde1615-66de-4bcc-bc21-6b9be4a43d22")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 183.9904 109.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+	)
 	(global_label "BUS_RX"
 		(shape input)
 		(at 175.26 114.3 0)
@@ -3099,6 +3139,30 @@
 		(uuid "833fa555-f3dd-45a3-93d1-0f4d0ce3b9ab")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 185.5023 114.3 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+	)
+	(global_label "POT_5"
+		(shape input)
+		(at 175.26 101.6 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "9185a726-9004-42c4-81b7-9d5785bbcdd5")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 183.9904 101.6 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3206,30 +3270,6 @@
 			)
 		)
 	)
-	(global_label "BUS A"
-		(shape input)
-		(at 77.47 82.55 270)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "b878427b-b874-4d66-881c-46c8d6711e6b")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 77.47 91.4014 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-	)
 	(global_label "BUS B"
 		(shape input)
 		(at 101.6 82.55 270)
@@ -3278,6 +3318,30 @@
 			)
 		)
 	)
+	(global_label "POT_6"
+		(shape input)
+		(at 175.26 99.06 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "cd5cb4db-b65a-426a-a930-a8273fb0f5e2")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 183.9904 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+	)
 	(global_label "SLOT"
 		(shape input)
 		(at 100.33 114.3 90)
@@ -3291,6 +3355,30 @@
 		(uuid "d288a25c-c361-43b1-851f-9b2522019543")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 100.33 106.7791 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+	)
+	(global_label "POT_2"
+		(shape input)
+		(at 175.26 88.9 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "de346f2b-93dc-44c1-a9dd-9ff7295986dc")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 183.9904 88.9 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3444,7 +3532,7 @@
 			(uuid "df50a941-b006-4012-9b59-95312b7b3974")
 		)
 		(instances
-			(project "template-card"
+			(project "knob-buddy"
 				(path "/45510523-38ae-4a43-b070-6227195f9104"
 					(reference "#PWR037")
 					(unit 1)
@@ -3522,7 +3610,7 @@
 			(uuid "3ccb7153-f2b2-4543-b8c3-1f69d229f9b5")
 		)
 		(instances
-			(project "template-card"
+			(project "knob-buddy"
 				(path "/45510523-38ae-4a43-b070-6227195f9104"
 					(reference "#PWR010")
 					(unit 1)
@@ -3601,7 +3689,7 @@
 			(uuid "49e4149f-b882-40c3-956f-1b46a03e99e3")
 		)
 		(instances
-			(project "template-card"
+			(project "knob-buddy"
 				(path "/45510523-38ae-4a43-b070-6227195f9104"
 					(reference "#PWR011")
 					(unit 1)
@@ -3694,7 +3782,7 @@
 			(uuid "81e8c71d-e9b0-4ef7-8058-fb4fcae2a789")
 		)
 		(instances
-			(project "template-card"
+			(project "knob-buddy"
 				(path "/45510523-38ae-4a43-b070-6227195f9104"
 					(reference "J2")
 					(unit 1)
@@ -3772,7 +3860,7 @@
 			(uuid "7e3c270a-b025-4773-a726-bf605ab9c30d")
 		)
 		(instances
-			(project "template-card"
+			(project "knob-buddy"
 				(path "/45510523-38ae-4a43-b070-6227195f9104"
 					(reference "#PWR02")
 					(unit 1)
@@ -3850,7 +3938,7 @@
 			(uuid "fedb1f44-2ff7-42dc-8207-753049c4ed0f")
 		)
 		(instances
-			(project "template-card"
+			(project "knob-buddy"
 				(path "/45510523-38ae-4a43-b070-6227195f9104"
 					(reference "#PWR05")
 					(unit 1)
@@ -3928,7 +4016,7 @@
 			(uuid "61406817-0980-43d7-b915-e03dadf08fac")
 		)
 		(instances
-			(project "template-card"
+			(project "knob-buddy"
 				(path "/45510523-38ae-4a43-b070-6227195f9104"
 					(reference "#PWR04")
 					(unit 1)
@@ -4006,7 +4094,7 @@
 			(uuid "10e9f170-25a1-4b9f-9c6c-39bc86bd388e")
 		)
 		(instances
-			(project "template-card"
+			(project "knob-buddy"
 				(path "/45510523-38ae-4a43-b070-6227195f9104"
 					(reference "#PWR03")
 					(unit 1)
@@ -4084,7 +4172,7 @@
 			(uuid "e1854927-492c-49d4-a905-5f798a94fa06")
 		)
 		(instances
-			(project "template-card"
+			(project "knob-buddy"
 				(path "/45510523-38ae-4a43-b070-6227195f9104"
 					(reference "#PWR012")
 					(unit 1)
@@ -4166,7 +4254,7 @@
 			(uuid "25c38cc8-fc3e-4353-b364-6b6927231d1a")
 		)
 		(instances
-			(project "template-card"
+			(project "knob-buddy"
 				(path "/45510523-38ae-4a43-b070-6227195f9104"
 					(reference "R4")
 					(unit 1)
@@ -4248,7 +4336,7 @@
 			(uuid "8ed5a85b-74a7-45a3-9457-694d40ad8067")
 		)
 		(instances
-			(project "template-card"
+			(project "knob-buddy"
 				(path "/45510523-38ae-4a43-b070-6227195f9104"
 					(reference "R3")
 					(unit 1)
@@ -4326,7 +4414,7 @@
 			(uuid "03d1ff21-391a-44fa-ae34-a04cf5be2ecd")
 		)
 		(instances
-			(project "template-card"
+			(project "knob-buddy"
 				(path "/45510523-38ae-4a43-b070-6227195f9104"
 					(reference "#PWR07")
 					(unit 1)
@@ -4404,7 +4492,7 @@
 			(uuid "e8f1cc54-3722-42e1-92e1-d28fd18e246e")
 		)
 		(instances
-			(project "template-card"
+			(project "knob-buddy"
 				(path "/45510523-38ae-4a43-b070-6227195f9104"
 					(reference "#PWR041")
 					(unit 1)
@@ -4483,7 +4571,7 @@
 			(uuid "6f0b7458-ba3f-42b5-a2a8-c6a37e953c0f")
 		)
 		(instances
-			(project "template-card"
+			(project "knob-buddy"
 				(path "/45510523-38ae-4a43-b070-6227195f9104"
 					(reference "#PWR043")
 					(unit 1)
@@ -4561,7 +4649,7 @@
 			(uuid "40b6fad2-9490-4dd1-9842-08d3666ee4c3")
 		)
 		(instances
-			(project "template-card"
+			(project "knob-buddy"
 				(path "/45510523-38ae-4a43-b070-6227195f9104"
 					(reference "#PWR047")
 					(unit 1)
@@ -4640,7 +4728,7 @@
 			(uuid "4ad693f5-a417-4668-8435-bcfbd94c429c")
 		)
 		(instances
-			(project "template-card"
+			(project "knob-buddy"
 				(path "/45510523-38ae-4a43-b070-6227195f9104"
 					(reference "#PWR044")
 					(unit 1)
@@ -4718,7 +4806,7 @@
 			(uuid "2e4046dd-c59a-4bd0-a394-96d63334737e")
 		)
 		(instances
-			(project "template-card"
+			(project "knob-buddy"
 				(path "/45510523-38ae-4a43-b070-6227195f9104"
 					(reference "#PWR013")
 					(unit 1)
@@ -4811,7 +4899,7 @@
 			(uuid "ccd56ca9-e6a1-4239-a65b-0f6c9f163b8d")
 		)
 		(instances
-			(project "template-card"
+			(project "knob-buddy"
 				(path "/45510523-38ae-4a43-b070-6227195f9104"
 					(reference "J1")
 					(unit 1)
@@ -4904,7 +4992,7 @@
 			(uuid "1411a077-225b-48ba-a5d7-65fa1591a8cc")
 		)
 		(instances
-			(project "template-card"
+			(project "knob-buddy"
 				(path "/45510523-38ae-4a43-b070-6227195f9104"
 					(reference "D2")
 					(unit 1)
@@ -4986,7 +5074,7 @@
 			(uuid "edde54eb-9f8c-4201-838d-f7c69dd76c86")
 		)
 		(instances
-			(project "template-card"
+			(project "knob-buddy"
 				(path "/45510523-38ae-4a43-b070-6227195f9104"
 					(reference "C1")
 					(unit 1)
@@ -5068,87 +5156,9 @@
 			(uuid "bbbc342a-aab9-489d-9985-1c4cb614b791")
 		)
 		(instances
-			(project "template-card"
+			(project "knob-buddy"
 				(path "/45510523-38ae-4a43-b070-6227195f9104"
 					(reference "R2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+5V")
-		(at 85.09 87.63 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "8cf1947e-cfd3-4b38-993e-f6c424d35737")
-		(property "Reference" "#PWR01"
-			(at 85.09 83.82 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "+5V"
-			(at 85.09 92.71 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 85.09 87.63 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 85.09 87.63 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 85.09 87.63 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "58b12558-d3a9-4b5f-af21-3e6d11bfaa9e")
-		)
-		(instances
-			(project "template-card"
-				(path "/45510523-38ae-4a43-b070-6227195f9104"
-					(reference "#PWR01")
 					(unit 1)
 				)
 			)
@@ -5224,7 +5234,7 @@
 			(uuid "71869a43-7bbb-4d5e-b4d0-34cdcd6ce9d4")
 		)
 		(instances
-			(project "template-card"
+			(project "knob-buddy"
 				(path "/45510523-38ae-4a43-b070-6227195f9104"
 					(reference "#PWR06")
 					(unit 1)
@@ -5302,7 +5312,7 @@
 			(uuid "5a7e27a4-5cc4-4dad-9737-6dc617627d43")
 		)
 		(instances
-			(project "template-card"
+			(project "knob-buddy"
 				(path "/45510523-38ae-4a43-b070-6227195f9104"
 					(reference "#PWR045")
 					(unit 1)
@@ -5384,7 +5394,7 @@
 			(uuid "1b9ba965-5958-43f5-9a7b-a9e6057f5a89")
 		)
 		(instances
-			(project "template-card"
+			(project "knob-buddy"
 				(path "/45510523-38ae-4a43-b070-6227195f9104"
 					(reference "C3")
 					(unit 1)
@@ -5404,7 +5414,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "97f2b94c-8bda-43c7-b2cf-320b673028aa")
-		(property "Reference" "J4"
+		(property "Reference" "J3"
 			(at 120.65 71.12 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5473,9 +5483,9 @@
 			(uuid "ec96d816-f9a0-4d8e-8ddc-1fb1d89912af")
 		)
 		(instances
-			(project "template-card"
+			(project "knob-buddy"
 				(path "/45510523-38ae-4a43-b070-6227195f9104"
-					(reference "J4")
+					(reference "J3")
 					(unit 1)
 				)
 			)
@@ -5552,7 +5562,7 @@
 			(uuid "5edd1038-7d9b-4482-936a-150dab776c3d")
 		)
 		(instances
-			(project "template-card"
+			(project "knob-buddy"
 				(path "/45510523-38ae-4a43-b070-6227195f9104"
 					(reference "#PWR038")
 					(unit 1)
@@ -5634,7 +5644,7 @@
 			(uuid "6061b33d-7295-47e9-9dc9-0576e8e5768a")
 		)
 		(instances
-			(project "template-card"
+			(project "knob-buddy"
 				(path "/45510523-38ae-4a43-b070-6227195f9104"
 					(reference "R1")
 					(unit 1)
@@ -5714,7 +5724,7 @@
 			(uuid "c832f4d3-c2a5-469c-92c1-f7f0964150f9")
 		)
 		(instances
-			(project "template-card"
+			(project "knob-buddy"
 				(path "/45510523-38ae-4a43-b070-6227195f9104"
 					(reference "C5")
 					(unit 1)
@@ -5793,7 +5803,7 @@
 			(uuid "0776184e-b853-43c6-bfe4-ab6cf2a9475e")
 		)
 		(instances
-			(project "template-card"
+			(project "knob-buddy"
 				(path "/45510523-38ae-4a43-b070-6227195f9104"
 					(reference "#PWR09")
 					(unit 1)
@@ -5871,7 +5881,7 @@
 			(uuid "d8baebb4-74d9-49ab-8c7c-80dd3dead5aa")
 		)
 		(instances
-			(project "template-card"
+			(project "knob-buddy"
 				(path "/45510523-38ae-4a43-b070-6227195f9104"
 					(reference "#PWR042")
 					(unit 1)
@@ -5953,7 +5963,7 @@
 			(uuid "61fe0ebc-390b-4e72-8d61-14a77e9fff27")
 		)
 		(instances
-			(project "template-card"
+			(project "knob-buddy"
 				(path "/45510523-38ae-4a43-b070-6227195f9104"
 					(reference "C2")
 					(unit 1)
@@ -6090,7 +6100,7 @@
 			(uuid "ea7b0800-f9f9-45dd-91a4-8a95593155ad")
 		)
 		(instances
-			(project "template-card"
+			(project "knob-buddy"
 				(path "/45510523-38ae-4a43-b070-6227195f9104"
 					(reference "U2")
 					(unit 1)
@@ -6168,7 +6178,7 @@
 			(uuid "a6a5881b-90ee-4aa7-93e0-5b40d8a59b5b")
 		)
 		(instances
-			(project "template-card"
+			(project "knob-buddy"
 				(path "/45510523-38ae-4a43-b070-6227195f9104"
 					(reference "#PWR08")
 					(unit 1)
@@ -6246,7 +6256,7 @@
 			(uuid "bf93816f-721c-4399-9b37-45f0bf8b5fad")
 		)
 		(instances
-			(project "template-card"
+			(project "knob-buddy"
 				(path "/45510523-38ae-4a43-b070-6227195f9104"
 					(reference "#PWR040")
 					(unit 1)
@@ -6339,7 +6349,7 @@
 			(uuid "848d37e2-99a7-4e6c-a37b-ba79ab6078bd")
 		)
 		(instances
-			(project "template-card"
+			(project "knob-buddy"
 				(path "/45510523-38ae-4a43-b070-6227195f9104"
 					(reference "D1")
 					(unit 1)
@@ -6421,7 +6431,7 @@
 			(uuid "80e228b8-55e6-4332-982c-81920f42016f")
 		)
 		(instances
-			(project "template-card"
+			(project "knob-buddy"
 				(path "/45510523-38ae-4a43-b070-6227195f9104"
 					(reference "R5")
 					(unit 1)
@@ -6499,7 +6509,7 @@
 			(uuid "7270a7c6-fdf3-4b2e-a431-f4fa2e3f3141")
 		)
 		(instances
-			(project "template-card"
+			(project "knob-buddy"
 				(path "/45510523-38ae-4a43-b070-6227195f9104"
 					(reference "#PWR046")
 					(unit 1)
@@ -6592,7 +6602,7 @@
 			(uuid "d64dbd99-82be-4b2e-a0d7-83f26c204ef8")
 		)
 		(instances
-			(project "template-card"
+			(project "knob-buddy"
 				(path "/45510523-38ae-4a43-b070-6227195f9104"
 					(reference "D3")
 					(unit 1)
@@ -6674,7 +6684,7 @@
 			(uuid "8c0abe80-a9b4-4cc6-8e07-61930b9c54f0")
 		)
 		(instances
-			(project "template-card"
+			(project "knob-buddy"
 				(path "/45510523-38ae-4a43-b070-6227195f9104"
 					(reference "C4")
 					(unit 1)
@@ -6783,7 +6793,7 @@
 			(uuid "b5ae9e24-7439-41bd-b9fc-aa31e1cb9c1f")
 		)
 		(instances
-			(project "template-card"
+			(project "knob-buddy"
 				(path "/45510523-38ae-4a43-b070-6227195f9104"
 					(reference "U1")
 					(unit 1)
