@@ -47,3 +47,6 @@ _restore_backup_*
 
 # JLCPCB project files
 jlcpcb/
+
+# Secret
+stash/
