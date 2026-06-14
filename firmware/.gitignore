@@ -7,6 +7,7 @@
 **/test/test_vbus
 **/test/test_policy
 **/test/test_slot
+**/test/test_schemas
 
 # Compiled example binaries
 examples/*/demo

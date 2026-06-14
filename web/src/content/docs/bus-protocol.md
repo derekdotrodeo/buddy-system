@@ -7,7 +7,7 @@ section: Specifications
 
 The Buddy Bus Protocol (BBP) is a host-polled transport bus that carries schema-defined packets between a host microcontroller and Buddy Cards over the Buddy System backplane.
 
-**BS-SPEC-200** · Version 1.3 Draft · Jun 2026 · Requires [BS-SPEC-100](/docs/technical-spec/)
+**BS-SPEC-200** · Version 1.4 Draft · Jun 2026 · Requires [BS-SPEC-100](/docs/technical-spec/)
 
 ## 1. Purpose
 
@@ -244,6 +244,8 @@ BBP transports **schema-defined payloads**. BBP itself defines framing, addressi
 
 Schema names are namespaced by convention (for example `controls.potbank`). The `bbp.` namespace is reserved for protocol-level messages (§8); module payload schemas shall not use the `bbp.` prefix.
 
+A baseline catalog of recommended common schemas (controls, MIDI) is defined separately in [BS-SPEC-300](/docs/common-schemas/). Using them is optional, but they let independent modules interoperate without prior agreement.
+
 ## 8. Reserved Schemas
 
 *Normative*
@@ -403,6 +405,7 @@ These features are explicitly outside the scope of BBP v1.
 ### Related documents
 
 - [BS-SPEC-100](/docs/technical-spec/) — Mechanical + electrical standard
+- [BS-SPEC-300](/docs/common-schemas/) — Common application schemas
 - [BS-DS-001](/design/) — Design system v0.1
 
 ## Revision History
@@ -413,3 +416,4 @@ These features are explicitly outside the scope of BBP v1.
 | 1.1 DRAFT | JUN 2026 | Reframed BBP as a host-polled transport carrying schema-defined packets: added Bus Access (polling model), Packet Framing, Schema Layer, Reserved Schemas, and Synchronization sections; added DEST broadcast/addressed semantics; discovery now expressed with `bbp.identify` / `bbp.poll` / `bbp.info`; SLOT named the sole source of address assignment. Added BBP scope exclusions (control/event only), the three-layer model, and a Module Requirements section (§2.4). |
 | 1.2 DRAFT | JUN 2026 | Ratified the reference wire format (§5.1): field widths, reserved addresses (broadcast `0`, Host `7`), and CRC-16/CCITT-FALSE over `SRC`…`PAYLOAD`. Added response-queue ordering — protocol responses ahead of events (§4.2) — and the poll-response timeout (§4.3). Defined the `bbp.error` payload and error classes (§8.1). Removed `bbp.hello` and `bbp.heartbeat` from the reserved set (liveness is proven by a successful poll). |
 | 1.3 DRAFT | JUN 2026 | Defined the `bbp.info` payload byte layout (§9.3): slot count, version major/minor, and length-prefixed vendor/product UTF-8 strings (≤24 bytes each). |
+| 1.4 DRAFT | JUN 2026 | Cross-referenced the common-schema catalog (§7) now defined in BS-SPEC-300. |

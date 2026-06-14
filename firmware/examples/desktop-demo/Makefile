@@ -12,7 +12,8 @@ ROOT    := ../..
 CORE    := $(ROOT)/bbp-core
 DESK    := $(ROOT)/platforms/desktop
 POL     := $(ROOT)/bbp-policy
-CPPFLAGS += -I$(CORE)/include -I$(DESK)/include -I$(POL)/include
+SCH     := $(ROOT)/bbp-schemas
+CPPFLAGS += -I$(CORE)/include -I$(DESK)/include -I$(POL)/include -I$(SCH)/include
 
 LIBS    := $(POL)/libbbp-policy.a $(DESK)/libbbp-desktop.a $(CORE)/libbbp-core.a
 

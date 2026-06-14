@@ -8,18 +8,16 @@
  *   3. polls each populated slot for a few rounds, printing control events,
  *   4. broadcasts bbp.stop.
  *
- * This is the same policy + platform code that runs on real hardware; only the
- * platform (the virtual bus) is swapped for a simulated one.
+ * Control events use the common schemas (BS-SPEC-300) via bbp_schemas.h. This
+ * is the same policy + core code that runs on real hardware; only the platform
+ * (the virtual bus) is swapped for a simulated one.
  *
  *   make run   (from firmware/examples/desktop-demo)
  */
 #include "bbp_policy.h"
 #include "bbp_desktop.h"
+#include "bbp_schemas.h"
 #include <stdio.h>
-
-/* Application-defined control schemas (not in the bbp.* reserved namespace). */
-#define SCHEMA_POT "controls.pot"      /* payload: [pot_index, value]   */
-#define SCHEMA_BTN "controls.button"   /* payload: [btn_index, pressed] */
 
 /* ---- module application state ---- */
 typedef struct { int started; } mod_state_t;
@@ -36,17 +34,22 @@ static bool mod_handler(bbp_mod_t *m, const bbp_packet_t *pkt, void *app)
     return false;   /* these modules expose no addressed commands */
 }
 
-/* ---- host application: print whatever cards report ---- */
+/* ---- host application: decode and print what cards report ---- */
 static void host_handler(bbp_host_t *h, const bbp_packet_t *pkt, void *app)
 {
+    uint8_t  idx;
+    uint16_t value;
+    bool     pressed;
     (void)h; (void)app;
-    if (bbp_schema_eq(pkt, SCHEMA_POT) && pkt->payload_len == 2) {
-        printf("    [slot %u] pot %u -> %3u\n",
-               (unsigned)pkt->src, (unsigned)pkt->payload[0], (unsigned)pkt->payload[1]);
-    } else if (bbp_schema_eq(pkt, SCHEMA_BTN) && pkt->payload_len == 2) {
+
+    if (bbp_schema_eq(pkt, BBP_SCHEMA_POT) &&
+        bbp_pot_decode(pkt->payload, pkt->payload_len, &idx, &value)) {
+        printf("    [slot %u] pot %u -> %5u\n",
+               (unsigned)pkt->src, (unsigned)idx, (unsigned)value);
+    } else if (bbp_schema_eq(pkt, BBP_SCHEMA_BUTTON) &&
+               bbp_button_decode(pkt->payload, pkt->payload_len, &idx, &pressed)) {
         printf("    [slot %u] button %u %s\n",
-               (unsigned)pkt->src, (unsigned)pkt->payload[0],
-               pkt->payload[1] ? "DOWN" : "up");
+               (unsigned)pkt->src, (unsigned)idx, pressed ? "DOWN" : "up");
     } else if (bbp_schema_eq(pkt, BBP_SCHEMA_ERROR) && pkt->payload_len >= 1) {
         printf("    [slot %u] bbp.error class %u\n",
                (unsigned)pkt->src, (unsigned)pkt->payload[0]);
@@ -134,13 +137,17 @@ int main(void)
     /* 3. poll for events */
     printf("Polling for events (8 rounds)...\n");
     for (round = 0; round < 8; round++) {
-        /* simulate hardware: the POT-6 sweeps a pot each round; the BTN-4
-           reports a button every third round */
-        uint8_t pe[2] = { (uint8_t)(round % 6), (uint8_t)(round * 32) };
-        bbp_mod_post_event(&pot, SCHEMA_POT, (uint8_t)sizeof SCHEMA_POT - 1, pe, 2);
+        /* simulate hardware: the POT-6 sweeps a pot each round (full 16-bit
+           range); the BTN-4 reports a button every third round */
+        uint8_t pe[BBP_POT_LEN];
+        bbp_pot_encode(pe, (uint8_t)(round % 6), (uint16_t)(round * 4096));
+        bbp_mod_post_event(&pot, BBP_SCHEMA_POT,
+                           (uint8_t)(sizeof BBP_SCHEMA_POT - 1), pe, BBP_POT_LEN);
         if (round % 3 == 0) {
-            uint8_t be[2] = { (uint8_t)(round % 4), (uint8_t)((round / 3) % 2) };
-            bbp_mod_post_event(&btn, SCHEMA_BTN, (uint8_t)sizeof SCHEMA_BTN - 1, be, 2);
+            uint8_t be[BBP_BUTTON_LEN];
+            bbp_button_encode(be, (uint8_t)(round % 4), ((round / 3) % 2) != 0);
+            bbp_mod_post_event(&btn, BBP_SCHEMA_BUTTON,
+                               (uint8_t)(sizeof BBP_SCHEMA_BUTTON - 1), be, BBP_BUTTON_LEN);
         }
         /* host drains one packet per populated slot */
         for (s = BBP_SLOT_MIN; s <= BBP_SLOT_MAX; s++) {
