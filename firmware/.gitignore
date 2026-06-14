@@ -1,0 +1,11 @@
+# Build artifacts
+*.o
+*.a
+
+# Compiled test binaries (built from test/*.c)
+*/test/test_bbp
+*/test/test_vbus
+*/test/test_policy
+**/test/test_bbp
+**/test/test_vbus
+**/test/test_policy

@@ -1,0 +1,3 @@
+# Help clangd resolve headers for editor diagnostics (mirrors the Makefile).
+CompileFlags:
+  Add: [-Iinclude, -I../bbp-core/include, -I../platforms/desktop/include, -std=c99]
