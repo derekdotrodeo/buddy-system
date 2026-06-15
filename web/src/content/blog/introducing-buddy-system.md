@@ -4,7 +4,9 @@ description: A Eurorack-compatible prototyping platform built on the humble brea
 pubDate: 2026-06-12
 author: Derek
 tags: [announcement, hardware]
-draft: false
+# Superseded by "Bringing synths to the people" (BD-LOG-001), the real first post.
+# Kept as a hidden draft rather than deleted.
+draft: true
 ---
 
 > Placeholder post. Real announcement copy will land in a later pass.

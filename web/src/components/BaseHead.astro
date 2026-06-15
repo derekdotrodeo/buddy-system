@@ -1,12 +1,16 @@
 ---
 // Shared <head>: meta, canonical, fonts.
 interface Props {
-  title: string;
-  description?: string;
+    title: string;
+    description?: string;
 }
-const { title, description = 'A Eurorack-compatible prototyping platform — a Buddy Base and modular Buddy Cards.' } = Astro.props;
+const {
+    title,
+    description = 'A Eurorack-compatible prototyping platform — a Buddy Base and modular Buddy Cards.',
+} = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 ---
+
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="generator" content={Astro.generator} />
@@ -27,6 +31,8 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link
-  rel="stylesheet"
-  href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Semi+Condensed:wght@500;600;700;800&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Semi+Condensed:wght@500;600;700;800&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap"
 />
+
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>

@@ -1,0 +1,5 @@
+# Resolves the BBP headers for editor diagnostics. Pico SDK headers
+# (hardware/*.h, pico/*.h) will only resolve inside a Pico SDK CMake build;
+# in-editor "file not found" for those is expected here.
+CompileFlags:
+  Add: [-Iinclude, -I../../bbp-core/include, -I../../bbp-policy/include, -std=c99]

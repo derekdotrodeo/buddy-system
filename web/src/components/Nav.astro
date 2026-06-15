@@ -1,64 +1,114 @@
 ---
 // Shared site nav — dark "soldermask panel", real routes, restyled to the homepage design.
 const items = [
-  { href: '/features/', label: 'CARDS' },
-  { href: '/docs/', label: 'DOCS' },
-  { href: '/design/', label: 'DESIGN' },
-  { href: '/blog/', label: 'BLOG' },
+    { href: '/features/', label: 'CARDS' },
+    { href: '/docs/', label: 'DOCS' },
+    { href: '/design/', label: 'DESIGN' },
+    { href: '/blog/', label: 'BLOG' },
 ];
 const path = Astro.url.pathname;
 const isActive = (href: string) => path === href || path.startsWith(href);
 ---
+
 <header class="nav" id="nav">
-  <div class="wrap nav-row">
-    <a href="/" class="plate brand" aria-label="Buddy System — home">
-      <span class="cell fill"><span>BUDDY</span></span><span class="cell">SYSTEM</span>
-    </a>
-    <div class="nav-links">
-      {items.map((i) => (
-        <a href={i.href} aria-current={isActive(i.href) ? 'page' : undefined}>{i.label}</a>
-      ))}
+    <div class="wrap nav-row">
+        <a href="/" class="plate brand" aria-label="Buddy System — home">
+            <span class="cell fill"><span>BUDDY</span></span><span class="cell">SYSTEM</span>
+        </a>
+        <div class="nav-links">
+            {
+                items.map((i) => (
+                    <a href={i.href} aria-current={isActive(i.href) ? 'page' : undefined}>
+                        {i.label}
+                    </a>
+                ))
+            }
+        </div>
+        <a class="btn" href="/#waitlist">Join the waitlist</a>
     </div>
-    <a class="btn" href="/#waitlist">Join the waitlist</a>
-  </div>
 </header>
 
 <style>
-  .nav {
-    position: sticky; top: 0; z-index: 40;
-    border-bottom: 1px solid var(--ink-3);
-    background: color-mix(in oklab, var(--ink) 88%, transparent);
-    backdrop-filter: blur(8px);
-    color: var(--silk);
-    --plate-fill-text: var(--ink); /* nav is always dark: white-fill plate, ink text */
-    transition: border-color .3s ease, background .3s ease, box-shadow .3s ease;
-  }
-  .nav.scrolled { border-bottom-color: var(--ink-2); box-shadow: 0 10px 30px rgba(0,0,0,.35); }
-  .nav-row { display: flex; align-items: center; gap: calc(var(--p) * 3); height: calc(var(--p) * 6.6); }
-  .brand { font-size: 13px; text-decoration: none; color: inherit; }
-  .nav-links { display: flex; gap: calc(var(--p) * 2.6); margin-left: auto; }
-  .nav-links a {
-    font-family: var(--font-mono); font-size: 12.5px; letter-spacing: 0.06em;
-    color: var(--silk-soft); text-decoration: none; position: relative; padding: 4px 0;
-    transition: color .16s ease;
-  }
-  .nav-links a::after {
-    content: ''; position: absolute; left: 0; right: 100%; bottom: -2px; height: 2px;
-    background: var(--accent); transition: right .22s ease;
-  }
-  .nav-links a:hover { color: var(--silk); }
-  .nav-links a:hover::after,
-  .nav-links a[aria-current='page']::after { right: 0; }
-  .nav-links a[aria-current='page'] { color: var(--silk); }
-  .nav .btn { padding: 8px 16px 7px; font-size: 13px; }
-  @media (max-width: 760px) { .nav-links { display: none; } }
+    .nav {
+        position: sticky;
+        top: 0;
+        z-index: 40;
+        border-bottom: 1px solid var(--ink-3);
+        background: color-mix(in oklab, var(--ink) 88%, transparent);
+        backdrop-filter: blur(8px);
+        color: var(--silk);
+        --plate-fill-text: var(--ink); /* nav is always dark: white-fill plate, ink text */
+        transition:
+            border-color 0.3s ease,
+            background 0.3s ease,
+            box-shadow 0.3s ease;
+    }
+    .nav.scrolled {
+        border-bottom-color: var(--ink-2);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    }
+    .nav-row {
+        display: flex;
+        align-items: center;
+        gap: calc(var(--p) * 3);
+        height: calc(var(--p) * 6.6);
+    }
+    .brand {
+        font-size: 13px;
+        text-decoration: none;
+        color: inherit;
+    }
+    .nav-links {
+        display: flex;
+        gap: calc(var(--p) * 2.6);
+        margin-left: auto;
+    }
+    .nav-links a {
+        font-family: var(--font-mono);
+        font-size: 12.5px;
+        letter-spacing: 0.06em;
+        color: var(--silk-soft);
+        text-decoration: none;
+        position: relative;
+        padding: 4px 0;
+        transition: color 0.16s ease;
+    }
+    .nav-links a::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 100%;
+        bottom: -2px;
+        height: 2px;
+        background: var(--accent);
+        transition: right 0.22s ease;
+    }
+    .nav-links a:hover {
+        color: var(--silk);
+    }
+    .nav-links a:hover::after,
+    .nav-links a[aria-current='page']::after {
+        right: 0;
+    }
+    .nav-links a[aria-current='page'] {
+        color: var(--silk);
+    }
+    .nav .btn {
+        padding: 8px 16px 7px;
+        font-size: 13px;
+    }
+    @media (max-width: 760px) {
+        .nav-links {
+            display: none;
+        }
+    }
 </style>
 
 <script>
-  const nav = document.getElementById('nav');
-  if (nav) {
-    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 8);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-  }
+    const nav = document.getElementById('nav');
+    if (nav) {
+        const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 8);
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+    }
 </script>

@@ -4,19 +4,21 @@
 // The filled cell's knockout text comes from --plate-fill-text, set by the surrounding
 // surface class (.on-ink / .on-paper) — or forced here via the `tone` prop.
 interface Props {
-  fill: string;                 // first cell (filled / knockout text)
-  rest: string;                 // second cell (outlined)
-  tone?: 'on-paper' | 'on-ink'; // force the knockout text color
-  size?: 'sm' | 'md' | 'lg';
+    fill: string; // first cell (filled / knockout text)
+    rest: string; // second cell (outlined)
+    tone?: 'on-paper' | 'on-ink'; // force the knockout text color
+    size?: 'sm' | 'md' | 'lg';
 }
 const { fill, rest, tone, size = 'md' } = Astro.props;
 const fontSize = size === 'sm' ? '10px' : size === 'lg' ? 'clamp(18px, 2.5vw, 28px)' : '13px';
-const fillText = tone === 'on-ink' ? 'var(--ink)' : tone === 'on-paper' ? 'var(--paper)' : undefined;
+const fillText =
+    tone === 'on-ink' ? 'var(--ink)' : tone === 'on-paper' ? 'var(--paper)' : undefined;
 const style = [`font-size: ${fontSize}`, fillText && `--plate-fill-text: ${fillText}`]
-  .filter(Boolean)
-  .join('; ');
+    .filter(Boolean)
+    .join('; ');
 ---
+
 <span class="plate" style={style}>
-  <span class="cell fill"><span>{fill}</span></span>
-  <span class="cell">{rest}</span>
+    <span class="cell fill"><span>{fill}</span></span>
+    <span class="cell">{rest}</span>
 </span>

@@ -2,55 +2,83 @@
 // A color-coded "Buddy Card" tile. `family` keys the accent off the --fam-* tokens.
 type Family = 'ctl' | 'snd' | 'dat' | 'lgc' | 'uty' | 'pwr';
 interface Props {
-  title: string;
-  refdes?: string;   // e.g. "BS-CTL-01"
-  family?: Family;
-  href?: string;
+    title: string;
+    refdes?: string; // e.g. "BD-CTL-01"
+    family?: Family;
+    href?: string;
 }
 const { title, refdes, family = 'uty', href } = Astro.props;
 const Tag = href ? 'a' : 'div';
 ---
+
 <Tag class:list={['card', `card--${family}`]} href={href}>
-  <div class="card__keybar" aria-hidden="true"></div>
-  <div class="card__body">
-    {refdes && <span class="card__refdes mono">{refdes}</span>}
-    <h3 class="card__title">{title}</h3>
-    <p class="card__desc muted"><slot /></p>
-  </div>
+    <div class="card__keybar" aria-hidden="true"></div>
+    <div class="card__body">
+        {refdes && <span class="card__refdes mono">{refdes}</span>}
+        <h3 class="card__title">{title}</h3>
+        <p class="card__desc muted"><slot /></p>
+    </div>
 </Tag>
 
 <style>
-  .card {
-    --fam: var(--fam-uty);
-    display: flex;
-    gap: 0;
-    background: var(--paper);
-    border: var(--bw) solid var(--paper-3);
-    border-radius: var(--r);
-    overflow: hidden;
-    text-decoration: none;
-    color: inherit;
-  }
-  a.card:hover { border-color: var(--ink-3); transform: translateY(-2px); }
+    .card {
+        --fam: var(--fam-uty);
+        display: flex;
+        gap: 0;
+        background: var(--paper);
+        border: var(--bw) solid var(--paper-3);
+        border-radius: var(--r);
+        overflow: hidden;
+        text-decoration: none;
+        color: inherit;
+    }
+    a.card:hover {
+        border-color: var(--ink-3);
+        transform: translateY(-2px);
+    }
 
-  /* family accents — color is wiring; appears only as the keybar + refdes */
-  .card--ctl { --fam: var(--fam-ctl); }
-  .card--snd { --fam: var(--fam-snd); }
-  .card--dat { --fam: var(--fam-dat); }
-  .card--lgc { --fam: var(--fam-lgc); }
-  .card--uty { --fam: var(--fam-uty); }
-  .card--pwr { --fam: var(--fam-pwr); }
+    /* family accents — color is wiring; appears only as the keybar + refdes */
+    .card--ctl {
+        --fam: var(--fam-ctl);
+    }
+    .card--snd {
+        --fam: var(--fam-snd);
+    }
+    .card--dat {
+        --fam: var(--fam-dat);
+    }
+    .card--lgc {
+        --fam: var(--fam-lgc);
+    }
+    .card--uty {
+        --fam: var(--fam-uty);
+    }
+    .card--pwr {
+        --fam: var(--fam-pwr);
+    }
 
-  .card__keybar { width: var(--p); background: var(--fam); flex: 0 0 auto; }
-  .card__body { padding: calc(var(--p) * 2); }
-  .card__refdes {
-    display: inline-block;
-    font-size: 0.7rem;
-    letter-spacing: 0.06em;
-    color: var(--ink-soft);
-    border-bottom: var(--bw) solid var(--fam);
-    padding-bottom: 1px;
-  }
-  .card__title { margin-top: var(--p-half); font-size: 1.15rem; }
-  .card__desc { margin-top: var(--p-half); font-size: 0.95rem; }
+    .card__keybar {
+        width: var(--p);
+        background: var(--fam);
+        flex: 0 0 auto;
+    }
+    .card__body {
+        padding: calc(var(--p) * 2);
+    }
+    .card__refdes {
+        display: inline-block;
+        font-size: 0.7rem;
+        letter-spacing: 0.06em;
+        color: var(--ink-soft);
+        border-bottom: var(--bw) solid var(--fam);
+        padding-bottom: 1px;
+    }
+    .card__title {
+        margin-top: var(--p-half);
+        font-size: 1.15rem;
+    }
+    .card__desc {
+        margin-top: var(--p-half);
+        font-size: 0.95rem;
+    }
 </style>

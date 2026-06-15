@@ -1,0 +1,6 @@
+dist
+.astro
+node_modules
+package-lock.json
+# spec/blog content has hand-tuned tables — keep Prettier out of it
+src/content

@@ -2,86 +2,164 @@
 // Shared site footer — sitemap, restyled to the homepage design.
 // Homepage-section links use absolute /#anchors so they work from any page.
 const cols = [
-  {
-    title: 'PRODUCT',
-    links: [
-      { href: '/features/', label: 'Cards' },
-      { href: '/#how', label: 'How it works' },
-      { href: '/#specs', label: 'Specs' },
-      { href: '/#waitlist', label: 'Waitlist' },
-    ],
-  },
-  {
-    title: 'LEARN',
-    links: [
-      { href: '/#patches', label: 'Patches' },
-      { href: '/docs/technical-spec/', label: 'BS-SPEC-100' },
-      { href: '/docs/bus-protocol/', label: 'BS-SPEC-200' },
-      { href: '/design/', label: 'Design system' },
-    ],
-  },
-  {
-    title: 'OPEN',
-    links: [
-      { href: '/#open', label: 'Make a card' },
-      { href: '/#open', label: 'The registry' },
-      { href: '#', label: 'GitHub' },
-      { href: '#', label: 'License' },
-    ],
-  },
-  {
-    title: 'COMMUNITY',
-    links: [
-      { href: '#', label: 'Forum' },
-      { href: '#', label: 'Discord' },
-      { href: '#', label: 'Newsletter' },
-      { href: '#', label: 'Showcase' },
-    ],
-  },
+    {
+        title: 'PRODUCT',
+        links: [
+            { href: '/features/', label: 'Cards' },
+            { href: '/#how', label: 'How it works' },
+            { href: '/#specs', label: 'Specs' },
+            { href: '/#waitlist', label: 'Waitlist' },
+        ],
+    },
+    {
+        title: 'LEARN',
+        links: [
+            { href: '/#patches', label: 'Patches' },
+            { href: '/docs/technical-spec/', label: 'BD-SPEC-100' },
+            { href: '/docs/bus-protocol/', label: 'BD-SPEC-200' },
+            { href: '/design/', label: 'Design system' },
+        ],
+    },
+    {
+        title: 'OPEN',
+        links: [
+            { href: '/#open', label: 'Make a card' },
+            { href: '/#open', label: 'The registry' },
+            { href: '#', label: 'GitHub' },
+            { href: '#', label: 'License' },
+        ],
+    },
+    {
+        title: 'COMMUNITY',
+        links: [
+            { href: '#', label: 'Forum' },
+            { href: '#', label: 'Discord' },
+            { href: '#', label: 'Newsletter' },
+            { href: '#', label: 'Showcase' },
+        ],
+    },
 ];
 ---
+
 <footer class="foot" data-screen-label="Footer">
-  <div class="rails"></div>
-  <div class="wrap">
-    <div class="foot-main">
-      <div class="foot-brand">
-        <a href="/" class="plate" aria-label="Buddy System — home" style="text-decoration:none;color:inherit;">
-          <span class="cell fill"><span>BUDDY</span></span><span class="cell">SYSTEM</span>
-        </a>
-        <p>A design language you can breadboard. Solderless, Eurorack-compatible, open hardware.</p>
-      </div>
-      {cols.map((col) => (
-        <div class="foot-col">
-          <h5>{col.title}</h5>
-          {col.links.map((l) => <a href={l.href}>{l.label}</a>)}
+    <div class="rails"></div>
+    <div class="wrap">
+        <div class="foot-main">
+            <div class="foot-brand">
+                <a
+                    href="/"
+                    class="plate"
+                    aria-label="Buddy System — home"
+                    style="text-decoration:none;color:inherit;"
+                >
+                    <span class="cell fill"><span>BUDDY</span></span><span class="cell">SYSTEM</span
+                    >
+                </a>
+                <p>
+                    A design language you can breadboard. Solderless, Eurorack-compatible, open
+                    hardware.
+                </p>
+            </div>
+            {
+                cols.map((col) => (
+                    <div class="foot-col">
+                        <h5>{col.title}</h5>
+                        {col.links.map((l) => (
+                            <a href={l.href}>{l.label}</a>
+                        ))}
+                    </div>
+                ))
+            }
         </div>
-      ))}
+        <div class="foot-bottom">
+            <span class="mcap">BUDDY SYSTEM · BD-000 · DRAFT JUN 2026 · MADE TO BE MODIFIED</span>
+            <div class="foot-legal">
+                <a href="#">PRIVACY</a>
+                <a href="#">TERMS</a>
+                <a href="#">© 2026</a>
+            </div>
+        </div>
     </div>
-    <div class="foot-bottom">
-      <span class="mcap">BUDDY SYSTEM · BS-000 · DRAFT JUN 2026 · MADE TO BE MODIFIED</span>
-      <div class="foot-legal">
-        <a href="#">PRIVACY</a>
-        <a href="#">TERMS</a>
-        <a href="#">© 2026</a>
-      </div>
-    </div>
-  </div>
 </footer>
 
 <style>
-  .foot { background: var(--ink); color: var(--silk); --plate-fill-text: var(--ink); }
-  .foot .rails { border-radius: 0; }
-  .foot-main { display: grid; grid-template-columns: 1.4fr repeat(4, 1fr); gap: calc(var(--p) * 3); padding: calc(var(--p) * 6) 0 calc(var(--p) * 4); }
-  @media (max-width: 820px) { .foot-main { grid-template-columns: 1fr 1fr; } }
-  .foot-brand { display: flex; flex-direction: column; gap: var(--p); }
-  .foot-brand .plate { font-size: 13px; align-self: flex-start; }
-  .foot-brand p { font-size: 13.5px; line-height: 1.55; color: var(--silk-soft); max-width: 30ch; }
-  .foot-col h5 { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--silk-soft); margin-bottom: calc(var(--p) * 1.6); }
-  .foot-col a { display: block; font-size: 14px; color: var(--silk); text-decoration: none; padding: 5px 0; transition: color .16s ease; }
-  .foot-col a:hover { color: var(--accent); }
-  .foot-bottom { display: flex; align-items: center; justify-content: space-between; gap: var(--p); flex-wrap: wrap; padding: calc(var(--p) * 2.4) 0 calc(var(--p) * 4); border-top: 1px solid var(--ink-3); }
-  .foot-bottom .mcap { color: var(--silk-soft); }
-  .foot-legal { display: flex; gap: calc(var(--p) * 2.4); }
-  .foot-legal a { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; color: var(--silk-soft); text-decoration: none; }
-  .foot-legal a:hover { color: var(--silk); }
+    .foot {
+        background: var(--ink);
+        color: var(--silk);
+        --plate-fill-text: var(--ink);
+    }
+    .foot .rails {
+        border-radius: 0;
+    }
+    .foot-main {
+        display: grid;
+        grid-template-columns: 1.4fr repeat(4, 1fr);
+        gap: calc(var(--p) * 3);
+        padding: calc(var(--p) * 6) 0 calc(var(--p) * 4);
+    }
+    @media (max-width: 820px) {
+        .foot-main {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+    .foot-brand {
+        display: flex;
+        flex-direction: column;
+        gap: var(--p);
+    }
+    .foot-brand .plate {
+        font-size: 13px;
+        align-self: flex-start;
+    }
+    .foot-brand p {
+        font-size: 13.5px;
+        line-height: 1.55;
+        color: var(--silk-soft);
+        max-width: 30ch;
+    }
+    .foot-col h5 {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--silk-soft);
+        margin-bottom: calc(var(--p) * 1.6);
+    }
+    .foot-col a {
+        display: block;
+        font-size: 14px;
+        color: var(--silk);
+        text-decoration: none;
+        padding: 5px 0;
+        transition: color 0.16s ease;
+    }
+    .foot-col a:hover {
+        color: var(--accent);
+    }
+    .foot-bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--p);
+        flex-wrap: wrap;
+        padding: calc(var(--p) * 2.4) 0 calc(var(--p) * 4);
+        border-top: 1px solid var(--ink-3);
+    }
+    .foot-bottom .mcap {
+        color: var(--silk-soft);
+    }
+    .foot-legal {
+        display: flex;
+        gap: calc(var(--p) * 2.4);
+    }
+    .foot-legal a {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        letter-spacing: 0.06em;
+        color: var(--silk-soft);
+        text-decoration: none;
+    }
+    .foot-legal a:hover {
+        color: var(--silk);
+    }
 </style>

@@ -1,0 +1,22 @@
+# Build artifacts
+*.o
+*.a
+
+# Compiled test binaries (built from test/*.c)
+**/test/test_bbp
+**/test/test_vbus
+**/test/test_policy
+**/test/test_slot
+**/test/test_schemas
+
+# Compiled example binaries
+examples/*/demo
+
+# CMake / Pico SDK build output
+build/
+*.uf2
+*.elf
+*.bin
+*.hex
+*.dis
+*.map

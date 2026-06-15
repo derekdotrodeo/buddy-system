@@ -3,55 +3,85 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const docs = (await getCollection('docs')).sort(
-  (a, b) => (a.data.order ?? 0) - (b.data.order ?? 0),
+    (a, b) => (a.data.order ?? 0) - (b.data.order ?? 0),
 );
 const sections = [...new Set(docs.map((d) => d.data.section))];
 ---
-<BaseLayout title="Documentation — Buddy System" description="Guides for the Buddy Base and Buddy Cards.">
-  <section class="section container stack">
-    <span class="label muted">Documentation</span>
-    <h1>Docs</h1>
-    <p class="muted">
-      Patient guides for getting the most out of your Buddy System. Placeholder structure —
-      content is ported from the technical spec over time.
-    </p>
 
-    {sections.map((sec) => (
-      <div class="docs-group">
-        <p class="label muted docs-group__title">{sec}</p>
-        <ul class="docs-list">
-          {docs
-            .filter((d) => d.data.section === sec)
-            .map((d) => (
-              <li>
-                <a href={`/docs/${d.id}`}>
-                  <span class="docs-list__title">{d.data.title}</span>
-                  {d.data.description && (
-                    <span class="docs-list__desc muted">{d.data.description}</span>
-                  )}
-                </a>
-              </li>
-            ))}
-        </ul>
-      </div>
-    ))}
-  </section>
+<BaseLayout
+    title="Documentation — Buddy System"
+    description="Guides for the Buddy Base and Buddy Cards."
+>
+    <section class="section container stack">
+        <span class="label muted">Documentation</span>
+        <h1>Docs</h1>
+        <p class="muted">
+            Patient guides for getting the most out of your Buddy System. Placeholder structure —
+            content is ported from the technical spec over time.
+        </p>
+
+        {
+            sections.map((sec) => (
+                <div class="docs-group">
+                    <p class="label muted docs-group__title">{sec}</p>
+                    <ul class="docs-list">
+                        {docs
+                            .filter((d) => d.data.section === sec)
+                            .map((d) => (
+                                <li>
+                                    <a href={`/docs/${d.id}`}>
+                                        <span class="docs-list__title">{d.data.title}</span>
+                                        {d.data.description && (
+                                            <span class="docs-list__desc muted">
+                                                {d.data.description}
+                                            </span>
+                                        )}
+                                    </a>
+                                </li>
+                            ))}
+                    </ul>
+                </div>
+            ))
+        }
+    </section>
 </BaseLayout>
 
 <style>
-  .docs-group { margin-top: calc(var(--p) * 3); }
-  .docs-group__title { display: block; margin-bottom: var(--p); }
-  .docs-list { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--p); }
-  .docs-list a {
-    display: block;
-    text-decoration: none;
-    color: inherit;
-    padding: calc(var(--p) * 1.5);
-    border: var(--bw) solid var(--paper-3);
-    border-radius: var(--r);
-    background: var(--paper);
-  }
-  .docs-list a:hover { border-color: var(--ink-3); }
-  .docs-list__title { font-family: var(--font-cond); font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
-  .docs-list__desc { display: block; margin-top: var(--p-half); font-size: 0.9rem; }
+    .docs-group {
+        margin-top: calc(var(--p) * 3);
+    }
+    .docs-group__title {
+        display: block;
+        margin-bottom: var(--p);
+    }
+    .docs-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: var(--p);
+    }
+    .docs-list a {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+        padding: calc(var(--p) * 1.5);
+        border: var(--bw) solid var(--paper-3);
+        border-radius: var(--r);
+        background: var(--paper);
+    }
+    .docs-list a:hover {
+        border-color: var(--ink-3);
+    }
+    .docs-list__title {
+        font-family: var(--font-cond);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+    }
+    .docs-list__desc {
+        display: block;
+        margin-top: var(--p-half);
+        font-size: 0.9rem;
+    }
 </style>

@@ -3,42 +3,83 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Card from '../../components/Card.astro';
 
 const families = [
-  { key: 'ctl', name: 'Control', hue: 'Orange', blurb: 'Human inputs — pots, faders, switches.', cards: ['BS-CTL-01 Pots Buddy', 'BS-CTL-02 Switch Buddy'] },
-  { key: 'snd', name: 'Sound', hue: 'Yellow', blurb: 'Anything that makes or shapes a voice.', cards: ['BS-SND-01 Amp Buddy', 'BS-SND-02 Filter Buddy'] },
-  { key: 'dat', name: 'Data', hue: 'Green', blurb: 'I/O to the outside world.', cards: ['BS-DAT-01 MIDI Buddy'] },
-  { key: 'lgc', name: 'Logic', hue: 'Blue', blurb: 'Timing and sequence.', cards: ['BS-LGC-01 Clock Buddy'] },
-  { key: 'uty', name: 'Utility', hue: 'Violet', blurb: 'Blanks, breakouts, and helpers.', cards: ['BS-UTY-04 Blank Buddy'] },
-  { key: 'pwr', name: 'Power', hue: 'Red', blurb: 'Rails and regulation.', cards: ['+V / GND distribution'] },
+    {
+        key: 'ctl',
+        name: 'Control',
+        hue: 'Orange',
+        blurb: 'Human inputs — pots, faders, switches.',
+        cards: ['BD-CTL-01 Pots Buddy', 'BD-CTL-02 Switch Buddy'],
+    },
+    {
+        key: 'snd',
+        name: 'Sound',
+        hue: 'Yellow',
+        blurb: 'Anything that makes or shapes a voice.',
+        cards: ['BD-SND-01 Amp Buddy', 'BD-SND-02 Filter Buddy'],
+    },
+    {
+        key: 'dat',
+        name: 'Data',
+        hue: 'Green',
+        blurb: 'I/O to the outside world.',
+        cards: ['BD-DAT-01 MIDI Buddy'],
+    },
+    {
+        key: 'lgc',
+        name: 'Logic',
+        hue: 'Blue',
+        blurb: 'Timing and sequence.',
+        cards: ['BD-LGC-01 Clock Buddy'],
+    },
+    {
+        key: 'uty',
+        name: 'Utility',
+        hue: 'Violet',
+        blurb: 'Blanks, breakouts, and helpers.',
+        cards: ['BD-UTY-04 Blank Buddy'],
+    },
+    {
+        key: 'pwr',
+        name: 'Power',
+        hue: 'Red',
+        blurb: 'Rails and regulation.',
+        cards: ['+V / GND distribution'],
+    },
 ] as const;
 ---
-<BaseLayout title="Features — Buddy System" description="The six color-coded Buddy Card families.">
-  <section class="section container stack">
-    <span class="label muted">The system</span>
-    <h1>Six families, one pitch</h1>
-    <p class="muted">
-      Every Buddy Card belongs to a family, and every family gets its own working color —
-      because on the Buddy System, color is wiring. Placeholder copy; full feature pages
-      will be ported from the design system later.
-    </p>
-  </section>
 
-  <section class="container" style="padding-bottom: calc(var(--p) * 6);">
-    <div class="grid">
-      {families.map((f) => (
-        <Card title={f.name} refdes={`${f.hue} family`} family={f.key}>
-          {f.blurb}
-          <br />
-          <span class="mono" style="font-size:0.8rem;">{f.cards.join(' · ')}</span>
-        </Card>
-      ))}
-    </div>
-  </section>
+<BaseLayout title="Features — Buddy System" description="The six color-coded Buddy Card families.">
+    <section class="section container stack">
+        <span class="label muted">The system</span>
+        <h1>Six families, one pitch</h1>
+        <p class="muted">
+            Every Buddy Card belongs to a family, and every family gets its own working color —
+            because on the Buddy System, color is wiring. Placeholder copy; full feature pages will
+            be ported from the design system later.
+        </p>
+    </section>
+
+    <section class="container" style="padding-bottom: calc(var(--p) * 6);">
+        <div class="grid">
+            {
+                families.map((f) => (
+                    <Card title={f.name} refdes={`${f.hue} family`} family={f.key}>
+                        {f.blurb}
+                        <br />
+                        <span class="mono" style="font-size:0.8rem;">
+                            {f.cards.join(' · ')}
+                        </span>
+                    </Card>
+                ))
+            }
+        </div>
+    </section>
 </BaseLayout>
 
 <style>
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-    gap: calc(var(--p) * 2);
-  }
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+        gap: calc(var(--p) * 2);
+    }
 </style>

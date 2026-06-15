@@ -5,71 +5,71 @@
    "If it isn't on the pitch, it isn't Buddy System."
    ============================================================ */
 :root {
-  /* ---- the pitch: 0.1in breadboard spacing. 1P = 10px on screen ---- */
-  --p: 10px;
-  --p-half: 5px;
+    /* ---- the pitch: 0.1in breadboard spacing. 1P = 10px on screen ---- */
+    --p: 10px;
+    --p-half: 5px;
 
-  /* ---- surfaces ---- */
-  --ink: #17181b;        /* matte black soldermask */
-  --ink-2: #232527;      /* raised black (cards on ink) */
-  --ink-3: #313438;      /* hairlines on ink */
-  --paper: #f4f3ee;      /* breadboard ABS white, warm-neutral */
-  --paper-2: #eceae3;    /* recessed paper */
-  --paper-3: #dcd9cf;    /* hairlines on paper */
-  --silk: #ffffff;       /* silkscreen white */
-  --ink-soft: #5b5e63;   /* secondary text on paper */
-  --silk-soft: #9a9da3;  /* secondary text on ink */
-  --copper: #c29a4d;     /* exposed pad gold — reserved, sparing */
+    /* ---- surfaces ---- */
+    --ink: #17181b; /* matte black soldermask */
+    --ink-2: #232527; /* raised black (cards on ink) */
+    --ink-3: #313438; /* hairlines on ink */
+    --paper: #f4f3ee; /* breadboard ABS white, warm-neutral */
+    --paper-2: #eceae3; /* recessed paper */
+    --paper-3: #dcd9cf; /* hairlines on paper */
+    --silk: #ffffff; /* silkscreen white */
+    --ink-soft: #5b5e63; /* secondary text on paper */
+    --silk-soft: #9a9da3; /* secondary text on ink */
+    --copper: #c29a4d; /* exposed pad gold — reserved, sparing */
 
-  /* ---- rails (reserved meanings, never decorative) ---- */
-  --rail-pos: oklch(0.62 0.18 28);   /* +V  red  */
-  --rail-neg: oklch(0.58 0.12 252);  /* GND blue */
+    /* ---- rails (reserved meanings, never decorative) ---- */
+    --rail-pos: oklch(0.62 0.18 28); /* +V  red  */
+    --rail-neg: oklch(0.58 0.12 252); /* GND blue */
 
-  /* ---- family hues: color is wiring, not decoration ---- */
-  --fam-ctl: oklch(0.70 0.17 50);    /* CTL · Control   · orange */
-  --fam-snd: oklch(0.86 0.17 98);    /* SND · Sound     · yellow */
-  --fam-dat: oklch(0.70 0.15 155);   /* DAT · Data      · green  */
-  --fam-lgc: oklch(0.67 0.13 240);   /* LGC · Logic     · blue   */
-  --fam-uty: oklch(0.67 0.13 305);   /* UTY · Utility   · violet */
-  --fam-pwr: oklch(0.62 0.18 28);    /* PWR · Power     · red (= rail) */
+    /* ---- family hues: color is wiring, not decoration ---- */
+    --fam-ctl: oklch(0.7 0.17 50); /* CTL · Control   · orange */
+    --fam-snd: oklch(0.86 0.17 98); /* SND · Sound     · yellow */
+    --fam-dat: oklch(0.7 0.15 155); /* DAT · Data      · green  */
+    --fam-lgc: oklch(0.67 0.13 240); /* LGC · Logic     · blue   */
+    --fam-uty: oklch(0.67 0.13 305); /* UTY · Utility   · violet */
+    --fam-pwr: oklch(0.62 0.18 28); /* PWR · Power     · red (= rail) */
 
-  /* ---- type ---- */
-  --font-sans: 'Barlow', 'DIN 2014', sans-serif;
-  --font-cond: 'Barlow Semi Condensed', 'DIN 2014', sans-serif;
-  --font-mono: 'IBM Plex Mono', monospace;
+    /* ---- type ---- */
+    --font-sans: 'Barlow', 'DIN 2014', sans-serif;
+    --font-cond: 'Barlow Semi Condensed', 'DIN 2014', sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
 
-  /* ---- shape ---- */
-  --r: 6px;            /* default corner radius (tweakable) */
-  --r-sm: 3px;
-  --bw: 2px;           /* silkscreen stroke weight */
+    /* ---- shape ---- */
+    --r: 6px; /* default corner radius (tweakable) */
+    --r-sm: 3px;
+    --bw: 2px; /* silkscreen stroke weight */
 
-  /* ---- the interaction hue — locked to DAT ---- */
-  --accent: var(--fam-dat);
+    /* ---- the interaction hue — locked to DAT ---- */
+    --accent: var(--fam-dat);
 
-  /* breadboard dot-grid for light page backgrounds */
-  --grid-dot: radial-gradient(circle at center, var(--paper-3) 1.6px, transparent 1.7px);
+    /* breadboard dot-grid for light page backgrounds */
+    --grid-dot: radial-gradient(circle at center, var(--paper-3) 1.6px, transparent 1.7px);
 }
 
 /* ============================================================
    DOT GRIDS — the breadboard texture
    ============================================================ */
 .dots-dark {
-  background-image: radial-gradient(circle at center, var(--ink-3) 1.6px, transparent 1.7px);
-  background-size: var(--p) var(--p);
+    background-image: radial-gradient(circle at center, var(--ink-3) 1.6px, transparent 1.7px);
+    background-size: var(--p) var(--p);
 }
 .dots-light {
-  background-image: radial-gradient(circle at center, var(--paper-3) 1.6px, transparent 1.7px);
-  background-size: var(--p) var(--p);
+    background-image: radial-gradient(circle at center, var(--paper-3) 1.6px, transparent 1.7px);
+    background-size: var(--p) var(--p);
 }
 
 /* ============================================================
    RAILS — paired red/blue lines, edges + footers only
    ============================================================ */
 .rails {
-  height: calc(var(--p) * 1.4);
-  background:
-    linear-gradient(var(--rail-pos), var(--rail-pos)) 0 2px / 100% 3px no-repeat,
-    linear-gradient(var(--rail-neg), var(--rail-neg)) 0 9px / 100% 3px no-repeat;
+    height: calc(var(--p) * 1.4);
+    background:
+        linear-gradient(var(--rail-pos), var(--rail-pos)) 0 2px / 100% 3px no-repeat,
+        linear-gradient(var(--rail-neg), var(--rail-neg)) 0 9px / 100% 3px no-repeat;
 }
 
 /* ============================================================
@@ -79,79 +79,94 @@
    surface class (.on-ink / .on-paper) sets the filled cell's text color.
    ============================================================ */
 .plate {
-  display: inline-flex;
-  align-items: stretch;
-  border: var(--bw) solid currentColor;
-  border-radius: var(--r-sm);
-  overflow: hidden;
-  font-family: var(--font-cond);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  line-height: 1;
-  white-space: nowrap;
+    display: inline-flex;
+    align-items: stretch;
+    border: var(--bw) solid currentColor;
+    border-radius: var(--r-sm);
+    overflow: hidden;
+    font-family: var(--font-cond);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    line-height: 1;
+    white-space: nowrap;
 }
 .plate .cell {
-  padding: 0.42em 0.6em 0.36em;
-  display: inline-flex;
-  align-items: center;
+    padding: 0.42em 0.6em 0.36em;
+    display: inline-flex;
+    align-items: center;
 }
-.plate .cell + .cell { border-left: var(--bw) solid currentColor; }
-.plate .cell.fill { background: currentColor; }
-.plate .cell.fill > span { color: var(--plate-fill-text, var(--paper)); }
+.plate .cell + .cell {
+    border-left: var(--bw) solid currentColor;
+}
+.plate .cell.fill {
+    background: currentColor;
+}
+.plate .cell.fill > span {
+    color: var(--plate-fill-text, var(--paper));
+}
 
 /* ============================================================
    CHIP — family designator tag
    <span class="chip" style="--fam: var(--fam-snd)">SND</span>
    ============================================================ */
 .chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5em;
-  font-family: var(--font-mono);
-  font-weight: 600;
-  font-size: 0.78em;
-  letter-spacing: 0.08em;
-  padding: 0.3em 0.65em;
-  border-radius: var(--r-sm);
-  background: var(--fam, var(--ink-3));
-  color: var(--ink);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    font-family: var(--font-mono);
+    font-weight: 600;
+    font-size: 0.78em;
+    letter-spacing: 0.08em;
+    padding: 0.3em 0.65em;
+    border-radius: var(--r-sm);
+    background: var(--fam, var(--ink-3));
+    color: var(--ink);
 }
 
 /* ============================================================
    MONO CAPTION — figure labels, refdes, pin names
    ============================================================ */
 .mcap {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.04em;
-  color: var(--ink-soft);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: var(--ink-soft);
 }
-.mcap-ink { color: var(--silk-soft); }
+.mcap-ink {
+    color: var(--silk-soft);
+}
 
 /* ============================================================
    JUMPER — colored wire arc divider (pure CSS)
    <div class="jumper" style="--fam: var(--fam-dat)"><i></i><i></i></div>
    ============================================================ */
 .jumper {
-  height: calc(var(--p) * 2);
-  position: relative;
+    height: calc(var(--p) * 2);
+    position: relative;
 }
 .jumper::before {
-  content: '';
-  position: absolute;
-  left: 0; right: 0; top: 50%;
-  height: calc(var(--p) * 3);
-  transform: translateY(-50%);
-  border-top: 3px solid var(--fam, var(--fam-ctl));
-  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: calc(var(--p) * 3);
+    transform: translateY(-50%);
+    border-top: 3px solid var(--fam, var(--fam-ctl));
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
 }
 .jumper i {
-  position: absolute;
-  width: 8px; height: 8px;
-  border-radius: 2px;
-  background: var(--fam, var(--fam-ctl));
-  top: calc(50% - var(--p) * 1.5 + -1px);
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    background: var(--fam, var(--fam-ctl));
+    top: calc(50% - var(--p) * 1.5 + -1px);
 }
-.jumper i:first-child { left: 0; }
-.jumper i:last-child { right: 0; }
+.jumper i:first-child {
+    left: 0;
+}
+.jumper i:last-child {
+    right: 0;
+}

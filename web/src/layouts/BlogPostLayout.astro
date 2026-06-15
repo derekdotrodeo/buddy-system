@@ -1,47 +1,351 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import '../styles/blog.css';
 
-interface Props {
-  title: string;
-  description?: string;
-  pubDate: Date;
-  updatedDate?: Date;
-  author?: string;
-  tags?: string[];
+interface Crumb {
+    href: string;
+    title: string;
 }
-const { title, description, pubDate, updatedDate, author, tags = [] } = Astro.props;
-const fmt = (d: Date) =>
-  d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+interface Related {
+    href: string;
+    cat: string;
+    title: string;
+    meta?: string;
+    family?: string;
+}
+interface Hero {
+    src: string;
+    alt?: string;
+    caption?: string;
+    ref?: string;
+}
+interface Props {
+    title: string;
+    titleHtml?: string;
+    description?: string;
+    deck?: string;
+    pubDate: Date;
+    updatedDate?: Date;
+    author?: string;
+    authorInitials?: string;
+    tags?: string[];
+    family?: string;
+    kicker?: string;
+    crumb?: string;
+    famStrip?: boolean;
+    readTime?: string;
+    postType?: string;
+    hero?: Hero;
+    toc?: { id: string; label: string }[];
+    prev?: Crumb;
+    next?: Crumb;
+    related?: Related[];
+}
+
+const {
+    title,
+    titleHtml,
+    description,
+    deck,
+    pubDate,
+    author = 'Buddy System',
+    authorInitials,
+    tags = [],
+    family = 'snd',
+    kicker,
+    crumb,
+    famStrip = false,
+    readTime,
+    postType,
+    hero,
+    toc = [],
+    prev,
+    next,
+    related = [],
+} = Astro.props;
+
+const MONTHS = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+const pubFmt = `${pubDate.getUTCDate()} ${MONTHS[pubDate.getUTCMonth()]} ${pubDate.getUTCFullYear()}`;
+const initials =
+    authorInitials ??
+    author
+        .split(/\s+/)
+        .slice(0, 2)
+        .map((w) => w[0])
+        .join('')
+        .toUpperCase();
+const headTitle = titleHtml ?? title;
+const standfirst = deck ?? description;
+const famVar = `--post: var(--fam-${family});`;
+const ALL_FAMS = ['ctl', 'snd', 'dat', 'lgc', 'uty', 'pwr'];
 ---
-<BaseLayout title={`${title} — Buddy System Blog`} description={description}>
-  <article class="post container section">
-    <header class="post__head stack">
-      <a href="/blog/" class="label muted">← Blog</a>
-      <h1>{title}</h1>
-      <p class="post__meta mono muted">
-        <time datetime={pubDate.toISOString()}>{fmt(pubDate)}</time>
-        {author && <> · {author}</>}
-        {updatedDate && <> · updated {fmt(updatedDate)}</>}
-      </p>
-      {tags.length > 0 && (
-        <ul class="post__tags">
-          {tags.map((t) => <li class="mono">#{t}</li>)}
-        </ul>
-      )}
-    </header>
-    <div class="rails" aria-hidden="true"></div>
-    <div class="post__body stack">
-      <slot />
+
+<BaseLayout title={`${title} — Buddy System`} description={description}>
+    <div class="post on-ink" style={famVar}>
+        <!-- reading progress -->
+        <div class="progress" aria-hidden="true"><div class="bar" id="progress-bar"></div></div>
+
+        <!-- breadcrumb -->
+        <div class="subnav">
+            <div class="wrap">
+                <div class="crumbs">
+                    <a href="/">HOME</a>
+                    <span class="sep">/</span>
+                    <a href="/blog/">THE BENCH</a>
+                    {
+                        crumb && (
+                            <>
+                                <span class="sep">/</span>
+                                <span class="opt">{crumb}</span>
+                            </>
+                        )
+                    }
+                    <span class="sep">/</span>
+                    <span class="here">{title}</span>
+                </div>
+                <div class="share">
+                    <a href="#" aria-label="Share" title="Copy link" id="share-link">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            ><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"></path><path
+                                d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"></path></svg
+                        >
+                    </a>
+                    <a href="#" aria-label="Bookmark" title="Save">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            ><path d="M6 4h12v16l-6-4-6 4z"></path></svg
+                        >
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- header -->
+        <header class="art-head dots-dark">
+            <div class="wrap">
+                {
+                    (kicker || famStrip) && (
+                        <div class="art-kicker">
+                            {famStrip && (
+                                <span class="fam-strip" aria-hidden="true">
+                                    {ALL_FAMS.map((f) => (
+                                        <i style={`--fam: var(--fam-${f});`} />
+                                    ))}
+                                </span>
+                            )}
+                            {kicker && <span class="cat">{kicker}</span>}
+                        </div>
+                    )
+                }
+                <h1 set:html={headTitle} />
+                {standfirst && <p class="art-deck">{standfirst}</p>}
+                <div class="byline">
+                    <div class="who">
+                        <span class="avatar">{initials}</span>
+                        <span>
+                            <span class="name">{author}</span>
+                        </span>
+                    </div>
+                    <div class="meta">
+                        <span class="m"
+                            ><span class="k">Published</span><span class="v">{pubFmt}</span></span
+                        >
+                        {
+                            readTime && (
+                                <span class="m">
+                                    <span class="k">Read</span>
+                                    <span class="v">{readTime}</span>
+                                </span>
+                            )
+                        }
+                        {
+                            postType && (
+                                <span class="m">
+                                    <span class="k">Type</span>
+                                    <span class="v">{postType}</span>
+                                </span>
+                            )
+                        }
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- hero -->
+        {
+            hero && (
+                <div class="art-hero">
+                    <div class="wrap">
+                        <figure class="hero-figure">
+                            <span class="keytab" />
+                            <div class="frame">
+                                <img src={hero.src} alt={hero.alt} />
+                            </div>
+                            {(hero.caption || hero.ref) && (
+                                <figcaption class="figcap">
+                                    <span>{hero.caption}</span>
+                                    {hero.ref && <span>{hero.ref}</span>}
+                                </figcaption>
+                            )}
+                        </figure>
+                    </div>
+                </div>
+            )
+        }
+
+        <!-- body -->
+        <article class="article">
+            <div class="prose">
+                {
+                    toc.length > 0 && (
+                        <nav class="toc" aria-label="In this post">
+                            <div class="toc-head">In this post</div>
+                            <ol>
+                                {toc.map((t) => (
+                                    <li>
+                                        <a href={`#${t.id}`}>{t.label}</a>
+                                    </li>
+                                ))}
+                            </ol>
+                        </nav>
+                    )
+                }
+                <slot />
+            </div>
+        </article>
+
+        <!-- footer -->
+        <footer class="art-foot">
+            <div class="wrap">
+                {
+                    tags.length > 0 && (
+                        <div class="tagrow">
+                            <span class="tlabel">Filed under</span>
+                            {tags.map((t) => (
+                                <a href="#" class="tag">
+                                    {t}
+                                </a>
+                            ))}
+                        </div>
+                    )
+                }
+
+                {
+                    (prev || next) && (
+                        <nav class="postnav" aria-label="More from the bench">
+                            {prev ? (
+                                <a href={prev.href} class="prev">
+                                    <span class="dir">← Previous</span>
+                                    <span class="ptitle">{prev.title}</span>
+                                </a>
+                            ) : (
+                                <span class="prev" style="opacity:.5;cursor:default;">
+                                    <span class="dir">← Previous</span>
+                                    <span class="ptitle">This is the first post</span>
+                                </span>
+                            )}
+                            {next && (
+                                <a href={next.href} class="next">
+                                    <span class="dir">Next →</span>
+                                    <span class="ptitle">{next.title}</span>
+                                </a>
+                            )}
+                        </nav>
+                    )
+                }
+
+                {
+                    related.length > 0 && (
+                        <section class="related">
+                            <h3>Start building</h3>
+                            <div class="rel-grid">
+                                {related.map((r) => (
+                                    <a
+                                        href={r.href}
+                                        class="relcard"
+                                        style={`--fam: var(--fam-${r.family ?? 'dat'});`}
+                                    >
+                                        <div class="r-top">
+                                            <span class="rk" />
+                                        </div>
+                                        <div class="r-body">
+                                            <span class="r-cat">{r.cat}</span>
+                                            <span class="r-title">{r.title}</span>
+                                            {r.meta && <span class="r-meta">{r.meta}</span>}
+                                        </div>
+                                    </a>
+                                ))}
+                            </div>
+                        </section>
+                    )
+                }
+            </div>
+        </footer>
+
+        <!-- subscribe -->
+        <section class="subscribe">
+            <div class="rails"></div>
+            <div class="wrap">
+                <div class="s-copy">
+                    <h3>Notes from the bench</h3>
+                    <p>
+                        The build, in the open. New cards, firmware, demos, and the occasional fried
+                        component — no spam.
+                    </p>
+                </div>
+                <form id="sub-form" novalidate>
+                    <input
+                        type="email"
+                        id="sub-email"
+                        placeholder="you@workbench.dev"
+                        aria-label="Email"
+                    />
+                    <button class="btn" type="submit">Subscribe <span class="arrow">→</span></button
+                    >
+                </form>
+            </div>
+        </section>
     </div>
-  </article>
 </BaseLayout>
 
-<style>
-  .post { max-width: calc(var(--p) * 78); }
-  .post__meta { font-size: 0.8rem; }
-  .post__tags { list-style: none; display: flex; gap: var(--p); padding: 0; margin: 0; }
-  .post__tags li { color: var(--copper); font-size: 0.8rem; }
-  .post__body { margin-top: calc(var(--p) * 3); }
-  .post__body :global(h2) { margin-top: calc(var(--p) * 3); }
-  .post__body :global(img) { border-radius: var(--r); margin-block: calc(var(--p) * 2); }
-</style>
+<script>
+    // Reading progress, share-link copy, and subscribe — front-end only.
+    const bar = document.getElementById('progress-bar');
+    const article = document.querySelector('.article') as HTMLElement | null;
+    function updateProgress() {
+        if (!bar || !article) return;
+        const start = article.offsetTop;
+        const end = start + article.offsetHeight - window.innerHeight;
+        let p = (window.scrollY - start) / Math.max(1, end - start);
+        p = Math.max(0, Math.min(1, p));
+        (bar as HTMLElement).style.width = (p * 100).toFixed(2) + '%';
+    }
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    window.addEventListener('resize', updateProgress);
+    updateProgress();
+
+    const share = document.getElementById('share-link');
+    if (share) {
+        share.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (navigator.clipboard?.writeText) navigator.clipboard.writeText(window.location.href);
+            const t = share.getAttribute('title');
+            share.setAttribute('title', 'Link copied');
+            setTimeout(() => t && share.setAttribute('title', t), 1400);
+        });
+    }
+
+    const sub = document.getElementById('sub-form');
+    if (sub) {
+        sub.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('sub-email') as HTMLInputElement | null;
+            if (!email || !email.value || email.value.indexOf('@') < 1) {
+                email?.focus();
+                if (email) email.style.borderColor = 'var(--fam-pwr)';
+                return;
+            }
+            sub.innerHTML =
+                '<span style="font-family: var(--font-cond); font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--fam-dat); font-size: 16px; align-self:center;">✓ You\'re on the list — talk soon.</span>';
+        });
+    }
+</script>
