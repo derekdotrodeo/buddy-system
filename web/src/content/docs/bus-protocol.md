@@ -1,19 +1,19 @@
 ---
 title: Buddy Bus Protocol
-description: BS-SPEC-200 defines the Buddy Bus Protocol — a host-polled transport bus that carries schema-defined packets between a host and Buddy Cards.
+description: BD-SPEC-200 defines the Buddy Bus Protocol — a host-polled transport bus that carries schema-defined packets between a host and Buddy Cards.
 order: 2
 section: Specifications
 ---
 
 The Buddy Bus Protocol (BBP) is a host-polled transport bus that carries schema-defined packets between a host microcontroller and Buddy Cards over the Buddy System backplane.
 
-**BS-SPEC-200** · Version 1.4 Draft · Jun 2026 · Requires [BS-SPEC-100](/docs/technical-spec/)
+**BD-SPEC-200** · Version 1.4 Draft · Jun 2026 · Requires [BD-SPEC-100](/docs/technical-spec/)
 
 ## 1. Purpose
 
 *Normative*
 
-The Buddy Bus Protocol (BBP) provides communication between a host microcontroller and Buddy Cards connected through the Buddy System backplane. The electrical and mechanical bus it runs on is defined in [BS-SPEC-100](/docs/technical-spec/).
+The Buddy Bus Protocol (BBP) provides communication between a host microcontroller and Buddy Cards connected through the Buddy System backplane. The electrical and mechanical bus it runs on is defined in [BD-SPEC-100](/docs/technical-spec/).
 
 BBP is a **transport**. It defines packet framing, addressing, a host-controlled polling model, and synchronization. It does **not** define what payloads mean — payload interpretation is carried by named **schemas** (§7).
 
@@ -82,7 +82,7 @@ and shall be able to:
 
 ### 3.1 Transport
 
-BBP uses an RS-485 multidrop bus operating in half-duplex. The topology, termination, and electrical characteristics are defined in [BS-SPEC-100](/docs/technical-spec/) §6.
+BBP uses an RS-485 multidrop bus operating in half-duplex. The topology, termination, and electrical characteristics are defined in [BD-SPEC-100](/docs/technical-spec/) §6.
 
 ### 3.2 Buddy Bus pinout
 
@@ -107,7 +107,7 @@ Buddy Bus Pinout — viewed from front of card, pin 1 leftmost (both connectors 
 
 *FIG 1 — Buddy Bus pinout per BBP v1 · viewed from front of card · pin 1 leftmost · both connectors identical.*
 
-> **Note:** Pin 1 (SLOT) and the bus electrical layer are defined in [BS-SPEC-100](/docs/technical-spec/) §5.1 and §6.3. BBP relies on the SLOT signal for addressing (§6).
+> **Note:** Pin 1 (SLOT) and the bus electrical layer are defined in [BD-SPEC-100](/docs/technical-spec/) §5.1 and §6.3. BBP relies on the SLOT signal for addressing (§6).
 
 ### 3.3 Slot identification
 
@@ -158,7 +158,7 @@ Protocol responses are released **before** queued events; within a class, packet
 
 After issuing a `bbp.poll` (or any addressed command that solicits a response), the Host waits a bounded turnaround interval for the response to begin. If none begins within that interval, the Host treats the slot as silent — an empty slot during discovery (§9), or an empty queue during normal operation.
 
-The timeout is Host-implementation-defined. A Host should derive it from the bus bit rate ([BS-SPEC-100](/docs/technical-spec/) §6.4) and the maximum frame size (§5.1), plus a margin for card processing latency.
+The timeout is Host-implementation-defined. A Host should derive it from the bus bit rate ([BD-SPEC-100](/docs/technical-spec/) §6.4) and the maximum frame size (§5.1), plus a margin for card processing latency.
 
 At the v1 bus bit rate of 1 Mbit/s, a maximum-size 293-byte frame occupies ~2.9 ms on the wire. A Host should allow a card a short bounded interval — on the order of 1 ms — to *begin* its response after a poll (covering driver turnaround and processing latency), and size its total receive window for a full maximum frame (~3 ms) plus margin.
 
@@ -213,7 +213,7 @@ The maximum frame is **293 bytes**: `SOF` (1) + `SRC`/`DEST`/`SCHEMA_LEN` (3) + 
 
 ### 6.1 Address model
 
-BBP addresses are physical slot numbers. Valid addresses are `1 2 3 4 5 6`. The SLOT analog signal (§3.3; [BS-SPEC-100](/docs/technical-spec/) §6.3) is the **sole source of BBP address assignment** in v1. No dynamic address assignment exists.
+BBP addresses are physical slot numbers. Valid addresses are `1 2 3 4 5 6`. The SLOT analog signal (§3.3; [BD-SPEC-100](/docs/technical-spec/) §6.3) is the **sole source of BBP address assignment** in v1. No dynamic address assignment exists.
 
 Two address values are reserved and are never assigned to a slot: `0` (broadcast, §6.2) and `7` (the Host source address). Addresses are one byte wide (§5.1).
 
@@ -244,7 +244,7 @@ BBP transports **schema-defined payloads**. BBP itself defines framing, addressi
 
 Schema names are namespaced by convention (for example `controls.potbank`). The `bbp.` namespace is reserved for protocol-level messages (§8); module payload schemas shall not use the `bbp.` prefix.
 
-A baseline catalog of recommended common schemas (controls, MIDI) is defined separately in [BS-SPEC-300](/docs/common-schemas/). Using them is optional, but they let independent modules interoperate without prior agreement.
+A baseline catalog of recommended common schemas (controls, MIDI) is defined separately in [BD-SPEC-300](/docs/common-schemas/). Using them is optional, but they let independent modules interoperate without prior agreement.
 
 ## 8. Reserved Schemas
 
@@ -404,9 +404,9 @@ These features are explicitly outside the scope of BBP v1.
 
 ### Related documents
 
-- [BS-SPEC-100](/docs/technical-spec/) — Mechanical + electrical standard
-- [BS-SPEC-300](/docs/common-schemas/) — Common application schemas
-- [BS-DS-001](/design/) — Design system v0.1
+- [BD-SPEC-100](/docs/technical-spec/) — Mechanical + electrical standard
+- [BD-SPEC-300](/docs/common-schemas/) — Common application schemas
+- [BD-DS-001](/design/) — Design system v0.1
 
 ## Revision History
 
@@ -416,4 +416,4 @@ These features are explicitly outside the scope of BBP v1.
 | 1.1 DRAFT | JUN 2026 | Reframed BBP as a host-polled transport carrying schema-defined packets: added Bus Access (polling model), Packet Framing, Schema Layer, Reserved Schemas, and Synchronization sections; added DEST broadcast/addressed semantics; discovery now expressed with `bbp.identify` / `bbp.poll` / `bbp.info`; SLOT named the sole source of address assignment. Added BBP scope exclusions (control/event only), the three-layer model, and a Module Requirements section (§2.4). |
 | 1.2 DRAFT | JUN 2026 | Ratified the reference wire format (§5.1): field widths, reserved addresses (broadcast `0`, Host `7`), and CRC-16/CCITT-FALSE over `SRC`…`PAYLOAD`. Added response-queue ordering — protocol responses ahead of events (§4.2) — and the poll-response timeout (§4.3). Defined the `bbp.error` payload and error classes (§8.1). Removed `bbp.hello` and `bbp.heartbeat` from the reserved set (liveness is proven by a successful poll). |
 | 1.3 DRAFT | JUN 2026 | Defined the `bbp.info` payload byte layout (§9.3): slot count, version major/minor, and length-prefixed vendor/product UTF-8 strings (≤24 bytes each). |
-| 1.4 DRAFT | JUN 2026 | Cross-referenced the common-schema catalog (§7) now defined in BS-SPEC-300. |
+| 1.4 DRAFT | JUN 2026 | Cross-referenced the common-schema catalog (§7) now defined in BD-SPEC-300. |

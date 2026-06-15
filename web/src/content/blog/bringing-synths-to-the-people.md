@@ -1,23 +1,22 @@
 ---
-title: Bringing synths to the people
-titleHtml: 'Bringing synths to the <em>people</em>'
+title: Introducing Buddy System
+titleHtml: 'Introducing <em>Buddy</em> System'
 description: 'Buddy System is a modular prototyping platform for building synthesizers — a breadboard, plug-in cards, and a two-wire bus in one. Less wiring, less debugging, more sounds.'
 deck: "Building synths on breadboards, I got tired of potentiometers that wouldn't stay put. Or of realizing, two hours into a bug, that I'd pushed a jumper into the wrong tiny square in a jungle of wires. Or looking up how to wire a MIDI circuit for the 10th time. So I built a tool. It worked pretty well — and now I'm making it better, because I think it can work for you too."
 pubDate: 2026-06-15
 author: Derek Wheelden
 authorInitials: DW
 tags: [introduction, buddy-system, diy-synth, open-hardware, breadboard]
-family: uty
-kicker: 'ANNOUNCEMENT · BS-LOG-001 · THE FIRST POST'
+family: dat
+kicker: 'ANNOUNCEMENT · BD-LOG-001 · THE FIRST POST'
 crumb: ANNOUNCEMENTS
 famStrip: true
-readTime: 8 MIN
-postType: "NOTE"
+postType: "NEWS"
 hero:
     src: /blog/hardware-render.png
     alt: 'The Buddy System — a base unit carrying Knob and MIDI Buddies, a switch bank, two open module bays and a 60-row breadboard with a host microcontroller mid-board.'
-    caption: 'FIG 0 · The Buddy System — Base, Knob & MIDI Buddies, a switch bank and two open bays over a 60-row breadboard, host MCU mid-board.'
-    ref: 'BS-000 · REV A'
+    caption: 'FIG 0 · The Buddy System — Base, Knob & MIDI Buddies, a switch bank and two open bays over a 60-row breadboard.'
+    ref: 'BD-000 · REV A'
 toc:
     - { id: s1, label: The elevator pitch }
     - { id: s2, label: Why I'm building it }
@@ -27,11 +26,11 @@ toc:
     - { id: s6, label: Design principles }
     - { id: s7, label: What I've built so far }
     - { id: s8, label: Follow along }
-next: { href: '#', title: Anatomy of a beep }
-related:
-    - { href: '#', cat: 'SND · BUILD LOG', title: Anatomy of a beep, meta: '9 MIN · 4 JUMPERS · ★ BEGINNER', family: snd }
-    - { href: /docs/technical-spec/, cat: 'UTY · DOCUMENTATION', title: The Buddy Base spec, meta: 'BS-SPEC-100 · REFERENCE', family: uty }
-    - { href: /docs/bus-protocol/, cat: 'DAT · DOCUMENTATION', title: The Buddy Bus Protocol, meta: 'BS-SPEC-200 · REFERENCE', family: dat }
+# next: { href: '#', title: Anatomy of a beep }
+# related:
+#     - { href: '#', cat: 'SND · BUILD LOG', title: Anatomy of a beep, meta: '9 MIN · 4 JUMPERS · ★ BEGINNER', family: snd }
+#     - { href: /docs/technical-spec/, cat: 'UTY · DOCUMENTATION', title: The Buddy Base spec, meta: 'BD-SPEC-100 · REFERENCE', family: uty }
+#     - { href: /docs/bus-protocol/, cat: 'DAT · DOCUMENTATION', title: The Buddy Bus Protocol, meta: 'BD-SPEC-200 · REFERENCE', family: dat }
 draft: false
 ---
 
@@ -53,8 +52,6 @@ draft: false
 
 <h2 id="s3"><span class="snum">§3</span> Is this for you?</h2>
 
-<p>If you're interested in turning electricity into music, Buddy System is for you — at any skill level.</p>
-
 <p>If you're interested in turning electricity into music, Buddy System is for you at any skill level. Maybe you can write a little code, but you're intimidated by the electronics. That's fine, Buddy System takes most of the hardware set up out of the equation. Just plug in the Buddy Cards you need, and start coding. Oh, you're actually an audio synthesis pro who's sick of dealing with fragile breadboards? Buddy Cards don't fall out when you touch them, you're gonna love this thing.</p>
 
 <div class="callout tip"><span class="co-chip">EITHER WAY</span><div class="co-body"><p><strong>Coder who's wary of hardware?</strong> The cards handle the circuitry — you just read and write pins. <strong>Hardware veteran tired of flaky breadboards?</strong> Keyed connectors, solid seating, no mystery faults. Same system, both problems solved.</p></div></div>
@@ -63,7 +60,7 @@ draft: false
 
 <p>At its core, Buddy System is three parts: the <strong>Buddy Base</strong>, the <strong>Buddy Cards</strong>, and the <strong>Buddy Bus Protocol</strong>. Plug a card in anywhere and it's connected everywhere.</p>
 
-<div class="modules"><div class="module" style="--fam: var(--fam-uty);"><div class="m-rail"><span class="m-num">01</span><span class="m-ref">BS-000</span></div><div class="m-body"><h3>Buddy Base <span class="chip" style="--fam: var(--fam-uty);">UTY</span></h3><p>The hub — the nervous system of the whole thing. It connects every piece physically and electrically, provides power to your modules and to the breadboard, and routes the bus everywhere. As a bonus, Base gives you <strong>10 LEDs</strong> you can use for anything.</p></div></div><div class="module" style="--fam: var(--fam-ctl);"><div class="m-rail"><span class="m-num">02</span><span class="m-ref">BS-CTL-01 +</span></div><div class="m-body"><h3>Buddy Cards <span class="chip" style="--fam: var(--fam-ctl);">CTL</span></h3><p>Your physical interface — small modular units that plug directly into the Base. A card can be anything: a bank of potentiometers, a MIDI interface, an OLED display, whatever you dream up. Wire them to the breadboard with jumpers, or let them talk digitally over the bus using just <strong>2 jumpers for all 6 cards</strong>.</p></div></div><div class="module" style="--fam: var(--fam-dat);"><div class="m-rail"><span class="m-num">03</span><span class="m-ref">BS-SPEC-200</span></div><div class="m-body"><h3>Buddy Bus Protocol <span class="chip" style="--fam: var(--fam-dat);">DAT</span></h3><p>BBP is the communication standard. Modules talk over a shared two-wire bus, slashing the wiring between your controls and your synth. Cards <strong>self-identify</strong>, so software-to-hardware mapping stays consistent and predictable. BBP carries bits, strings, samples — even complex objects, up to <code class="ic">255</code> bytes per packet.</p></div></div></div>
+<div class="modules"><div class="module" style="--fam: var(--fam-uty);"><div class="m-rail"><span class="m-num">01</span><span class="m-ref">BD-000</span></div><div class="m-body"><h3>Buddy Base <span class="chip" style="--fam: var(--fam-uty);">UTY</span></h3><p>The hub — the nervous system of the whole thing. It connects every piece physically and electrically, provides power to your modules and to the breadboard, and routes the bus everywhere. As a bonus, Base gives you <strong>10 LEDs</strong> you can use for anything.</p></div></div><div class="module" style="--fam: var(--fam-ctl);"><div class="m-rail"><span class="m-num">02</span><span class="m-ref">BD-CTL-01 +</span></div><div class="m-body"><h3>Buddy Cards <span class="chip" style="--fam: var(--fam-ctl);">CTL</span></h3><p>Your physical interface — small modular units that plug directly into the Base. A card can be anything: a bank of potentiometers, a MIDI interface, an OLED display, whatever you dream up. Wire them to the breadboard with jumpers, or let them talk digitally over the bus using just <strong>2 jumpers for all 6 cards</strong>.</p></div></div><div class="module" style="--fam: var(--fam-dat);"><div class="m-rail"><span class="m-num">03</span><span class="m-ref">BD-SPEC-200</span></div><div class="m-body"><h3>Buddy Bus Protocol <span class="chip" style="--fam: var(--fam-dat);">DAT</span></h3><p>BBP is the communication standard. Modules talk over a shared two-wire bus, slashing the wiring between your controls and your synth. Cards <strong>self-identify</strong>, so software-to-hardware mapping stays consistent and predictable. BBP carries bits, strings, samples — even complex objects, up to <code class="ic">255</code> bytes per packet.</p></div></div></div>
 
 <h2 id="s5"><span class="snum">§5</span> Bring your own brain</h2>
 
@@ -79,17 +76,41 @@ draft: false
 
 <p>Four ideas guide every decision on this project. Color is wiring here, so each one gets its own family hue.</p>
 
-<div class="principles"><div class="principle" style="--fam: var(--fam-dat);"><span class="p-key"></span><span class="p-idx">PRINCIPLE 01</span><h4>Simplicity</h4><p>Reduce friction. Cut complexity and get out of the way of your creativity. Plug and play, simple protocols, reliable hardware.</p></div><div class="principle" style="--fam: var(--fam-uty);"><span class="p-key"></span><span class="p-idx">PRINCIPLE 02</span><h4>Openness</h4><p>Every part of Buddy System is open source — schematics to firmware, all available to see and use. Take our schematics and design your own PCBs. Don't reinvent the wheel.</p></div><div class="principle" style="--fam: var(--fam-ctl);"><span class="p-key"></span><span class="p-idx">PRINCIPLE 03</span><h4>Modularity</h4><p>Flexible by design. Simple modules for the basics, but unlimited potential — plug-and-play cards, breakout headers, and room for a large breadboard. What can't you build?</p></div><div class="principle" style="--fam: var(--fam-lgc);"><span class="p-key"></span><span class="p-idx">PRINCIPLE 04</span><h4>Education</h4><p>More people should be able to build cool synths. By removing complicated circuitry, fragile breadboards, and hardware debugging, we lower the barrier to entry. Learn, experiment, prototype.</p></div></div>
+<div class="principles"><div class="principle" style="--fam: var(--fam-dat);"><span class="p-key"></span><span class="p-idx">PRINCIPLE 01</span><h4>Simplicity</h4><p>Reduce friction. Cut complexity and get out of the way of your creativity. Plug and play, simple protocols, reliable hardware.</p></div><div class="principle" style="--fam: var(--fam-uty);"><span class="p-key"></span><span class="p-idx">PRINCIPLE 02</span><h4>Openness</h4><p>Every part of Buddy System is open source from schematics to firmware, all available to and free to use. Fork out libraries. Take our schematics and design your own PCBs.</p></div><div class="principle" style="--fam: var(--fam-ctl);"><span class="p-key"></span><span class="p-idx">PRINCIPLE 03</span><h4>Modularity</h4><p>Flexible by design. Simple modules for the basics, but unlimited potential — plug-and-play cards, breakout headers, and room for a large breadboard. What can't you build?</p></div><div class="principle" style="--fam: var(--fam-lgc);"><span class="p-key"></span><span class="p-idx">PRINCIPLE 04</span><h4>Education</h4><p>More people should be able to build cool synths. By removing complicated circuitry, fragile breadboards, and hardware debugging, we lower the barrier to entry.</p></div></div>
 
 <h2 id="s7"><span class="snum">§7</span> What I've built so far</h2>
 
 <p>Last year I built the first Buddy System prototype. With a few basic modules, it taught me a lot — and more importantly, it convinced me that I really wanted this thing to exist.</p>
 
+<figure class="fig">
+    <div class="holder">
+        <span class="keytab" style="--fam: var(--fam-uty);"></span>
+        <div class="ph tall">
+            <span class="ph-dim"><img src="/blog/buddy-system-proto.jpeg" /></span>
+        </div>
+    </div>
+    <figcaption>
+        <span class="fnum">FIG 1</span>
+        Where it started — the original prototype that proved the idea was worth chasing
+    </figcaption>
+</figure>
+
 <p>This year I'm designing from scratch, using everything the prototype taught me. The <strong>Buddy Base</strong> is designed and ready for production. So is the first card — <strong>Knob Buddy</strong>, a bank of six potentiometers. Right now I'm deep in the Buddy Bus Protocol: a platform-agnostic C library with thin, hardware-specific abstraction layers on top, so the same code runs whether your brain is a Pico or a Daisy.</p>
 
-<div class="roadmap"><div class="rm-cap">Build status · the road so far, and the road ahead</div><div class="rm-item done"><span class="rm-stage">2025</span><span class="rm-what">First prototype <span class="rm-sub">A few basic modules. Proved the concept — and the appetite.</span></span><span class="rm-badge">Shipped &amp; learned</span></div><div class="rm-item done"><span class="rm-stage">2026</span><span class="rm-what">Buddy Base <span class="rm-sub">Redesigned from scratch. Power, bus, breadboard, 10 LEDs.</span></span><span class="rm-badge">Ready for production</span></div><div class="rm-item done"><span class="rm-stage">2026</span><span class="rm-what">Knob Buddy <span class="rm-sub">The first card — a bank of six potentiometers.</span></span><span class="rm-badge">Ready for production</span></div><div class="rm-item now"><span class="rm-stage">In progress</span><span class="rm-what">Buddy Bus Protocol <span class="rm-sub">Platform-agnostic C library plus hardware abstraction layers.</span></span><span class="rm-badge">Writing firmware</span></div><div class="rm-item next"><span class="rm-stage">Next</span><span class="rm-what">MIDI &amp; Line-Level Cards <span class="rm-sub">The proof BBP can carry MIDI and audio samples cleanly.</span></span><span class="rm-badge">On the bench</span></div></div>
+<figure class="fig">
+    <div class="holder">
+        <span class="keytab" style="--fam: var(--fam-uty);"></span>
+        <div class="ph">
+            <span class="ph-dim"><img src="/blog/buddy-base-render.png" /></span>
+        </div>
+    </div>
+    <figcaption>
+        <span class="fnum">FIG 2</span>
+        Where it's going — the next iteration of the Buddy Base
+    </figcaption>
+</figure>
 
-<div class="fig-row"><figure class="fig"><div class="holder"><span class="keytab" style="--fam: var(--fam-uty);"></span><div class="ph tall"><span class="ph-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 17l5-5 4 4 3-3 6 6"></path><circle cx="9" cy="10" r="1.6" fill="currentColor" stroke="none"></circle></svg></span><span class="ph-label">PHOTO · last year's first prototype, mid-breadboard</span><span class="ph-dim">DROP IN · 1200 × 900 · ≥72 DPI</span></div></div><figcaption><span class="fnum">FIG 1</span> Where it started — the breadboarded prototype that proved the idea was worth chasing.</figcaption></figure><figure class="fig"><div class="holder"><span class="keytab" style="--fam: var(--fam-dat);"></span><div class="ph tall"><span class="ph-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="6" width="6" height="6" rx="1"></rect><rect x="15" y="12" width="6" height="6" rx="1"></rect><path d="M6 12v3h12v-3"></path></svg></span><span class="ph-label">DIAGRAM · BBP — six cards self-identifying on a two-wire bus</span><span class="ph-dim">DROP IN · 1200 × 900 · SVG OR PNG</span></div></div><figcaption><span class="fnum">FIG 2</span> The protocol in a picture — one shared bus, every card knowing its own name.</figcaption></figure></div>
+<div class="roadmap"><div class="rm-cap">Build status · the road so far, and the road ahead</div><div class="rm-item done"><span class="rm-stage">2025</span><span class="rm-what">First prototype <span class="rm-sub">A few basic modules. Proved the concept — and the appetite.</span></span><span class="rm-badge">Shipped</span></div><div class="rm-item done"><span class="rm-stage">2026</span><span class="rm-what">Buddy Base <span class="rm-sub">Redesigned from scratch. Power, bus, breadboard, 10 LEDs.</span></span><span class="rm-badge">Ready for production</span></div><div class="rm-item done"><span class="rm-stage">2026</span><span class="rm-what">Knob Buddy <span class="rm-sub">The first card — a bank of six potentiometers.</span></span><span class="rm-badge">Ready for production</span></div><div class="rm-item now"><span class="rm-stage">In progress</span><span class="rm-what">Buddy Bus Protocol <span class="rm-sub">Platform-agnostic C library plus hardware abstraction layers.</span></span><span class="rm-badge">Writing firmware</span></div><div class="rm-item next"><span class="rm-stage">Next</span><span class="rm-what">MIDI &amp; Line-Level Cards <span class="rm-sub">The proof BBP can carry MIDI and audio samples cleanly.</span></span><span class="rm-badge">On the bench</span></div></div>
 
 <h2 id="s8"><span class="snum">§8</span> Follow along</h2>
 

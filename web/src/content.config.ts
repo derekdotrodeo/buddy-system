@@ -21,10 +21,10 @@ const blog = defineCollection({
         tags: z.array(z.string()).default([]),
         draft: z.boolean().default(false),
 
-        /* ---- blog design-language fields (BS-LOG) ---- */
+        /* ---- blog design-language fields (BD-LOG) ---- */
         // identity hue — "color is wiring"
         family: z.enum(['ctl', 'snd', 'dat', 'lgc', 'uty', 'pwr']).default('snd'),
-        // mono kicker line in the header, e.g. "ANNOUNCEMENT · BS-LOG-001"
+        // mono kicker line in the header, e.g. "ANNOUNCEMENT · BD-LOG-001"
         kicker: z.string().optional(),
         // breadcrumb leaf category, e.g. "ANNOUNCEMENTS"
         crumb: z.string().optional(),

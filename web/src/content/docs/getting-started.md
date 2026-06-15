@@ -27,9 +27,9 @@ Each card belongs to a color-coded family:
 - **Logic** (blue) — clocks, sequencers
 
 ```text
-BS-CTL-01  Pots Buddy
-BS-LGC-01  Clock Buddy
-BS-SND-02  Filter Buddy
+BD-CTL-01  Pots Buddy
+BD-LGC-01  Clock Buddy
+BD-SND-02  Filter Buddy
 ```
 
 ## 3. Patch with jumpers

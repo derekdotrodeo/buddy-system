@@ -1,13 +1,13 @@
 ---
 title: Mechanical & Electrical Standard
-description: BS-SPEC-100 defines the mechanical and electrical standard for the Buddy System — a Eurorack-compatible Buddy Base and interchangeable Buddy Cards.
+description: BD-SPEC-100 defines the mechanical and electrical standard for the Buddy System — a Eurorack-compatible Buddy Base and interchangeable Buddy Cards.
 order: 1
 section: Specifications
 ---
 
 This document defines the mechanical and electrical standards for the Buddy System platform.
 
-**BS-SPEC-100** · Normative · Version 1.2 Draft · Jun 2026 · Units: Millimeters
+**BD-SPEC-100** · Normative · Version 1.2 Draft · Jun 2026 · Units: Millimeters
 
 ## 1. Purpose
 
@@ -232,11 +232,11 @@ Modules shall determine slot number by thresholding the measured voltage at the 
 
 > **Note (informative):** These voltages are produced by the current Buddy Base resistor dividers — a fixed 100k high-side resistor from 3V3 and a per-slot low-side resistor to ground: Slot 1 = 10k, Slot 2 = 22k, Slot 3 = 47k, Slot 4 = 100k, Slot 5 = 220k, Slot 6 = 470k. The divider network is a Base implementation detail; the nominal voltages above are the normative interface.
 
-The SLOT signal is foundational to the addressing and discovery model defined in [BS-SPEC-200 · Buddy Bus Protocol](/docs/bus-protocol/).
+The SLOT signal is foundational to the addressing and discovery model defined in [BD-SPEC-200 · Buddy Bus Protocol](/docs/bus-protocol/).
 
 ### 6.4 Bus signaling
 
-The Buddy Bus operates as a 2-wire half-duplex RS-485 link. At most one device drives the bus at any instant; the host-controlled polling model ([BS-SPEC-200](/docs/bus-protocol/) §4) guarantees this, so the physical layer requires no collision arbitration.
+The Buddy Bus operates as a 2-wire half-duplex RS-485 link. At most one device drives the bus at any instant; the host-controlled polling model ([BD-SPEC-200](/docs/bus-protocol/) §4) guarantees this, so the physical layer requires no collision arbitration.
 
 | Parameter | Value |
 | --- | --- |
@@ -246,11 +246,11 @@ The Buddy Bus operates as a 2-wire half-duplex RS-485 link. At most one device d
 | Idle line state | Mark (recessive) |
 | Duplex | Half-duplex, 2-wire (BUS A / BUS B) |
 
-The bit rate is fixed for BBP v1; dynamic rate negotiation is not supported. At 1 Mbit/s a maximum-size BBP frame (293 bytes; [BS-SPEC-200](/docs/bus-protocol/) §5.1) occupies approximately 2.9 ms on the wire.
+The bit rate is fixed for BBP v1; dynamic rate negotiation is not supported. At 1 Mbit/s a maximum-size BBP frame (293 bytes; [BD-SPEC-200](/docs/bus-protocol/) §5.1) occupies approximately 2.9 ms on the wire.
 
 ### 6.5 Protocol layer
 
-Protocol behavior — addressing, discovery, synchronization, source identification, packet framing, and the polling model — is defined by [BS-SPEC-200 · Buddy Bus Protocol](/docs/bus-protocol/). This specification defines only the physical and electrical layer.
+Protocol behavior — addressing, discovery, synchronization, source identification, packet framing, and the polling model — is defined by [BD-SPEC-200 · Buddy Bus Protocol](/docs/bus-protocol/). This specification defines only the physical and electrical layer.
 
 ## 7. Protection
 
@@ -278,12 +278,12 @@ This specification does not impose requirements regarding silkscreen placement, 
 
 *Informative*
 
-The Buddy Bus protocol layer — message format, addressing, discovery, synchronization, and source identification — is now defined in [BS-SPEC-200 · Buddy Bus Protocol](/docs/bus-protocol/). Future revisions of this specification may define: current-limit thresholds, hot-plug support, and additional power capabilities. These topics remain intentionally undefined in this version.
+The Buddy Bus protocol layer — message format, addressing, discovery, synchronization, and source identification — is now defined in [BD-SPEC-200 · Buddy Bus Protocol](/docs/bus-protocol/). Future revisions of this specification may define: current-limit thresholds, hot-plug support, and additional power capabilities. These topics remain intentionally undefined in this version.
 
 ## Revision History
 
 | Rev | Date | Description |
 | --- | --- | --- |
 | 1.0 DRAFT | JUN 2026 | Initial public draft. |
-| 1.1 DRAFT | JUN 2026 | Pin 1 redefined AUX → SLOT for slot identification; multi-slot cards and per-slot connector requirement added; component identification area added; back-powering and RS-485 biasing prohibited; protocol layer delegated to BS-SPEC-200. Power-rail ±5% tolerances, multi-slot width examples, and a normative SLOT voltage table (slots 1–6) added. |
-| 1.2 DRAFT | JUN 2026 | Added Bus signaling (§6.4): bit rate 1 Mbit/s, 8N1, LSB-first, idle mark, 2-wire half-duplex — the physical-layer parameters BBP (BS-SPEC-200 §4.3) depends on. Protocol-layer subsection renumbered §6.4 → §6.5. |
+| 1.1 DRAFT | JUN 2026 | Pin 1 redefined AUX → SLOT for slot identification; multi-slot cards and per-slot connector requirement added; component identification area added; back-powering and RS-485 biasing prohibited; protocol layer delegated to BD-SPEC-200. Power-rail ±5% tolerances, multi-slot width examples, and a normative SLOT voltage table (slots 1–6) added. |
+| 1.2 DRAFT | JUN 2026 | Added Bus signaling (§6.4): bit rate 1 Mbit/s, 8N1, LSB-first, idle mark, 2-wire half-duplex — the physical-layer parameters BBP (BD-SPEC-200 §4.3) depends on. Protocol-layer subsection renumbered §6.4 → §6.5. |
