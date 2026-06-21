@@ -488,7 +488,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "template-card.kicad_pro",
+    "filename": "midi-buddy.kicad_pro",
     "version": 3
   },
   "net_settings": {
@@ -651,18 +651,27 @@
     "subpart_id_separator": 0,
     "top_level_sheets": [
       {
-        "filename": "template-card.kicad_sch",
+        "filename": "midi-buddy.kicad_sch",
         "name": "Root",
         "uuid": "45510523-38ae-4a43-b070-6227195f9104"
+      },
+      {
+        "filename": "midi_buddy.kicad_sch",
+        "name": "MIDI Buddy",
+        "uuid": "0b548295-03c9-4242-b6f4-9026f0dbc664"
       }
     ],
-    "used_designators": "",
+    "used_designators": "C6,Q1-2,#PWR14-25,#PWR48,D4-5,U3-6,R6-15,J3,J5-7",
     "variants": []
   },
   "sheets": [
     [
       "45510523-38ae-4a43-b070-6227195f9104",
       "Root"
+    ],
+    [
+      "0b548295-03c9-4242-b6f4-9026f0dbc664",
+      "MIDI Buddy"
     ]
   ],
   "text_variables": {},
