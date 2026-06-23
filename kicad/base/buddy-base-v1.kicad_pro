@@ -661,9 +661,19 @@
         "filename": "accessories.kicad_sch",
         "name": "Accessories",
         "uuid": "5084219d-cf95-450b-8ad8-8c1c0dc7efb3"
+      },
+      {
+        "filename": "buddy_audio.kicad_sch",
+        "name": "Buddy Audio",
+        "uuid": "f38d0d2a-b4ba-476d-b434-81ad10ef3241"
+      },
+      {
+        "filename": "buddy_brain.kicad_sch",
+        "name": "Buddy Brain",
+        "uuid": "6ca3df7a-faf7-4315-9d42-a944ad31bff9"
       }
     ],
-    "used_designators": "R19-30",
+    "used_designators": "",
     "variants": []
   },
   "sheets": [
@@ -676,12 +686,20 @@
       "Buddy Bus"
     ],
     [
+      "f38d0d2a-b4ba-476d-b434-81ad10ef3241",
+      "Buddy Audio"
+    ],
+    [
       "d739a1a6-43e4-4442-be9e-02ace5bdb4f1",
       "Mechanical"
     ],
     [
       "5084219d-cf95-450b-8ad8-8c1c0dc7efb3",
       "Accessories"
+    ],
+    [
+      "6ca3df7a-faf7-4315-9d42-a944ad31bff9",
+      "Buddy Brain"
     ]
   ],
   "text_variables": {},
