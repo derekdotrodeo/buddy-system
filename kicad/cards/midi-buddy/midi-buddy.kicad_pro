@@ -658,10 +658,10 @@
       {
         "filename": "midi_buddy.kicad_sch",
         "name": "MIDI Buddy",
-        "uuid": "0b548295-03c9-4242-b6f4-9026f0dbc664"
+        "uuid": "d8878913-9e10-4e3f-a27e-58493ad630f4"
       }
     ],
-    "used_designators": "",
+    "used_designators": "U6,R6-12,R15,#PWR17,#PWR22-25,#PWR48-49,Q1,D4-6,C6,J4-5",
     "variants": []
   },
   "sheets": [
@@ -670,7 +670,7 @@
       "Root"
     ],
     [
-      "0b548295-03c9-4242-b6f4-9026f0dbc664",
+      "d8878913-9e10-4e3f-a27e-58493ad630f4",
       "MIDI Buddy"
     ]
   ],

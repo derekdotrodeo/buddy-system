@@ -1,4 +1,0 @@
-(fp_lib_table
-	(version 7)
-	(lib (name "BuddySystem") (type "KiCad") (uri "/Users/derek/proj/buddy-system/kicad/footprints/BuddySystem.pretty") (options "") (descr ""))
-)

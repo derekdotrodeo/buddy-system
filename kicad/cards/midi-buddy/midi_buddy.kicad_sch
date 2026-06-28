@@ -2,7 +2,7 @@
 	(version 20260306)
 	(generator "eeschema")
 	(generator_version "10.0")
-	(uuid "936db534-90ee-49a4-91b0-0105661ed228")
+	(uuid "b7455497-3201-4b3b-8109-220977861dc2")
 	(paper "A4")
 	(lib_symbols
 		(symbol "Connector_Audio:AudioJack3"
@@ -508,6 +508,207 @@
 				)
 			)
 			(symbol "D_1_1"
+				(pin passive line
+					(at -3.81 0 0)
+					(length 2.54)
+					(name "K"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 3.81 0 180)
+					(length 2.54)
+					(name "A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "Device:LED"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 1.016)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "D"
+				(at 0 2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "LED"
+				(at 0 -2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Light emitting diode"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Sim.Pins" "1=K 2=A"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "LED diode"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "LED* LED_SMD:* LED_THT:*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "LED_0_1"
+				(polyline
+					(pts
+						(xy -3.048 -0.762) (xy -4.572 -2.286) (xy -3.81 -2.286) (xy -4.572 -2.286) (xy -4.572 -1.524)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.778 -0.762) (xy -3.302 -2.286) (xy -2.54 -2.286) (xy -3.302 -2.286) (xy -3.302 -1.524)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.27 0) (xy 1.27 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.27 -1.27) (xy -1.27 1.27)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 -1.27) (xy 1.27 1.27) (xy -1.27 0) (xy 1.27 -1.27)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "LED_1_1"
 				(pin passive line
 					(at -3.81 0 0)
 					(length 2.54)
@@ -1505,220 +1706,196 @@
 		)
 	)
 	(junction
-		(at 92.71 36.83)
+		(at 158.75 64.77)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "84c4473c-9292-4a1e-9228-459ee88418ed")
+		(uuid "4c5dc03f-29de-4400-a6b6-a38cbed9bc37")
 	)
 	(junction
-		(at 92.71 44.45)
+		(at 168.91 64.77)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "8a08f3e8-3928-495d-b10d-04ed529b3254")
+		(uuid "50fbf9bb-a8b3-42e6-aca4-42d2cb7fd091")
 	)
 	(junction
-		(at 129.54 38.1)
+		(at 132.08 63.5)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "ac291fd5-ce26-4a7b-a141-87d75c9f48e4")
+		(uuid "a6508943-5ce8-40e5-9147-375b367c5c71")
 	)
 	(junction
-		(at 119.38 38.1)
+		(at 132.08 71.12)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "bbe1f045-2012-43ab-88b4-703f26546698")
+		(uuid "c9002f2f-a502-4e29-b437-0cca9a5baf1a")
 	)
 	(no_connect
-		(at 81.28 35.56)
-		(uuid "9239f5cd-db72-4a63-9f03-4a4daceb66c0")
+		(at 120.65 62.23)
+		(uuid "16d93aeb-5570-4c85-af90-76f5ac724fc8")
 	)
 	(wire
 		(pts
-			(xy 118.11 38.1) (xy 119.38 38.1)
+			(xy 138.43 69.85) (xy 142.24 69.85)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "0a6b02b0-ec32-41ff-95a3-8df5ad11f538")
+		(uuid "0bbee478-3446-4938-8fb0-9db3f2f9cf03")
 	)
 	(wire
 		(pts
-			(xy 88.9 36.83) (xy 92.71 36.83)
+			(xy 138.43 71.12) (xy 132.08 71.12)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "0fff00a3-6675-4384-b82e-3c5c6adab058")
+		(uuid "0fe7a910-74bf-4ac1-8e34-f8aea115f8f7")
 	)
 	(wire
 		(pts
-			(xy 119.38 38.1) (xy 129.54 38.1)
+			(xy 132.08 63.5) (xy 138.43 63.5)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "19608148-ab92-4b12-a876-7d7bb3a221e6")
+		(uuid "1f1f8ce5-743f-40e7-a298-18e5d9a89fc8")
 	)
 	(wire
 		(pts
-			(xy 107.95 71.12) (xy 107.95 72.39)
+			(xy 157.48 64.77) (xy 158.75 64.77)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "2380e14e-7460-4634-8ce8-9c5f2b521f88")
+		(uuid "2a2f27df-d8f6-4735-901f-4caf02d8e880")
 	)
 	(wire
 		(pts
-			(xy 107.95 72.39) (xy 106.68 72.39)
+			(xy 120.65 99.06) (xy 138.43 99.06)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "43647618-bb8c-4aba-aa17-d3197c79cfc6")
+		(uuid "2b6402cb-289a-4876-8a5a-220b3a1597ae")
 	)
 	(wire
 		(pts
-			(xy 99.06 43.18) (xy 102.87 43.18)
+			(xy 128.27 64.77) (xy 128.27 63.5)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "5944f92e-6333-4197-ad5e-afa6d13f633a")
+		(uuid "398137a0-56ff-4a61-9b6d-86bc8e9aab19")
 	)
 	(wire
 		(pts
-			(xy 81.28 72.39) (xy 99.06 72.39)
+			(xy 147.32 97.79) (xy 147.32 99.06)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "5ad489d6-380b-49f5-9e62-7d44cec12a63")
+		(uuid "3b34a2f4-2c31-4479-aad8-aa7c3aa9208f")
 	)
 	(wire
 		(pts
-			(xy 99.06 44.45) (xy 92.71 44.45)
+			(xy 120.65 71.12) (xy 132.08 71.12)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "67035ce8-b8ac-43a0-9a87-92e8f3f7ed89")
+		(uuid "525e1544-6d5c-4bf8-8c3b-d4f8599fcc68")
 	)
 	(wire
 		(pts
-			(xy 99.06 44.45) (xy 99.06 43.18)
+			(xy 138.43 63.5) (xy 138.43 64.77)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "9bf3f4ef-d378-48a8-ae5f-185c6712e416")
+		(uuid "63c07b69-c74f-41a8-b9e4-dba0d69367d5")
 	)
 	(wire
 		(pts
-			(xy 99.06 38.1) (xy 102.87 38.1)
+			(xy 138.43 71.12) (xy 138.43 69.85)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "9db589d2-9b2a-4013-888d-a53b1ae45efa")
+		(uuid "64b46df2-55dc-408c-a284-e38b06c32a6e")
 	)
 	(wire
 		(pts
-			(xy 81.28 44.45) (xy 92.71 44.45)
+			(xy 158.75 64.77) (xy 168.91 64.77)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "a20512ab-b55d-4ab2-83c1-b2e9e08e3cfe")
+		(uuid "870c0a86-5cb9-4111-a0e4-2e12f25a710d")
 	)
 	(wire
 		(pts
-			(xy 81.28 40.64) (xy 81.28 44.45)
+			(xy 138.43 64.77) (xy 142.24 64.77)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "a619241a-5279-4789-9626-35f0efca9d77")
+		(uuid "937c768d-ef4f-4aad-895a-2f54b3c4a3a3")
 	)
 	(wire
 		(pts
-			(xy 129.54 38.1) (xy 130.81 38.1)
+			(xy 168.91 64.77) (xy 170.18 64.77)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "c5bc3bfc-33c5-411c-aae4-a4d28258872e")
+		(uuid "b7d96a33-2874-4a55-8c20-eab3ec170f11")
 	)
 	(wire
 		(pts
-			(xy 88.9 38.1) (xy 88.9 36.83)
+			(xy 128.27 63.5) (xy 132.08 63.5)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "d92bc389-f251-4005-ae8c-a45bc449635e")
+		(uuid "bde65cd9-9152-423d-bc8d-935009c48318")
 	)
 	(wire
 		(pts
-			(xy 92.71 36.83) (xy 99.06 36.83)
+			(xy 120.65 67.31) (xy 120.65 71.12)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "dc70d50a-b046-4818-8f49-640d3abfe16a")
+		(uuid "bed7501c-459b-47d0-898f-b53f221afb9f")
 	)
 	(wire
 		(pts
-			(xy 99.06 36.83) (xy 99.06 38.1)
+			(xy 147.32 99.06) (xy 146.05 99.06)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "e82ff2b7-d134-46fd-ab0b-cf0f2ea371a1")
-	)
-	(global_label "MIDI_OUT_UART"
-		(shape input)
-		(at 123.19 66.04 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "3c050be4-1c43-488f-a189-e8bb44c1c83b")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 140.3267 66.04 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
+		(uuid "f8b17332-4ce0-491c-83a9-c52c5546e7b6")
 	)
 	(global_label "MIDI_IN_UART"
 		(shape input)
-		(at 130.81 38.1 0)
+		(at 170.18 64.77 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -1726,9 +1903,9 @@
 			)
 			(justify left)
 		)
-		(uuid "e5eb9ec3-7cea-4bfe-a192-16fe87d952b8")
+		(uuid "616bd294-8956-434b-a2cf-2a515e5445c0")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 146.2534 38.1 0)
+			(at 185.6234 64.77 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1740,189 +1917,20 @@
 			)
 		)
 	)
-	(symbol
-		(lib_id "Device:R")
-		(at 85.09 38.1 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
+	(global_label "MIDI_OUT_UART"
+		(shape input)
+		(at 162.56 92.71 0)
 		(fields_autoplaced yes)
-		(uuid "22747343-312d-47c3-ade5-e58c248e8c53")
-		(property "Reference" "R6"
-			(at 85.09 31.75 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
+		(effects
+			(font
+				(size 1.27 1.27)
 			)
+			(justify left)
 		)
-		(property "Value" "220"
-			(at 85.09 34.29 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 85.09 39.878 90)
+		(uuid "7758d736-9e31-43a0-82f7-a1d8ac91472b")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 179.6967 92.71 0)
 			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 85.09 38.1 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 85.09 38.1 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "60df111d-f4de-4266-bd00-6cc95ab7c7f4")
-		)
-		(pin "2"
-			(uuid "2ec8b899-bf97-4ea0-9963-a39c9b951ce4")
-		)
-		(instances
-			(project "midi-buddy"
-				(path "/0b548295-03c9-4242-b6f4-9026f0dbc664"
-					(reference "R6")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 129.54 30.48 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "2314891e-f622-446b-b46b-9ca3a18d6d24")
-		(property "Reference" "#PWR024"
-			(at 129.54 24.13 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 129.54 25.4 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 129.54 30.48 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 129.54 30.48 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 129.54 30.48 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "20fcc999-4f93-4312-8ab9-ecaa72ca6b40")
-		)
-		(instances
-			(project "midi-buddy"
-				(path "/0b548295-03c9-4242-b6f4-9026f0dbc664"
-					(reference "#PWR024")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3V3")
-		(at 88.9 69.85 270)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "2395c388-b129-4a0f-8b7d-bb97e2890d21")
-		(property "Reference" "#PWR017"
-			(at 85.09 69.85 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "+3V3"
-			(at 92.71 69.8499 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1932,8 +1940,20 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
-			(at 88.9 69.85 0)
+	)
+	(global_label "MIDI_OUT_ACT"
+		(shape input)
+		(at 77.47 69.85 90)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "9fe50aef-b019-4717-980e-9ab0517e6298")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 77.47 54.0438 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1941,76 +1961,23 @@
 				(font
 					(size 1.27 1.27)
 				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 88.9 69.85 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3V3\""
-			(at 88.9 69.85 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "6de750e0-9457-4a87-acaa-e3c0b549d2fb")
-		)
-		(instances
-			(project "midi-buddy"
-				(path "/0b548295-03c9-4242-b6f4-9026f0dbc664"
-					(reference "#PWR017")
-					(unit 1)
-				)
+				(justify left)
 			)
 		)
 	)
-	(symbol
-		(lib_id "Device:R")
-		(at 102.87 72.39 270)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
+	(global_label "MIDI_IN_ACT"
+		(shape input)
+		(at 87.63 69.85 90)
 		(fields_autoplaced yes)
-		(uuid "39ce0abd-da90-47de-a733-d32414bf13e7")
-		(property "Reference" "R9"
-			(at 102.87 78.74 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
+		(effects
+			(font
+				(size 1.27 1.27)
 			)
+			(justify left)
 		)
-		(property "Value" "220"
-			(at 102.87 76.2 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 102.87 70.612 90)
+		(uuid "c753ebfb-7409-4b70-8830-8262e1849e8e")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 87.63 55.7371 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2018,126 +1985,13 @@
 				(font
 					(size 1.27 1.27)
 				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 102.87 72.39 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 102.87 72.39 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "d09d221d-c5a2-436a-b876-8d6ef261324b")
-		)
-		(pin "2"
-			(uuid "ef6424e6-a07e-49e6-b9d3-5b1ab74be16f")
-		)
-		(instances
-			(project "midi-buddy"
-				(path "/0b548295-03c9-4242-b6f4-9026f0dbc664"
-					(reference "R9")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 107.95 53.34 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "3b3d8871-5191-4657-8a70-b42a78541cca")
-		(property "Reference" "#PWR022"
-			(at 107.95 46.99 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 107.95 48.26 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 107.95 53.34 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 107.95 53.34 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 107.95 53.34 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "e91e4a63-f9e8-4377-ae9b-d921a6c6e5ca")
-		)
-		(instances
-			(project "midi-buddy"
-				(path "/0b548295-03c9-4242-b6f4-9026f0dbc664"
-					(reference "#PWR022")
-					(unit 1)
-				)
+				(justify left)
 			)
 		)
 	)
 	(symbol
 		(lib_id "Isolator:TLP291")
-		(at 110.49 40.64 0)
+		(at 149.86 67.31 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2146,9 +2000,9 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "4154242b-fe57-42b8-8b70-388712f3b1e2")
+		(uuid "009ef69a-72d5-4950-9d54-d2485dc64d92")
 		(property "Reference" "U6"
-			(at 110.49 31.75 0)
+			(at 149.86 58.42 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2158,7 +2012,7 @@
 			)
 		)
 		(property "Value" "TLP291"
-			(at 110.49 34.29 0)
+			(at 149.86 60.96 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2168,7 +2022,7 @@
 			)
 		)
 		(property "Footprint" "Package_SO:SOIC-4_4.55x2.6mm_P1.27mm"
-			(at 105.41 45.72 0)
+			(at 144.78 72.39 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2181,7 +2035,7 @@
 			)
 		)
 		(property "Datasheet" "https://toshiba.semicon-storage.com/info/docget.jsp?did=12884&prodName=TLP291"
-			(at 110.49 40.64 0)
+			(at 149.86 67.31 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2193,7 +2047,7 @@
 			)
 		)
 		(property "Description" "DC Optocoupler, Vce 80V, CTR 50-100%, SOP4"
-			(at 110.49 40.64 0)
+			(at 149.86 67.31 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2204,20 +2058,20 @@
 			)
 		)
 		(pin "3"
-			(uuid "b4c66e55-a3a7-4786-8770-31935106cc97")
+			(uuid "a8e10846-dc9a-400c-b257-09fcc80e7c8a")
 		)
 		(pin "2"
-			(uuid "f9e107ab-9f5a-4f7e-880b-e6d7b0114b54")
+			(uuid "6247c588-07a8-4c11-adc0-528a69a02802")
 		)
 		(pin "1"
-			(uuid "c0711c60-5642-4171-a800-7b1b44ad2b79")
+			(uuid "66a71e7e-7b4a-4041-b726-72eb2cd8ba10")
 		)
 		(pin "4"
-			(uuid "c9fb1223-12db-443f-9221-eba1863f5470")
+			(uuid "ada77cb3-e235-4a45-a848-ff8b3367318c")
 		)
 		(instances
 			(project "midi-buddy"
-				(path "/0b548295-03c9-4242-b6f4-9026f0dbc664"
+				(path "/d8878913-9e10-4e3f-a27e-58493ad630f4"
 					(reference "U6")
 					(unit 1)
 				)
@@ -2225,8 +2079,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Transistor_BJT:MMBT3904")
-		(at 110.49 66.04 180)
+		(lib_id "Device:R")
+		(at 87.63 73.66 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2235,9 +2089,91 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "48ff26cb-4610-4773-b773-51714f831507")
+		(uuid "0c3a37d3-a87a-43e9-83b1-184043dbc8ab")
+		(property "Reference" "R8"
+			(at 90.17 72.3899 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "1K"
+			(at 90.17 74.9299 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 89.408 73.66 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 87.63 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 87.63 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "066ae6e4-ec05-4c0f-8154-4ab3e62f018a")
+		)
+		(pin "1"
+			(uuid "d8c10cb8-e449-474d-a0f7-8feef6edc033")
+		)
+		(instances
+			(project "midi-buddy"
+				(path "/d8878913-9e10-4e3f-a27e-58493ad630f4"
+					(reference "R8")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Transistor_BJT:MMBT3904")
+		(at 149.86 92.71 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "0c81978c-06da-410b-83e1-e2d605b4e026")
 		(property "Reference" "Q1"
-			(at 105.41 64.7699 0)
+			(at 144.78 91.4399 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2248,7 +2184,7 @@
 			)
 		)
 		(property "Value" "MMBT3904"
-			(at 105.41 67.3099 0)
+			(at 144.78 93.9799 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2259,7 +2195,7 @@
 			)
 		)
 		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
-			(at 105.41 64.135 0)
+			(at 144.78 90.805 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2272,7 +2208,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.onsemi.com/pdf/datasheet/pzt3904-d.pdf"
-			(at 110.49 66.04 0)
+			(at 149.86 92.71 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2284,7 +2220,7 @@
 			)
 		)
 		(property "Description" "0.2A Ic, 40V Vce, Small Signal NPN Transistor, SOT-23"
-			(at 110.49 66.04 0)
+			(at 149.86 92.71 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2295,7 +2231,7 @@
 			)
 		)
 		(property "Sim.Device" "NPN"
-			(at 110.49 66.04 0)
+			(at 149.86 92.71 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2306,7 +2242,7 @@
 			)
 		)
 		(property "Sim.Pins" "1=B 2=E 3=C"
-			(at 110.49 66.04 0)
+			(at 149.86 92.71 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2317,17 +2253,17 @@
 			)
 		)
 		(pin "3"
-			(uuid "adf8e119-15c2-4248-9055-aa7f1dcd1586")
+			(uuid "a6c2a45d-63db-437f-b846-3c3fca0f5ab8")
 		)
 		(pin "2"
-			(uuid "4732adcc-b6db-48f7-bbdb-0f83cb00e790")
+			(uuid "f4b99905-47ee-4c08-97f0-e96b60a48333")
 		)
 		(pin "1"
-			(uuid "4bf97b60-6e0a-4418-a175-81de93c7356f")
+			(uuid "2a0e4394-cb0f-44d7-bef3-4492764495a9")
 		)
 		(instances
 			(project "midi-buddy"
-				(path "/0b548295-03c9-4242-b6f4-9026f0dbc664"
+				(path "/d8878913-9e10-4e3f-a27e-58493ad630f4"
 					(reference "Q1")
 					(unit 1)
 				)
@@ -2335,254 +2271,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C")
-		(at 129.54 34.29 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "57dd698b-77a1-4230-8f4f-4ce9ba215dbf")
-		(property "Reference" "C6"
-			(at 133.35 33.0199 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100p"
-			(at 133.35 35.5599 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 130.5052 38.1 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 129.54 34.29 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 129.54 34.29 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "5f4a0d80-3b93-4f6a-8e4d-5ab958159779")
-		)
-		(pin "1"
-			(uuid "dfbdcf82-0979-49ef-8bb3-449a2e0281f2")
-		)
-		(instances
-			(project "midi-buddy"
-				(path "/0b548295-03c9-4242-b6f4-9026f0dbc664"
-					(reference "C6")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 107.95 57.15 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "5b9514d1-08c7-41b9-82f5-ae7c2defbeb2")
-		(property "Reference" "R12"
-			(at 110.49 55.8799 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "10K"
-			(at 110.49 58.4199 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 109.728 57.15 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 107.95 57.15 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 107.95 57.15 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "9c3c5435-3ed5-4035-ace7-b7b9154852ee")
-		)
-		(pin "2"
-			(uuid "6c04f289-27d0-4679-a658-e1fef1c96e81")
-		)
-		(instances
-			(project "midi-buddy"
-				(path "/0b548295-03c9-4242-b6f4-9026f0dbc664"
-					(reference "R12")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 119.38 34.29 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "63662457-8fb6-43d3-a133-1522b6784f2d")
-		(property "Reference" "R15"
-			(at 121.92 33.0199 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "2.2K"
-			(at 121.92 35.5599 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 121.158 34.29 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 119.38 34.29 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 119.38 34.29 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "5289c0bd-92e0-4509-a435-76bab41c4e92")
-		)
-		(pin "2"
-			(uuid "d93f8c7b-9210-43fb-ab07-e16b5bf89ec0")
-		)
-		(instances
-			(project "midi-buddy"
-				(path "/0b548295-03c9-4242-b6f4-9026f0dbc664"
-					(reference "R15")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Connector_Audio:AudioJack3")
-		(at 76.2 38.1 0)
+		(at 115.57 96.52 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2591,92 +2281,9 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "636716ae-9ec6-4c52-8f9c-d36955281ed8")
-		(property "Reference" "J3"
-			(at 74.295 29.21 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "MIDI_IN"
-			(at 74.295 31.75 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "BuddySystem:PJ-358"
-			(at 76.2 38.1 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 76.2 38.1 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Audio Jack, 3 Poles (Stereo / TRS)"
-			(at 76.2 38.1 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "S"
-			(uuid "1af3d122-5117-43cd-a498-b67f742f1ed5")
-		)
-		(pin "R"
-			(uuid "0eecc848-8203-49df-8e5d-c871c2b041cb")
-		)
-		(pin "T"
-			(uuid "3981bff2-d7d3-46a6-ae36-98b2d0b98b68")
-		)
-		(instances
-			(project "midi-buddy"
-				(path "/0b548295-03c9-4242-b6f4-9026f0dbc664"
-					(reference "J3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector_Audio:AudioJack3")
-		(at 76.2 69.85 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "6d090846-1edb-4c8e-8278-0bcf72e1654a")
+		(uuid "181c9e49-d2b7-426b-bb5e-748ebfd3d9b1")
 		(property "Reference" "J5"
-			(at 74.295 60.96 0)
+			(at 113.665 87.63 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2686,7 +2293,7 @@
 			)
 		)
 		(property "Value" "MIDI_OUT"
-			(at 74.295 63.5 0)
+			(at 113.665 90.17 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2696,7 +2303,7 @@
 			)
 		)
 		(property "Footprint" "BuddySystem:PJ-358"
-			(at 76.2 69.85 0)
+			(at 115.57 96.52 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2707,7 +2314,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 76.2 69.85 0)
+			(at 115.57 96.52 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2718,7 +2325,7 @@
 			)
 		)
 		(property "Description" "Audio Jack, 3 Poles (Stereo / TRS)"
-			(at 76.2 69.85 0)
+			(at 115.57 96.52 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2729,17 +2336,17 @@
 			)
 		)
 		(pin "S"
-			(uuid "71ce2521-ac04-443c-aad5-1205a44fc6f7")
+			(uuid "4dc7112f-0397-4df7-9e83-868842ad31da")
 		)
 		(pin "R"
-			(uuid "8ca69ee1-1273-446a-8ee0-9d76e7745ecb")
+			(uuid "f7991125-b508-4caf-9262-3312877f871c")
 		)
 		(pin "T"
-			(uuid "3bd9057a-7b49-48d3-b3d3-b594bbd01062")
+			(uuid "391b5fcf-f267-4417-b949-3bb6d8c3d85f")
 		)
 		(instances
 			(project "midi-buddy"
-				(path "/0b548295-03c9-4242-b6f4-9026f0dbc664"
+				(path "/d8878913-9e10-4e3f-a27e-58493ad630f4"
 					(reference "J5")
 					(unit 1)
 				)
@@ -2747,8 +2354,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 85.09 69.85 90)
+		(lib_id "Device:LED")
+		(at 77.47 81.28 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2757,29 +2364,31 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "7f959b39-5080-49a1-9f77-187224a9de08")
-		(property "Reference" "R10"
-			(at 85.09 63.5 90)
+		(uuid "1cd25845-5e75-4dfd-a22b-9afe7207c885")
+		(property "Reference" "D5"
+			(at 81.28 81.5974 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
-		(property "Value" "220"
-			(at 85.09 66.04 90)
+		(property "Value" "LED"
+			(at 81.28 84.1374 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 85.09 71.628 90)
+		(property "Footprint" "LED_SMD:LED_1206_3216Metric"
+			(at 77.47 81.28 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2790,7 +2399,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 85.09 69.85 0)
+			(at 77.47 81.28 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2800,179 +2409,8 @@
 				)
 			)
 		)
-		(property "Description" "Resistor"
-			(at 85.09 69.85 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "7a643e8c-b933-4a0b-a146-54573d856420")
-		)
-		(pin "2"
-			(uuid "f8e13b1d-0206-4f29-9046-9fa5b8dba800")
-		)
-		(instances
-			(project "midi-buddy"
-				(path "/0b548295-03c9-4242-b6f4-9026f0dbc664"
-					(reference "R10")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3V3")
-		(at 119.38 30.48 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "98bf8e30-26e1-4f54-84f7-733aa211b93d")
-		(property "Reference" "#PWR025"
-			(at 119.38 34.29 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "+3V3"
-			(at 119.38 25.4 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 119.38 30.48 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 119.38 30.48 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3V3\""
-			(at 119.38 30.48 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "c31c978a-6150-42f4-abab-259b89259d9e")
-		)
-		(instances
-			(project "midi-buddy"
-				(path "/0b548295-03c9-4242-b6f4-9026f0dbc664"
-					(reference "#PWR025")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:D")
-		(at 92.71 40.64 270)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "9ba304e6-1f8a-449c-acc7-7db2ef4a0458")
-		(property "Reference" "D4"
-			(at 95.25 39.3699 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "1N914"
-			(at 95.25 41.9099 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "SOD-323F"
-			(at 92.71 40.64 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 92.71 40.64 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Diode"
-			(at 92.71 40.64 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Sim.Device" "D"
-			(at 92.71 40.64 0)
+		(property "Description" "Light emitting diode"
+			(at 77.47 81.28 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2983,7 +2421,7 @@
 			)
 		)
 		(property "Sim.Pins" "1=K 2=A"
-			(at 92.71 40.64 0)
+			(at 77.47 81.28 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2994,23 +2432,23 @@
 			)
 		)
 		(pin "2"
-			(uuid "0783083c-5482-435b-8378-e4512bef7067")
+			(uuid "40762783-0f9e-46d7-bb83-a2610ae4e043")
 		)
 		(pin "1"
-			(uuid "61bc6f87-2bd7-455b-881b-6e945f5c2c5d")
+			(uuid "5051c6ee-75f6-4b5c-baf8-a4b93d0f772c")
 		)
 		(instances
 			(project "midi-buddy"
-				(path "/0b548295-03c9-4242-b6f4-9026f0dbc664"
-					(reference "D4")
+				(path "/d8878913-9e10-4e3f-a27e-58493ad630f4"
+					(reference "D5")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 119.38 66.04 90)
+		(lib_id "power:+3V3")
+		(at 158.75 57.15 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -3019,9 +2457,10 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "9d553b3c-19d5-4929-a8a8-38d31df53724")
-		(property "Reference" "R11"
-			(at 119.38 72.39 90)
+		(uuid "27e13d9c-7b76-4bc5-b3d2-0cf35363856a")
+		(property "Reference" "#PWR025"
+			(at 158.75 60.96 0)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3030,8 +2469,8 @@
 				)
 			)
 		)
-		(property "Value" "1K"
-			(at 119.38 69.85 90)
+		(property "Value" "+3V3"
+			(at 158.75 52.07 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3040,8 +2479,8 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 119.38 67.818 90)
+		(property "Footprint" ""
+			(at 158.75 57.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3052,7 +2491,167 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 119.38 66.04 0)
+			(at 158.75 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3V3\""
+			(at 158.75 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "c7efa9c2-8c78-4386-b62d-b3cf53f7a166")
+		)
+		(instances
+			(project "midi-buddy"
+				(path "/d8878913-9e10-4e3f-a27e-58493ad630f4"
+					(reference "#PWR025")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector_Audio:AudioJack3")
+		(at 115.57 64.77 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "3112b67d-2881-4490-a137-ae7dfb8a7935")
+		(property "Reference" "J4"
+			(at 113.665 55.88 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "MIDI_IN"
+			(at 113.665 58.42 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "BuddySystem:PJ-358"
+			(at 115.57 64.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 115.57 64.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Audio Jack, 3 Poles (Stereo / TRS)"
+			(at 115.57 64.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "S"
+			(uuid "3a13e640-ffe6-44f6-b741-cf4689474891")
+		)
+		(pin "R"
+			(uuid "c09513c1-700c-41ad-a1ac-dc70876e5c76")
+		)
+		(pin "T"
+			(uuid "767b4ee6-a8fe-403e-be66-cba2c4306779")
+		)
+		(instances
+			(project "midi-buddy"
+				(path "/d8878913-9e10-4e3f-a27e-58493ad630f4"
+					(reference "J4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 124.46 64.77 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "35c149e2-503f-40f3-a160-456c71ea6e22")
+		(property "Reference" "R6"
+			(at 124.46 58.42 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "220"
+			(at 124.46 60.96 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 124.46 66.548 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 124.46 64.77 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3063,7 +2662,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 119.38 66.04 0)
+			(at 124.46 64.77 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3074,23 +2673,23 @@
 			)
 		)
 		(pin "1"
-			(uuid "55b09893-abcd-458a-b0ee-92c3cfa64d52")
+			(uuid "114186c0-5b88-4026-b3e2-e08a7e105527")
 		)
 		(pin "2"
-			(uuid "d92cf395-fba1-4942-b611-67d04c93a27b")
+			(uuid "dea02884-696b-4485-be42-31ac4d79f2b9")
 		)
 		(instances
 			(project "midi-buddy"
-				(path "/0b548295-03c9-4242-b6f4-9026f0dbc664"
-					(reference "R11")
+				(path "/d8878913-9e10-4e3f-a27e-58493ad630f4"
+					(reference "R6")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 118.11 43.18 90)
+		(lib_id "Device:R")
+		(at 142.24 99.06 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -3099,10 +2698,9 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "d52bcf0a-ded9-49d8-b01c-f16a9245345e")
-		(property "Reference" "#PWR023"
-			(at 124.46 43.18 0)
-			(hide yes)
+		(uuid "4087d8e3-243d-4525-befc-da5fe1ee56be")
+		(property "Reference" "R9"
+			(at 142.24 105.41 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3111,19 +2709,18 @@
 				)
 			)
 		)
-		(property "Value" "GND"
-			(at 121.92 43.1799 90)
+		(property "Value" "220"
+			(at 142.24 102.87 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
 			)
 		)
-		(property "Footprint" ""
-			(at 118.11 43.18 0)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 142.24 97.282 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3134,7 +2731,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 118.11 43.18 0)
+			(at 142.24 99.06 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3144,8 +2741,8 @@
 				)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 118.11 43.18 0)
+		(property "Description" "Resistor"
+			(at 142.24 99.06 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3156,12 +2753,1170 @@
 			)
 		)
 		(pin "1"
-			(uuid "9874ed54-08a3-4bc1-8884-b2a6554751c5")
+			(uuid "e3517809-141f-43e8-a0a3-6baddeab26b3")
+		)
+		(pin "2"
+			(uuid "a36deb22-bc5e-44e6-81f8-5662d8888071")
 		)
 		(instances
 			(project "midi-buddy"
-				(path "/0b548295-03c9-4242-b6f4-9026f0dbc664"
+				(path "/d8878913-9e10-4e3f-a27e-58493ad630f4"
+					(reference "R9")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 168.91 57.15 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "51b80f03-7095-4470-8680-54af24002476")
+		(property "Reference" "#PWR024"
+			(at 168.91 50.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 168.91 52.07 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 168.91 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 168.91 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 168.91 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "51833359-1f83-4c17-90ac-bb1a1ddb133c")
+		)
+		(instances
+			(project "midi-buddy"
+				(path "/d8878913-9e10-4e3f-a27e-58493ad630f4"
+					(reference "#PWR024")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 168.91 60.96 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "62510954-4905-4bdb-bb0c-b20ff7e16fee")
+		(property "Reference" "C6"
+			(at 172.72 59.6899 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100p"
+			(at 172.72 62.2299 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 169.8752 64.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 168.91 60.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 168.91 60.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "a3d548f8-a4b2-496c-b120-5ce42d0563cb")
+		)
+		(pin "1"
+			(uuid "fb915b6c-5934-4448-8251-a6aa1f54fa99")
+		)
+		(instances
+			(project "midi-buddy"
+				(path "/d8878913-9e10-4e3f-a27e-58493ad630f4"
+					(reference "C6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 147.32 83.82 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "7192a591-c769-42fb-9556-08f6ebb87254")
+		(property "Reference" "R12"
+			(at 149.86 82.5499 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "10K"
+			(at 149.86 85.0899 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 149.098 83.82 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 147.32 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 147.32 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "73045c6d-e2a5-4016-bc9f-000aed8ad173")
+		)
+		(pin "2"
+			(uuid "ab01d410-9cec-46ce-bcb7-eac140dcc6b3")
+		)
+		(instances
+			(project "midi-buddy"
+				(path "/d8878913-9e10-4e3f-a27e-58493ad630f4"
+					(reference "R12")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 87.63 85.09 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "7b03660b-8428-4932-a097-f4fc95e89696")
+		(property "Reference" "#PWR049"
+			(at 87.63 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 87.63 90.17 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 87.63 85.09 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 87.63 85.09 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 87.63 85.09 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "5a689237-1aad-4f09-ba42-70af4c109414")
+		)
+		(instances
+			(project "midi-buddy"
+				(path "/d8878913-9e10-4e3f-a27e-58493ad630f4"
+					(reference "#PWR049")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:D")
+		(at 132.08 67.31 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "82481a08-d62c-4b9a-a96c-dd9116dc6178")
+		(property "Reference" "D4"
+			(at 134.62 66.0399 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "1N914"
+			(at 134.62 68.5799 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Diode_SMD:D_SOD-323"
+			(at 132.08 67.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 132.08 67.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Diode"
+			(at 132.08 67.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Device" "D"
+			(at 132.08 67.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Pins" "1=K 2=A"
+			(at 132.08 67.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "36532e8d-20d5-4337-91cd-849361cfbb67")
+		)
+		(pin "1"
+			(uuid "e582ccf9-7089-497a-b5b8-c184de263031")
+		)
+		(instances
+			(project "midi-buddy"
+				(path "/d8878913-9e10-4e3f-a27e-58493ad630f4"
+					(reference "D4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 157.48 69.85 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "83e58b09-1cf0-478d-944b-3fe4e488d825")
+		(property "Reference" "#PWR023"
+			(at 163.83 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 161.29 69.8499 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 157.48 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 157.48 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 157.48 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "42908500-5064-4fdb-82c2-219292ae7b83")
+		)
+		(instances
+			(project "midi-buddy"
+				(path "/d8878913-9e10-4e3f-a27e-58493ad630f4"
 					(reference "#PWR023")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:LED")
+		(at 87.63 81.28 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "972b9ac7-a536-4586-bb4a-3bb196db9f7f")
+		(property "Reference" "D6"
+			(at 91.44 81.5974 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "LED"
+			(at 91.44 84.1374 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "LED_SMD:LED_1206_3216Metric"
+			(at 87.63 81.28 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 87.63 81.28 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Light emitting diode"
+			(at 87.63 81.28 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Pins" "1=K 2=A"
+			(at 87.63 81.28 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "d175110c-6039-44b8-bded-649c3b6409bf")
+		)
+		(pin "1"
+			(uuid "78d8b627-a87f-4b15-a86d-cf9b0e029572")
+		)
+		(instances
+			(project "midi-buddy"
+				(path "/d8878913-9e10-4e3f-a27e-58493ad630f4"
+					(reference "D6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 77.47 85.09 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "a996bdc7-b1a3-4b81-9e37-a7c6bc6ee68e")
+		(property "Reference" "#PWR048"
+			(at 77.47 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 77.47 90.17 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 77.47 85.09 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 77.47 85.09 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 77.47 85.09 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "ef8640c4-05b7-4b5d-9e32-e39df1709ad4")
+		)
+		(instances
+			(project "midi-buddy"
+				(path "/d8878913-9e10-4e3f-a27e-58493ad630f4"
+					(reference "#PWR048")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 77.47 73.66 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "b8818c81-abfb-41a5-9f59-ec8d2aec7778")
+		(property "Reference" "R7"
+			(at 80.01 72.3899 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "1K"
+			(at 80.01 74.9299 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 79.248 73.66 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 77.47 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 77.47 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "7237e70e-ad43-4ad8-9424-cc3475581648")
+		)
+		(pin "1"
+			(uuid "bc25b8e8-2e38-41a9-9d68-0b8f5be93cf3")
+		)
+		(instances
+			(project "midi-buddy"
+				(path "/d8878913-9e10-4e3f-a27e-58493ad630f4"
+					(reference "R7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3V3")
+		(at 128.27 96.52 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "be6f6368-e14b-4b07-a621-e91b04331dd6")
+		(property "Reference" "#PWR017"
+			(at 124.46 96.52 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+3V3"
+			(at 132.08 96.5199 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 128.27 96.52 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 128.27 96.52 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3V3\""
+			(at 128.27 96.52 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "97cbbab0-5bc7-4eef-9e1e-0e3a994bb4e1")
+		)
+		(instances
+			(project "midi-buddy"
+				(path "/d8878913-9e10-4e3f-a27e-58493ad630f4"
+					(reference "#PWR017")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 158.75 60.96 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "c194b019-77a5-44f6-b2c1-bf86f93587c9")
+		(property "Reference" "R15"
+			(at 161.29 59.6899 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "2.2K"
+			(at 161.29 62.2299 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 160.528 60.96 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 158.75 60.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 158.75 60.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "6bb1f1df-059b-4e1a-8c8a-1aaa393f3326")
+		)
+		(pin "2"
+			(uuid "8775740a-1919-4c02-b327-e6dcae26a0af")
+		)
+		(instances
+			(project "midi-buddy"
+				(path "/d8878913-9e10-4e3f-a27e-58493ad630f4"
+					(reference "R15")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 124.46 96.52 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "c95c0736-a8cc-4034-8985-e7ab4e7fc6a5")
+		(property "Reference" "R10"
+			(at 124.46 90.17 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "220"
+			(at 124.46 92.71 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 124.46 98.298 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 124.46 96.52 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 124.46 96.52 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "84445d82-c013-4247-8c2a-2f6b50995120")
+		)
+		(pin "2"
+			(uuid "b7be4eda-cd5b-4885-9b98-adc47b445c95")
+		)
+		(instances
+			(project "midi-buddy"
+				(path "/d8878913-9e10-4e3f-a27e-58493ad630f4"
+					(reference "R10")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 158.75 92.71 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "d5b0987f-bba3-43c3-96aa-e7245943665a")
+		(property "Reference" "R11"
+			(at 158.75 99.06 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1K"
+			(at 158.75 96.52 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 158.75 94.488 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 158.75 92.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 158.75 92.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "6dcfa7ed-fd03-42fe-8968-b50dc8b2bd3a")
+		)
+		(pin "2"
+			(uuid "0aa13b15-9019-47a0-85cb-b88511fa91d4")
+		)
+		(instances
+			(project "midi-buddy"
+				(path "/d8878913-9e10-4e3f-a27e-58493ad630f4"
+					(reference "R11")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 147.32 80.01 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "dcd1f748-a68d-4564-86f4-939c6b28d354")
+		(property "Reference" "#PWR022"
+			(at 147.32 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 147.32 74.93 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 147.32 80.01 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 147.32 80.01 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 147.32 80.01 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "b49ea398-7fad-4665-b02e-f23e0df3a4bb")
+		)
+		(instances
+			(project "midi-buddy"
+				(path "/d8878913-9e10-4e3f-a27e-58493ad630f4"
+					(reference "#PWR022")
 					(unit 1)
 				)
 			)
