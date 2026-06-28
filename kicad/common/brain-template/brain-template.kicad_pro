@@ -488,7 +488,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "buddy-base-v1.kicad_pro",
+    "filename": "brain-template.kicad_pro",
     "version": 3
   },
   "net_settings": {
@@ -643,63 +643,18 @@
     "subpart_id_separator": 0,
     "top_level_sheets": [
       {
-        "filename": "buddy-base-v1.kicad_sch",
-        "name": "Power",
-        "uuid": "96f39212-e0b1-4e18-a7d4-4be99033af07"
-      },
-      {
-        "filename": "buddy_bus.kicad_sch",
-        "name": "Buddy Bus",
-        "uuid": "145eb007-96b5-42b6-893c-06d010695693"
-      },
-      {
-        "filename": "mechanical.kicad_sch",
-        "name": "Mechanical",
-        "uuid": "d739a1a6-43e4-4442-be9e-02ace5bdb4f1"
-      },
-      {
-        "filename": "accessories.kicad_sch",
-        "name": "Accessories",
-        "uuid": "5084219d-cf95-450b-8ad8-8c1c0dc7efb3"
-      },
-      {
-        "filename": "buddy_audio.kicad_sch",
-        "name": "Buddy Audio",
-        "uuid": "f38d0d2a-b4ba-476d-b434-81ad10ef3241"
-      },
-      {
-        "filename": "buddy_brain.kicad_sch",
-        "name": "Buddy Brain",
-        "uuid": "6ca3df7a-faf7-4315-9d42-a944ad31bff9"
+        "filename": "brain-template.kicad_sch",
+        "name": "Root",
+        "uuid": "84c9484e-dd6d-4a5d-bbd0-491b7fc3c1a1"
       }
     ],
-    "used_designators": "TP1,R34,J19",
+    "used_designators": "J15-18",
     "variants": []
   },
   "sheets": [
     [
-      "96f39212-e0b1-4e18-a7d4-4be99033af07",
-      "Power"
-    ],
-    [
-      "145eb007-96b5-42b6-893c-06d010695693",
-      "Buddy Bus"
-    ],
-    [
-      "f38d0d2a-b4ba-476d-b434-81ad10ef3241",
-      "Buddy Audio"
-    ],
-    [
-      "d739a1a6-43e4-4442-be9e-02ace5bdb4f1",
-      "Mechanical"
-    ],
-    [
-      "5084219d-cf95-450b-8ad8-8c1c0dc7efb3",
-      "Accessories"
-    ],
-    [
-      "6ca3df7a-faf7-4315-9d42-a944ad31bff9",
-      "Buddy Brain"
+      "84c9484e-dd6d-4a5d-bbd0-491b7fc3c1a1",
+      "Root"
     ]
   ],
   "text_variables": {},
